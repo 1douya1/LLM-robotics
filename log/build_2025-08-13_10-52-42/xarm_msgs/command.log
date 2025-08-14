@@ -1,1 +1,0 @@
-Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/easy_handeye2:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_msgs

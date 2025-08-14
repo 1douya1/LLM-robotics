@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/aruco/ament_cmake_core/arucoConfig.cmake

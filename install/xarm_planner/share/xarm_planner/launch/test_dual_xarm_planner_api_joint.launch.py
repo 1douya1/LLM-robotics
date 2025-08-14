@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_planner/launch/test_dual_xarm_planner_api_joint.launch.py

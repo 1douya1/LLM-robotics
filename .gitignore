@@ -1,0 +1,36 @@
+# ---- ROS2 / colcon ----
+build/
+install/
+log/
+.colcon*
+# ---- CMake ----
+CMakeFiles/
+CMakeCache.txt
+cmake-build-*/
+compile_commands.json
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+#.env  # 若你有本地密钥文件也忽略
+# ---- IDE / OS ----
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+# ---- Notebooks / caches ----
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+# ---- Data / large ----
+*.bag
+*.db3
+*.mcap
+*.pcd
+*.bin
+# ---- Misc ----
+*.log

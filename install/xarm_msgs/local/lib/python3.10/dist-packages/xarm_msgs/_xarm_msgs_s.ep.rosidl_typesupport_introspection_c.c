@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_py/xarm_msgs/_xarm_msgs_s.ep.rosidl_typesupport_introspection_c.c

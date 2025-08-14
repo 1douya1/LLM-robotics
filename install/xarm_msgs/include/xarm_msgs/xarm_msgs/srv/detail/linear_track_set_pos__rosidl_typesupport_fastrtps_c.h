@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_typesupport_fastrtps_c/xarm_msgs/srv/detail/linear_track_set_pos__rosidl_typesupport_fastrtps_c.h

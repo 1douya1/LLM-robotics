@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/moveit_task_constructor_demo/include/moveit_task_constructor_demo/ik_clearance_cost_parameters.hpp

@@ -1,4 +1,0 @@
-/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp: In function ‘moveit::task_constructor::Task createTask(const SharedPtr&, const TaskParams&)’:
-/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:146:15: warning: variable ‘attach_object_stage’ set but not used [-Wunused-but-set-variable]
-  146 |   mtc::Stage* attach_object_stage = nullptr;
-      |               ^~~~~~~~~~~~~~~~~~~

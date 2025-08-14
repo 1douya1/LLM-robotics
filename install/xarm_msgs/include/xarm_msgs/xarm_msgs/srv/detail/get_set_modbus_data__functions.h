@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_c/xarm_msgs/srv/detail/get_set_modbus_data__functions.h

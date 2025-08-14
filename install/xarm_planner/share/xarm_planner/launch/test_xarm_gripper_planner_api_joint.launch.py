@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_planner/launch/test_xarm_gripper_planner_api_joint.launch.py

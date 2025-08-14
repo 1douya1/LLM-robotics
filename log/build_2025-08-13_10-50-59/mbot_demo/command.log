@@ -1,4 +1,0 @@
-Invoking command in '/home/wenhao/uf_custom_ws/build/mbot_demo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mbot_demo -- -j32 -l32
-Invoked command in '/home/wenhao/uf_custom_ws/build/mbot_demo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mbot_demo -- -j32 -l32
-Invoking command in '/home/wenhao/uf_custom_ws/build/mbot_demo': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/mbot_demo
-Invoked command in '/home/wenhao/uf_custom_ws/build/mbot_demo' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/mbot_demo

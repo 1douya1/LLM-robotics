@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_cmake/srv/BioGripperCtrl_Response.msg

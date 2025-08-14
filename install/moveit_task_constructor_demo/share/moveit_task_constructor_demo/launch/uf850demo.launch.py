@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/moveit_task_constructor/demo/launch/uf850demo.launch.py

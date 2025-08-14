@@ -1,1 +1,0 @@
-Invoking command in '/home/wenhao/uf_custom_ws/build/realsense_gazebo_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/home/wenhao/uf_custom_ws/install/easy_handeye2:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/realsense_gazebo_plugin -- -j32 -l32

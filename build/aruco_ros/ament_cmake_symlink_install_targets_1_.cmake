@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/wenhao/uf_custom_ws/build/aruco_ros/marker_publisher" "/home/wenhao/uf_custom_ws/build/aruco_ros/single" "/home/wenhao/uf_custom_ws/build/aruco_ros/double" "TARGETS" "marker_publisher" "single" "double" "DESTINATION" "lib/aruco_ros")

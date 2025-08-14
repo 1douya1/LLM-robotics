@@ -1,3 +1,0 @@
-Consolidate compiler generated dependencies of target pour_task_builder
-[ 16%] Building CXX object CMakeFiles/pour_task_builder.dir/src/pour_task_builder.cpp.o
-[ 50%] Built target mtc_tutorial

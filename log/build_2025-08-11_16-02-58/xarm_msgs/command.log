@@ -1,6 +1,0 @@
-Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_msgs -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_msgs
-Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_msgs -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_msgs
-Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_msgs -- -j32 -l32
-Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_msgs -- -j32 -l32
-Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_msgs': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_msgs
-Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_msgs' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_msgs

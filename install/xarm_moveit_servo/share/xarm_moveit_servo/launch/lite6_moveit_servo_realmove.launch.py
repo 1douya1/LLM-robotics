@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_moveit_servo/launch/lite6_moveit_servo_realmove.launch.py

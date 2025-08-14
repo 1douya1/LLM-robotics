@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_c/xarm_msgs/srv/ft_cali_load.h

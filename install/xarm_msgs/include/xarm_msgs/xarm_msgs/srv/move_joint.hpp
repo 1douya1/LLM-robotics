@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_cpp/xarm_msgs/srv/move_joint.hpp

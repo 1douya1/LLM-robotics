@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_description/launch/xarm6_rviz_display.launch.py

@@ -1,3 +1,0 @@
-/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib/librviz_marker_tools.so
-/home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport.cmake
-/home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport-release.cmake

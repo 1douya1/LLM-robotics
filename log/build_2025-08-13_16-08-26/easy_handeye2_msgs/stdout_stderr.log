@@ -1,8 +1,0 @@
-[35m[1mConsolidate compiler generated dependencies of target easy_handeye2_msgs__rosidl_generator_c[0m
-failed to create symbolic link '/home/wenhao/uf_custom_ws/build/easy_handeye2_msgs/ament_cmake_python/easy_handeye2_msgs/easy_handeye2_msgs' because existing path cannot be removed: Is a directory
-gmake[2]: *** [CMakeFiles/ament_cmake_python_symlink_easy_handeye2_msgs.dir/build.make:70: CMakeFiles/ament_cmake_python_symlink_easy_handeye2_msgs] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:421: CMakeFiles/ament_cmake_python_symlink_easy_handeye2_msgs.dir/all] Error 2
-gmake[1]: *** Waiting for unfinished jobs....
-[  0%] Built target easy_handeye2_msgs__cpp
-[ 12%] Built target easy_handeye2_msgs__rosidl_generator_c
-gmake: *** [Makefile:146: all] Error 2

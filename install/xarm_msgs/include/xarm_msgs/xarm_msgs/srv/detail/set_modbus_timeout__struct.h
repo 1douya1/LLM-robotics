@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_c/xarm_msgs/srv/detail/set_modbus_timeout__struct.h

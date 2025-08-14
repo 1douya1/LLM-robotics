@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/build/xarm_api/ament_cmake_core/xarm_apiConfig.cmake

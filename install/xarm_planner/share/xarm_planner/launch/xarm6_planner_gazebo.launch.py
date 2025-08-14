@@ -1,1 +1,0 @@
-/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_planner/launch/xarm6_planner_gazebo.launch.py
