@@ -14,7 +14,6 @@ __pycache__/
 *.pyo
 .venv/
 venv/
-#.env  # 若你有本地密钥文件也忽略
 # ---- IDE / OS ----
 .vscode/
 .idea/
