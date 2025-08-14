@@ -1,0 +1,34 @@
+[0.027s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/home/wenhao/uf_custom_ws/install/easy_handeye2:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_msgs -- -j32 -l32
+[0.163s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_generator_c[0m
+[0.163s] [  0%] Built target xarm_msgs__cpp
+[0.163s] [  0%] Built target ament_cmake_python_symlink_xarm_msgs
+[0.163s] [ 12%] Built target xarm_msgs__rosidl_generator_c
+[0.172s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_introspection_cpp[0m
+[0.174s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_fastrtps_c[0m
+[0.186s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_c[0m
+[0.194s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_cpp[0m
+[0.197s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_fastrtps_cpp[0m
+[0.199s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_introspection_c[0m
+[0.238s] [ 25%] Built target xarm_msgs__rosidl_typesupport_fastrtps_c
+[0.243s] [ 37%] Built target xarm_msgs__rosidl_typesupport_cpp
+[0.249s] [ 50%] Built target xarm_msgs__rosidl_typesupport_c
+[0.251s] [ 63%] Built target xarm_msgs__rosidl_typesupport_introspection_cpp
+[0.255s] [ 76%] Built target xarm_msgs__rosidl_typesupport_introspection_c
+[0.275s] [ 88%] Built target xarm_msgs__rosidl_typesupport_fastrtps_cpp
+[0.332s] running egg_info
+[0.332s] writing xarm_msgs.egg-info/PKG-INFO
+[0.332s] writing dependency_links to xarm_msgs.egg-info/dependency_links.txt
+[0.332s] writing top-level names to xarm_msgs.egg-info/top_level.txt
+[0.334s] reading manifest file 'xarm_msgs.egg-info/SOURCES.txt'
+[0.334s] writing manifest file 'xarm_msgs.egg-info/SOURCES.txt'
+[0.371s] [ 88%] Built target xarm_msgs
+[0.381s] [ 88%] Built target ament_cmake_python_build_xarm_msgs_egg
+[0.417s] [ 88%] Built target xarm_msgs__py
+[0.436s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_generator_py[0m
+[0.472s] [100%] Built target xarm_msgs__rosidl_generator_py
+[0.489s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_c__pyext[0m
+[0.489s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_introspection_c__pyext[0m
+[0.490s] [35m[1mConsolidate compiler generated dependencies of target xarm_msgs__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.507s] [100%] Built target xarm_msgs__rosidl_typesupport_c__pyext
+[0.507s] [100%] Built target xarm_msgs__rosidl_typesupport_fastrtps_c__pyext
+[0.507s] [100%] Built target xarm_msgs__rosidl_typesupport_introspection_c__pyext

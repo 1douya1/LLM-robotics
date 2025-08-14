@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_c/xarm_msgs/srv/detail/robotiq_activate__struct.h

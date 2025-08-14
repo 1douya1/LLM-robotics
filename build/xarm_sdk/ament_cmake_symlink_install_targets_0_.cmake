@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/wenhao/uf_custom_ws/build/xarm_sdk/libxarm_cxx_sdk.so" "TARGETS" "xarm_cxx_sdk" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")

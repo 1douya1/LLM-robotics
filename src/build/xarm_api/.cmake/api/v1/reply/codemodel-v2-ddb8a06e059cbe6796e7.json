@@ -1,0 +1,124 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-9a40539b77986be08a04.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "xarm_api",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "test_robot_states::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_robot_states-085532fec6ea6eb0d763.json",
+					"name" : "test_robot_states",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_xarm_ros_client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_xarm_ros_client-f75778265d99b343f3a2.json",
+					"name" : "test_xarm_ros_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "test_xarm_velo_move::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-test_xarm_velo_move-90a0b72e634a7d38a8bf.json",
+					"name" : "test_xarm_velo_move",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-7c65b029a3651f4cbfdb.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "xarm_api_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-xarm_api_uninstall-d2a9e343caa0b65e21b6.json",
+					"name" : "xarm_api_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "xarm_driver_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-xarm_driver_node-5c1a58319d54920e0628.json",
+					"name" : "xarm_driver_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "xarm_ros_client::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-xarm_ros_client-5a0c7fd742ee25272a73.json",
+					"name" : "xarm_ros_client",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "xarm_ros_driver::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-xarm_ros_driver-049556b35debaa35cfb2.json",
+					"name" : "xarm_ros_driver",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/wenhao/uf_custom_ws/src/build/xarm_api",
+		"source" : "/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_api"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

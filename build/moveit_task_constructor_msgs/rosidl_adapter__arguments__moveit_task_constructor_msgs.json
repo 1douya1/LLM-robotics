@@ -1,0 +1,17 @@
+{
+  "package_name": "moveit_task_constructor_msgs",
+  "non_idl_tuples": [
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/Property.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/Solution.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/SolutionInfo.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/StageDescription.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/StageStatistics.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/SubSolution.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/SubTrajectory.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/TaskDescription.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/TaskStatistics.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:msg/TrajectoryExecutionInfo.msg",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:srv/GetSolution.srv",
+    "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/msgs:action/ExecuteTaskSolution.action"
+  ]
+}

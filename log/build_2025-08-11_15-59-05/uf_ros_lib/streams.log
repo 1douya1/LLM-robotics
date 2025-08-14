@@ -1,0 +1,23 @@
+[0.308s] Invoking command in '/home/wenhao/uf_custom_ws/build/uf_ros_lib': PYTHONPATH=/home/wenhao/uf_custom_ws/build/uf_ros_lib/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wenhao/uf_custom_ws/build/uf_ros_lib/build --no-deps symlink_data
+[0.430s] running develop
+[0.497s] running egg_info
+[0.497s] creating uf_ros_lib.egg-info
+[0.497s] writing uf_ros_lib.egg-info/PKG-INFO
+[0.497s] writing dependency_links to uf_ros_lib.egg-info/dependency_links.txt
+[0.497s] writing entry points to uf_ros_lib.egg-info/entry_points.txt
+[0.497s] writing requirements to uf_ros_lib.egg-info/requires.txt
+[0.497s] writing top-level names to uf_ros_lib.egg-info/top_level.txt
+[0.497s] writing manifest file 'uf_ros_lib.egg-info/SOURCES.txt'
+[0.498s] reading manifest file 'uf_ros_lib.egg-info/SOURCES.txt'
+[0.498s] writing manifest file 'uf_ros_lib.egg-info/SOURCES.txt'
+[0.499s] running build_ext
+[0.499s] Creating /home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages/uf-ros-lib.egg-link (link to .)
+[0.499s] 
+[0.499s] Installed /home/wenhao/uf_custom_ws/build/uf_ros_lib
+[0.499s] running symlink_data
+[0.499s] creating /home/wenhao/uf_custom_ws/install/uf_ros_lib/share/ament_index
+[0.499s] creating /home/wenhao/uf_custom_ws/install/uf_ros_lib/share/ament_index/resource_index
+[0.499s] creating /home/wenhao/uf_custom_ws/install/uf_ros_lib/share/ament_index/resource_index/packages
+[0.499s] symbolically linking /home/wenhao/uf_custom_ws/build/uf_ros_lib/resource/uf_ros_lib -> /home/wenhao/uf_custom_ws/install/uf_ros_lib/share/ament_index/resource_index/packages
+[0.499s] symbolically linking /home/wenhao/uf_custom_ws/build/uf_ros_lib/package.xml -> /home/wenhao/uf_custom_ws/install/uf_ros_lib/share/uf_ros_lib
+[0.514s] Invoked command in '/home/wenhao/uf_custom_ws/build/uf_ros_lib' returned '0': PYTHONPATH=/home/wenhao/uf_custom_ws/build/uf_ros_lib/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/wenhao/uf_custom_ws/build/uf_ros_lib/build --no-deps symlink_data

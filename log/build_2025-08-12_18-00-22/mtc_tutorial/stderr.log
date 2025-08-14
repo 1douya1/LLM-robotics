@@ -1,0 +1,7 @@
+/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:42:43: error: expected ‘;’ at end of member declaration
+   42 |   std::atomic_bool cancel_requested_{false}
+      |                                           ^
+      |                                            ;
+gmake[2]: *** [CMakeFiles/execute_pour_server.dir/build.make:76: CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/execute_pour_server.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

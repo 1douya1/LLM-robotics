@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_planner/launch/lite6_planner_fake.launch.py

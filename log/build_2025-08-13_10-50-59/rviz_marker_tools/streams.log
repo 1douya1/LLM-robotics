@@ -1,0 +1,30 @@
+[0.027s] Invoking command in '/home/wenhao/uf_custom_ws/build/rviz_marker_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/rviz_marker_tools -- -j32 -l32
+[0.155s] [100%] Built target rviz_marker_tools
+[0.184s] Invoked command in '/home/wenhao/uf_custom_ws/build/rviz_marker_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/rviz_marker_tools -- -j32 -l32
+[0.186s] Invoking command in '/home/wenhao/uf_custom_ws/build/rviz_marker_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/rviz_marker_tools
+[0.207s] -- Install configuration: "Release"
+[0.208s] -- Execute custom install script
+[0.208s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/include/rviz_marker_tools/marker_creation.h
+[0.208s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/library_path.sh
+[0.209s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/library_path.dsv
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/ament_index/resource_index/package_run_dependencies/rviz_marker_tools
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/ament_index/resource_index/parent_prefix_path/rviz_marker_tools
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/ament_prefix_path.sh
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/ament_prefix_path.dsv
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/path.sh
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/environment/path.dsv
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.bash
+[0.210s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.sh
+[0.211s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.zsh
+[0.211s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.dsv
+[0.211s] -- Symlinking: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/package.dsv
+[0.237s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/ament_index/resource_index/packages/rviz_marker_tools
+[0.237s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/ament_cmake_export_targets-extras.cmake
+[0.238s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.238s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig.cmake
+[0.238s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig-version.cmake
+[0.238s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/package.xml
+[0.238s] -- Up-to-date: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib/librviz_marker_tools.so
+[0.238s] -- Up-to-date: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport.cmake
+[0.238s] -- Up-to-date: /home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport-release.cmake
+[0.240s] Invoked command in '/home/wenhao/uf_custom_ws/build/rviz_marker_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/rviz_marker_tools

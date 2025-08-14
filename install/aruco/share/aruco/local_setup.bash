@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/aruco/ament_cmake_environment_hooks/local_setup.bash

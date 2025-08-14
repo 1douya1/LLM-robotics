@@ -1,0 +1,66 @@
+[0.009s] Invoking command in '/home/wenhao/uf_custom_ws/build/mbot_demo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/demo/mbot_demo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/mbot_demo
+[0.128s] -- The C compiler identification is GNU 11.4.0
+[0.132s] -- The CXX compiler identification is GNU 11.4.0
+[0.142s] -- Detecting C compiler ABI info
+[0.245s] -- Detecting C compiler ABI info - done
+[0.250s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.250s] -- Detecting C compile features
+[0.250s] -- Detecting C compile features - done
+[0.251s] -- Detecting CXX compiler ABI info
+[0.381s] -- Detecting CXX compiler ABI info - done
+[0.385s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.385s] -- Detecting CXX compile features
+[0.385s] -- Detecting CXX compile features - done
+[0.387s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.496s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.539s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.555s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.603s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.605s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.605s] -- Added test 'lint_cmake' to check CMake code style
+[0.605s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.606s] -- Added test 'xmllint' to check XML markup files
+[0.607s] -- Configuring done
+[0.608s] -- Generating done
+[0.609s] -- Build files have been written to: /home/wenhao/uf_custom_ws/build/mbot_demo
+[0.612s] Invoked command in '/home/wenhao/uf_custom_ws/build/mbot_demo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/demo/mbot_demo -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/mbot_demo
+[0.613s] Invoking command in '/home/wenhao/uf_custom_ws/build/mbot_demo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mbot_demo -- -j32 -l32
+[0.656s] Invoked command in '/home/wenhao/uf_custom_ws/build/mbot_demo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mbot_demo -- -j32 -l32
+[0.666s] Invoking command in '/home/wenhao/uf_custom_ws/build/mbot_demo': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/mbot_demo
+[0.674s] -- Install configuration: ""
+[0.674s] -- Execute custom install script
+[0.674s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//rviz/moveit.rviz
+[0.681s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot.gazebo.xacro
+[0.691s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot.ros2_control.xacro
+[0.699s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot.transmission.xacro
+[0.799s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot.urdf.xacro
+[0.937s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot_macro.xacro
+[1.067s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//urdf/mbot_with_xarm.urdf.xacro
+[1.184s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//srdf/mbot_macro.srdf.xacro
+[1.257s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//srdf/mbot_with_xarm.srdf.xacro
+[1.279s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//config/controllers.yaml
+[1.301s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//config/joint_limits.yaml
+[1.325s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//config/kinematics.yaml
+[1.345s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//config/ompl_planning.yaml
+[1.376s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//config/ros2_controllers.yaml
+[1.392s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//worlds/empty.world
+[1.405s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//launch/_robot_on_mbot_gazebo.launch.py
+[1.417s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//launch/mbot_moveit_fake.launch.py
+[1.433s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//launch/mbot_moveit_gazebo.launch.py
+[1.447s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo//launch/mbot_moveit_realmove.launch.py
+[1.461s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/ament_index/resource_index/package_run_dependencies/mbot_demo
+[1.479s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/ament_index/resource_index/parent_prefix_path/mbot_demo
+[1.491s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/environment/ament_prefix_path.sh
+[1.506s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/environment/ament_prefix_path.dsv
+[1.524s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/environment/path.sh
+[1.543s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/environment/path.dsv
+[1.558s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/local_setup.bash
+[1.578s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/local_setup.sh
+[1.597s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/local_setup.zsh
+[1.609s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/local_setup.dsv
+[1.622s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/package.dsv
+[1.642s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/ament_index/resource_index/packages/mbot_demo
+[1.658s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/cmake/mbot_demoConfig.cmake
+[1.672s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/cmake/mbot_demoConfig-version.cmake
+[1.686s] -- Symlinking: /home/wenhao/uf_custom_ws/install/mbot_demo/share/mbot_demo/package.xml
+[1.702s] Invoked command in '/home/wenhao/uf_custom_ws/build/mbot_demo' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/mbot_demo

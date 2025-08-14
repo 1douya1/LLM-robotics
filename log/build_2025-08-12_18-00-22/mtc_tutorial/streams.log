@@ -1,0 +1,53 @@
+[0.021s] Invoking command in '/home/wenhao/uf_custom_ws/build/mtc_tutorial': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_MODULE_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib:/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor0bZ20C/usr/lib/:/tmp/.mount_Cursor0bZ20C/usr/lib32/:/tmp/.mount_Cursor0bZ20C/usr/lib64/:/tmp/.mount_Cursor0bZ20C/lib/:/tmp/.mount_Cursor0bZ20C/lib/i386-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib32/:/tmp/.mount_Cursor0bZ20C/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mtc_tutorial -- -j32 -l32
+[0.048s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.132s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.152s] -- Found moveit_task_constructor_core: 0.1.3 (/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake)
+[0.189s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.191s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.203s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.212s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.222s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.267s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[0.296s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[0.338s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.340s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.442s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.487s] -- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[0.510s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[0.539s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.425s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.983s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.999s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[2.007s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[2.019s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[2.057s] -- Found mtc_interface: 0.0.1 (/home/wenhao/mtc_iface_ws/install/mtc_interface/share/mtc_interface/cmake)
+[2.064s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[2.119s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.120s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.120s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/wenhao/uf_custom_ws/src/mtc_tutorial/include>
+[2.120s] -- Configured cppcheck exclude dirs and/or files: 
+[2.121s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.121s] -- Configured cpplint exclude dirs and/or files: 
+[2.122s] -- Added test 'flake8' to check Python code syntax and style conventions
+[2.122s] -- Added test 'lint_cmake' to check CMake code style
+[2.123s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[2.123s] -- Added test 'uncrustify' to check C / C++ code style
+[2.123s] -- Configured uncrustify additional arguments: 
+[2.124s] -- Added test 'xmllint' to check XML markup files
+[2.127s] -- Configuring done
+[2.153s] -- Generating done
+[2.160s] -- Build files have been written to: /home/wenhao/uf_custom_ws/build/mtc_tutorial
+[2.190s] Consolidate compiler generated dependencies of target mtc_tutorial
+[2.192s] Consolidate compiler generated dependencies of target pour_task_builder
+[2.206s] [ 33%] Built target mtc_tutorial
+[2.209s] [ 66%] Built target pour_task_builder
+[2.225s] Consolidate compiler generated dependencies of target execute_pour_server
+[2.238s] [ 83%] Building CXX object CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o
+[4.658s] /home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:42:43: error: expected ‘;’ at end of member declaration
+[4.658s]    42 |   std::atomic_bool cancel_requested_{false}
+[4.658s]       |                                           ^
+[4.658s]       |                                            ;
+[6.035s] gmake[2]: *** [CMakeFiles/execute_pour_server.dir/build.make:76: CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o] Error 1
+[6.036s] gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/execute_pour_server.dir/all] Error 2
+[6.036s] gmake: *** [Makefile:146: all] Error 2
+[6.037s] Invoked command in '/home/wenhao/uf_custom_ws/build/mtc_tutorial' returned '2': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_MODULE_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib:/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor0bZ20C/usr/lib/:/tmp/.mount_Cursor0bZ20C/usr/lib32/:/tmp/.mount_Cursor0bZ20C/usr/lib64/:/tmp/.mount_Cursor0bZ20C/lib/:/tmp/.mount_Cursor0bZ20C/lib/i386-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib32/:/tmp/.mount_Cursor0bZ20C/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/mtc_tutorial -- -j32 -l32

@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_py/xarm_msgs/srv/_linear_motor_back_origin.py

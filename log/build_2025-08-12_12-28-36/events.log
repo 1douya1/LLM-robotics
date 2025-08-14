@@ -1,0 +1,178 @@
+[0.000000] (-) TimerEvent: {}
+[0.000220] (-) JobUnselected: {'identifier': 'd435i_xarm_setup'}
+[0.000248] (-) JobUnselected: {'identifier': 'mbot_demo'}
+[0.000256] (-) JobUnselected: {'identifier': 'moveit_task_constructor_capabilities'}
+[0.000262] (-) JobUnselected: {'identifier': 'moveit_task_constructor_core'}
+[0.000267] (-) JobUnselected: {'identifier': 'moveit_task_constructor_demo'}
+[0.000272] (-) JobUnselected: {'identifier': 'moveit_task_constructor_msgs'}
+[0.000277] (-) JobUnselected: {'identifier': 'moveit_task_constructor_visualization'}
+[0.000281] (-) JobUnselected: {'identifier': 'realsense_gazebo_plugin'}
+[0.000286] (-) JobUnselected: {'identifier': 'rviz_marker_tools'}
+[0.000291] (-) JobUnselected: {'identifier': 'uf_ros_lib'}
+[0.000298] (-) JobUnselected: {'identifier': 'xarm_api'}
+[0.000303] (-) JobUnselected: {'identifier': 'xarm_controller'}
+[0.000308] (-) JobUnselected: {'identifier': 'xarm_description'}
+[0.000313] (-) JobUnselected: {'identifier': 'xarm_gazebo'}
+[0.000319] (-) JobUnselected: {'identifier': 'xarm_moveit_config'}
+[0.000324] (-) JobUnselected: {'identifier': 'xarm_moveit_servo'}
+[0.000330] (-) JobUnselected: {'identifier': 'xarm_msgs'}
+[0.000336] (-) JobUnselected: {'identifier': 'xarm_planner'}
+[0.000341] (-) JobUnselected: {'identifier': 'xarm_sdk'}
+[0.000348] (mtc_tutorial) JobQueued: {'identifier': 'mtc_tutorial', 'dependencies': OrderedDict([('moveit_task_constructor_msgs', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs'), ('rviz_marker_tools', '/home/wenhao/uf_custom_ws/install/rviz_marker_tools'), ('moveit_task_constructor_core', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core')])}
+[0.000665] (mtc_tutorial) JobStarted: {'identifier': 'mtc_tutorial'}
+[0.019485] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'cmake'}
+[0.019641] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'build'}
+[0.020565] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wenhao/uf_custom_ws/build/mtc_tutorial', '--', '-j32', '-l32'], 'cwd': '/home/wenhao/uf_custom_ws/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'wenhao'), ('LC_TIME', 'en_GB.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/tmp/.mount_CursorE67iuI/usr/share/cursor/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib:/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_CursorE67iuI/usr/lib/:/tmp/.mount_CursorE67iuI/usr/lib32/:/tmp/.mount_CursorE67iuI/usr/lib64/:/tmp/.mount_CursorE67iuI/lib/:/tmp/.mount_CursorE67iuI/lib/i386-linux-gnu/:/tmp/.mount_CursorE67iuI/lib/x86_64-linux-gnu/:/tmp/.mount_CursorE67iuI/lib/aarch64-linux-gnu/:/tmp/.mount_CursorE67iuI/lib32/:/tmp/.mount_CursorE67iuI/lib64/'), ('HOME', '/home/wenhao'), ('CHROME_DESKTOP', 'cursor.desktop'), ('APPDIR', '/tmp/.mount_CursorE67iuI'), ('DISABLE_AUTO_UPDATE', 'true'), ('TERM_PROGRAM_VERSION', '1.2.4'), ('DESKTOP_SESSION', 'ubuntu'), ('PERLLIB', '/tmp/.mount_CursorE67iuI/usr/share/perl5/:/tmp/.mount_CursorE67iuI/usr/lib/perl5/:'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'head -n 10000 | cat'), ('VSCODE_GIT_ASKPASS_MAIN', '/tmp/.mount_CursorE67iuI/usr/share/cursor/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/tmp/.mount_CursorE67iuI/usr/share/cursor/cursor'), ('MANAGERPID', '1541'), ('npm_config_yes', 'true'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1926'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=7a80fb9a67d961211d53ce89689b0f10'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4994'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wenhao'), ('OWD', '/home/wenhao'), ('JOURNAL_STREAM', '8:31554'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wenhao'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('COMPOSER_NO_INTERACTION', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/opt/ros/humble/bin:/tmp/.mount_CursorE67iuI/usr/bin/:/tmp/.mount_CursorE67iuI/usr/sbin/:/tmp/.mount_CursorE67iuI/usr/games/:/tmp/.mount_CursorE67iuI/bin/:/tmp/.mount_CursorE67iuI/sbin/:/home/wenhao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/wenhao-ROG-Strix-G634JZ-G634JZ:@/tmp/.ICE-unix/1926,unix/wenhao-ROG-Strix-G634JZ-G634JZ:/tmp/.ICE-unix/1926'), ('INVOCATION_ID', 'e428c39b56b849f790b0d65e62577edf'), ('PAPERSIZE', 'a4'), ('APPIMAGE', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-44cf9a58c5.sock'), ('TERM_PROGRAM', 'vscode'), ('CURSOR_TRACE_ID', 'ff265156541b4d0d86822bee9e30b20a'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/tmp/.mount_CursorE67iuI/usr/share/glib-2.0/schemas/:'), ('AMENT_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_GB.UTF-8'), ('ARGV0', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('CMAKE_MODULE_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wenhao/uf_custom_ws/build/mtc_tutorial'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'fcitx'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=7a80fb9a67d961211d53ce89689b0f10'), ('XDG_DATA_DIRS', '/tmp/.mount_CursorE67iuI/usr/share/:/usr/local/share:/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('LC_PAPER', 'en_GB.UTF-8'), ('QT_PLUGIN_PATH', '/tmp/.mount_CursorE67iuI/usr/lib/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/i386-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/x86_64-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/aarch64-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib32/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib64/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/i386-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/x86_64-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/aarch64-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib32/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib64/qt5/plugins/:'), ('COLCON', '1'), ('PIP_NO_INPUT', 'true'), ('CMAKE_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble')]), 'shell': False}
+[0.076140] (mtc_tutorial) StdoutLine: {'line': b'[ 16%] Building CXX object CMakeFiles/pour_task_builder.dir/src/pour_task_builder.cpp.o\n'}
+[0.077197] (mtc_tutorial) StdoutLine: {'line': b'[ 50%] Built target mtc_tutorial\n'}
+[0.100036] (-) TimerEvent: {}
+[0.200173] (-) TimerEvent: {}
+[0.300333] (-) TimerEvent: {}
+[0.400511] (-) TimerEvent: {}
+[0.500762] (-) TimerEvent: {}
+[0.601046] (-) TimerEvent: {}
+[0.701313] (-) TimerEvent: {}
+[0.801480] (-) TimerEvent: {}
+[0.901708] (-) TimerEvent: {}
+[1.001865] (-) TimerEvent: {}
+[1.102046] (-) TimerEvent: {}
+[1.202201] (-) TimerEvent: {}
+[1.302390] (-) TimerEvent: {}
+[1.402539] (-) TimerEvent: {}
+[1.502770] (-) TimerEvent: {}
+[1.602963] (-) TimerEvent: {}
+[1.703227] (-) TimerEvent: {}
+[1.803400] (-) TimerEvent: {}
+[1.903573] (-) TimerEvent: {}
+[2.003797] (-) TimerEvent: {}
+[2.104039] (-) TimerEvent: {}
+[2.204191] (-) TimerEvent: {}
+[2.304333] (-) TimerEvent: {}
+[2.404508] (-) TimerEvent: {}
+[2.504669] (-) TimerEvent: {}
+[2.604897] (-) TimerEvent: {}
+[2.705060] (-) TimerEvent: {}
+[2.805204] (-) TimerEvent: {}
+[2.905374] (-) TimerEvent: {}
+[3.005548] (-) TimerEvent: {}
+[3.105692] (-) TimerEvent: {}
+[3.205871] (-) TimerEvent: {}
+[3.306040] (-) TimerEvent: {}
+[3.406187] (-) TimerEvent: {}
+[3.506349] (-) TimerEvent: {}
+[3.606594] (-) TimerEvent: {}
+[3.706834] (-) TimerEvent: {}
+[3.807071] (-) TimerEvent: {}
+[3.907323] (-) TimerEvent: {}
+[4.007484] (-) TimerEvent: {}
+[4.107658] (-) TimerEvent: {}
+[4.207896] (-) TimerEvent: {}
+[4.308142] (-) TimerEvent: {}
+[4.408393] (-) TimerEvent: {}
+[4.508570] (-) TimerEvent: {}
+[4.608794] (-) TimerEvent: {}
+[4.709023] (-) TimerEvent: {}
+[4.809163] (-) TimerEvent: {}
+[4.909322] (-) TimerEvent: {}
+[5.009564] (-) TimerEvent: {}
+[5.109847] (-) TimerEvent: {}
+[5.210149] (-) TimerEvent: {}
+[5.310409] (-) TimerEvent: {}
+[5.410687] (-) TimerEvent: {}
+[5.510836] (-) TimerEvent: {}
+[5.611004] (-) TimerEvent: {}
+[5.711229] (-) TimerEvent: {}
+[5.811484] (-) TimerEvent: {}
+[5.911716] (-) TimerEvent: {}
+[5.940475] (mtc_tutorial) StdoutLine: {'line': b'[ 66%] Linking CXX static library libpour_task_builder.a\n'}
+[6.011837] (-) TimerEvent: {}
+[6.060831] (mtc_tutorial) StdoutLine: {'line': b'[ 66%] Built target pour_task_builder\n'}
+[6.092755] (mtc_tutorial) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target execute_pour_server\n'}
+[6.111924] (-) TimerEvent: {}
+[6.119944] (mtc_tutorial) StdoutLine: {'line': b'[ 83%] Building CXX object CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o\n'}
+[6.212061] (-) TimerEvent: {}
+[6.312240] (-) TimerEvent: {}
+[6.412419] (-) TimerEvent: {}
+[6.512562] (-) TimerEvent: {}
+[6.612732] (-) TimerEvent: {}
+[6.712899] (-) TimerEvent: {}
+[6.813071] (-) TimerEvent: {}
+[6.913213] (-) TimerEvent: {}
+[7.013351] (-) TimerEvent: {}
+[7.113515] (-) TimerEvent: {}
+[7.213679] (-) TimerEvent: {}
+[7.313907] (-) TimerEvent: {}
+[7.414045] (-) TimerEvent: {}
+[7.514194] (-) TimerEvent: {}
+[7.614335] (-) TimerEvent: {}
+[7.714507] (-) TimerEvent: {}
+[7.814734] (-) TimerEvent: {}
+[7.914897] (-) TimerEvent: {}
+[8.015061] (-) TimerEvent: {}
+[8.115207] (-) TimerEvent: {}
+[8.215381] (-) TimerEvent: {}
+[8.315556] (-) TimerEvent: {}
+[8.415725] (-) TimerEvent: {}
+[8.515959] (-) TimerEvent: {}
+[8.616108] (-) TimerEvent: {}
+[8.716251] (-) TimerEvent: {}
+[8.816495] (-) TimerEvent: {}
+[8.916641] (-) TimerEvent: {}
+[9.016787] (-) TimerEvent: {}
+[9.116973] (-) TimerEvent: {}
+[9.217131] (-) TimerEvent: {}
+[9.317295] (-) TimerEvent: {}
+[9.417467] (-) TimerEvent: {}
+[9.517624] (-) TimerEvent: {}
+[9.617770] (-) TimerEvent: {}
+[9.717952] (-) TimerEvent: {}
+[9.818111] (-) TimerEvent: {}
+[9.918251] (-) TimerEvent: {}
+[10.018417] (-) TimerEvent: {}
+[10.118651] (-) TimerEvent: {}
+[10.218830] (-) TimerEvent: {}
+[10.319063] (-) TimerEvent: {}
+[10.419318] (-) TimerEvent: {}
+[10.519495] (-) TimerEvent: {}
+[10.619632] (-) TimerEvent: {}
+[10.719850] (-) TimerEvent: {}
+[10.820088] (-) TimerEvent: {}
+[10.920249] (-) TimerEvent: {}
+[11.020411] (-) TimerEvent: {}
+[11.120575] (-) TimerEvent: {}
+[11.220813] (-) TimerEvent: {}
+[11.244660] (mtc_tutorial) StdoutLine: {'line': b'[100%] Linking CXX executable execute_pour_server\n'}
+[11.320990] (-) TimerEvent: {}
+[11.421172] (-) TimerEvent: {}
+[11.491970] (mtc_tutorial) StdoutLine: {'line': b'[100%] Built target execute_pour_server\n'}
+[11.501608] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[11.502027] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'install'}
+[11.507745] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/wenhao/uf_custom_ws/build/mtc_tutorial'], 'cwd': '/home/wenhao/uf_custom_ws/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'wenhao'), ('LC_TIME', 'en_GB.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/tmp/.mount_CursorE67iuI/usr/share/cursor/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib:/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_CursorE67iuI/usr/lib/:/tmp/.mount_CursorE67iuI/usr/lib32/:/tmp/.mount_CursorE67iuI/usr/lib64/:/tmp/.mount_CursorE67iuI/lib/:/tmp/.mount_CursorE67iuI/lib/i386-linux-gnu/:/tmp/.mount_CursorE67iuI/lib/x86_64-linux-gnu/:/tmp/.mount_CursorE67iuI/lib/aarch64-linux-gnu/:/tmp/.mount_CursorE67iuI/lib32/:/tmp/.mount_CursorE67iuI/lib64/'), ('HOME', '/home/wenhao'), ('CHROME_DESKTOP', 'cursor.desktop'), ('APPDIR', '/tmp/.mount_CursorE67iuI'), ('DISABLE_AUTO_UPDATE', 'true'), ('TERM_PROGRAM_VERSION', '1.2.4'), ('DESKTOP_SESSION', 'ubuntu'), ('PERLLIB', '/tmp/.mount_CursorE67iuI/usr/share/perl5/:/tmp/.mount_CursorE67iuI/usr/lib/perl5/:'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'head -n 10000 | cat'), ('VSCODE_GIT_ASKPASS_MAIN', '/tmp/.mount_CursorE67iuI/usr/share/cursor/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/tmp/.mount_CursorE67iuI/usr/share/cursor/cursor'), ('MANAGERPID', '1541'), ('npm_config_yes', 'true'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1926'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=7a80fb9a67d961211d53ce89689b0f10'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '4994'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wenhao'), ('OWD', '/home/wenhao'), ('JOURNAL_STREAM', '8:31554'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wenhao'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('COMPOSER_NO_INTERACTION', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/opt/ros/humble/bin:/tmp/.mount_CursorE67iuI/usr/bin/:/tmp/.mount_CursorE67iuI/usr/sbin/:/tmp/.mount_CursorE67iuI/usr/games/:/tmp/.mount_CursorE67iuI/bin/:/tmp/.mount_CursorE67iuI/sbin/:/home/wenhao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/wenhao-ROG-Strix-G634JZ-G634JZ:@/tmp/.ICE-unix/1926,unix/wenhao-ROG-Strix-G634JZ-G634JZ:/tmp/.ICE-unix/1926'), ('INVOCATION_ID', 'e428c39b56b849f790b0d65e62577edf'), ('PAPERSIZE', 'a4'), ('APPIMAGE', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-44cf9a58c5.sock'), ('TERM_PROGRAM', 'vscode'), ('CURSOR_TRACE_ID', 'ff265156541b4d0d86822bee9e30b20a'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/tmp/.mount_CursorE67iuI/usr/share/glib-2.0/schemas/:'), ('AMENT_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_GB.UTF-8'), ('ARGV0', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('CMAKE_MODULE_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wenhao/uf_custom_ws/build/mtc_tutorial'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'fcitx'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=7a80fb9a67d961211d53ce89689b0f10'), ('XDG_DATA_DIRS', '/tmp/.mount_CursorE67iuI/usr/share/:/usr/local/share:/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('LC_PAPER', 'en_GB.UTF-8'), ('QT_PLUGIN_PATH', '/tmp/.mount_CursorE67iuI/usr/lib/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/i386-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/x86_64-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/aarch64-linux-gnu/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib32/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib64/qt4/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/i386-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/x86_64-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib/aarch64-linux-gnu/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib32/qt5/plugins/:/tmp/.mount_CursorE67iuI/usr/lib64/qt5/plugins/:'), ('COLCON', '1'), ('PIP_NO_INPUT', 'true'), ('CMAKE_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble')]), 'shell': False}
+[11.512779] (mtc_tutorial) StdoutLine: {'line': b'-- Install configuration: "RelWithDebInfo"\n'}
+[11.512998] (mtc_tutorial) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[11.513118] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/lib/mtc_tutorial/mtc_tutorial\n'}
+[11.513257] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/launch/pick_place_demo.launch.py\n'}
+[11.513444] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/launch/pour_demo.launch.py\n'}
+[11.513505] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/lib/mtc_tutorial/check_moveit_config.py\n'}
+[11.513547] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/lib/mtc_tutorial/pour_client.py\n'}
+[11.513609] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/ament_index/resource_index/package_run_dependencies/mtc_tutorial\n'}
+[11.513666] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/ament_index/resource_index/parent_prefix_path/mtc_tutorial\n'}
+[11.513723] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.sh\n'}
+[11.513774] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.dsv\n'}
+[11.513825] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/environment/path.sh\n'}
+[11.513874] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/environment/path.dsv\n'}
+[11.513925] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/local_setup.bash\n'}
+[11.513973] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/local_setup.sh\n'}
+[11.514019] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/local_setup.zsh\n'}
+[11.514063] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/local_setup.dsv\n'}
+[11.514105] (mtc_tutorial) StdoutLine: {'line': b'-- Symlinking: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/package.dsv\n'}
+[11.520850] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/ament_index/resource_index/packages/mtc_tutorial\n'}
+[11.520957] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig.cmake\n'}
+[11.520981] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig-version.cmake\n'}
+[11.521003] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/share/mtc_tutorial/package.xml\n'}
+[11.521064] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/lib/mtc_tutorial/execute_pour_server\n'}
+[11.521111] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/mtc_tutorial/lib/libpour_task_builder.a\n'}
+[11.521219] (-) TimerEvent: {}
+[11.521970] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[11.530527] (mtc_tutorial) JobEnded: {'identifier': 'mtc_tutorial', 'rc': 0}
+[11.530756] (-) EventReactorShutdown: {}

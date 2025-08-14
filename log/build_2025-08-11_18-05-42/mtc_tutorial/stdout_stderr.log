@@ -1,0 +1,91 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found moveit_task_constructor_core: 0.1.3 (/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake)
+-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+-- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+-- Found mtc_interface: 0.0.1 (/home/wenhao/mtc_iface_ws/install/mtc_interface/share/mtc_interface/cmake)
+-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/wenhao/uf_custom_ws/src/mtc_tutorial/include>
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/wenhao/uf_custom_ws/build/mtc_tutorial
+[35m[1mConsolidate compiler generated dependencies of target mtc_tutorial[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/mtc_tutorial.dir/src/mtc_tutorial.cpp.o[0m
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:20:72:[m[K [01;31m[Kerror: [m[K‘[01m[KTaskParams[m[K’ does not name a type
+   20 | static mtc::Task createTask(const rclcpp::Node::SharedPtr& node, const [01;31m[KTaskParams[m[K& p) {
+      |                                                                        [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:[m[K In function ‘[01m[Kmoveit::task_constructor::Task createTask(const SharedPtr&, const int&)[m[K’:
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:68:32:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ktilt_speed_deg_s[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+   68 |   double scaling_from_deg = (p.[01;31m[Ktilt_speed_deg_s[m[K * M_PI / 180.0) / joint6_max_rad_s;
+      |                                [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:111:34:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kapproach_min[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  111 |       stage->setMinMaxDistance(p.[01;31m[Kapproach_min[m[K, p.approach_max);
+      |                                  [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:111:50:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kapproach_max[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  111 |       stage->setMinMaxDistance(p.approach_min, p.[01;31m[Kapproach_max[m[K);
+      |                                                  [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:171:34:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Klift_height[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  171 |       stage->setMinMaxDistance(p.[01;31m[Klift_height[m[K, p.lift_height + 0.05);
+      |                                  [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:171:49:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Klift_height[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  171 |       stage->setMinMaxDistance(p.lift_height, p.[01;31m[Klift_height[m[K + 0.05);
+      |                                                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:190:55:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ktilt_start_deg[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  190 |       std::map<std::string,double> j; j["joint6"] = p.[01;31m[Ktilt_start_deg[m[K * M_PI / 180.0;
+      |                                                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:198:55:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ktilt_end_deg[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  198 |       std::map<std::string,double> j; j["joint6"] = p.[01;31m[Ktilt_end_deg[m[K * M_PI / 180.0;
+      |                                                       [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:203:11:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kpour_hold_sec[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  203 |     if (p.[01;31m[Kpour_hold_sec[m[K > 0.0) {
+      |           [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:206:55:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ktilt_end_deg[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  206 |       std::map<std::string,double> j; j["joint6"] = p.[01;31m[Ktilt_end_deg[m[K * M_PI / 180.0;
+      |                                                       [01;31m[K^~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:208:23:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kpour_hold_sec[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  208 |       s->setTimeout(p.[01;31m[Kpour_hold_sec[m[K);
+      |                       [01;31m[K^~~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:215:55:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Ktilt_start_deg[m[K’ in ‘[01m[Kp[m[K’, which is of non-class type ‘[01m[Kconst int[m[K’
+  215 |       std::map<std::string,double> j; j["joint6"] = p.[01;31m[Ktilt_start_deg[m[K * M_PI / 180.0;
+      |                                                       [01;31m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:[m[K In lambda function:
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:287:38:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst int&[m[K’ from expression of type ‘[01m[KTaskParams[m[K’
+  287 |         auto task = createTask(node, [01;31m[Kp[m[K);
+      |                                      [01;31m[K^[m[K
+[01m[K/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:20:84:[m[K [01;36m[Knote: [m[Kin passing argument 2 of ‘[01m[Kmoveit::task_constructor::Task createTask(const SharedPtr&, const int&)[m[K’
+   20 | static mtc::Task createTask(const rclcpp::Node::SharedPtr& node, [01;36m[Kconst TaskParams& p[m[K) {
+      |                                                                  [01;36m[K~~~~~~~~~~~~~~~~~~^[m[K
+gmake[2]: *** [CMakeFiles/execute_pour_server.dir/build.make:76: CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:165: CMakeFiles/execute_pour_server.dir/all] Error 2
+gmake[1]: *** Waiting for unfinished jobs....
+[ 75%] [32m[1mLinking CXX executable mtc_tutorial[0m
+[ 75%] Built target mtc_tutorial
+gmake: *** [Makefile:146: all] Error 2

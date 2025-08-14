@@ -1,0 +1,139 @@
+[0.000000] (-) TimerEvent: {}
+[0.000233] (-) JobUnselected: {'identifier': 'd435i_xarm_setup'}
+[0.000246] (-) JobUnselected: {'identifier': 'mbot_demo'}
+[0.000254] (-) JobUnselected: {'identifier': 'moveit_task_constructor_capabilities'}
+[0.000261] (-) JobUnselected: {'identifier': 'moveit_task_constructor_core'}
+[0.000267] (-) JobUnselected: {'identifier': 'moveit_task_constructor_demo'}
+[0.000274] (-) JobUnselected: {'identifier': 'moveit_task_constructor_msgs'}
+[0.000279] (-) JobUnselected: {'identifier': 'moveit_task_constructor_visualization'}
+[0.000285] (-) JobUnselected: {'identifier': 'realsense_gazebo_plugin'}
+[0.000291] (-) JobUnselected: {'identifier': 'rviz_marker_tools'}
+[0.000297] (-) JobUnselected: {'identifier': 'uf_ros_lib'}
+[0.000302] (-) JobUnselected: {'identifier': 'xarm_api'}
+[0.000308] (-) JobUnselected: {'identifier': 'xarm_controller'}
+[0.000314] (-) JobUnselected: {'identifier': 'xarm_description'}
+[0.000320] (-) JobUnselected: {'identifier': 'xarm_gazebo'}
+[0.000326] (-) JobUnselected: {'identifier': 'xarm_moveit_config'}
+[0.000332] (-) JobUnselected: {'identifier': 'xarm_moveit_servo'}
+[0.000337] (-) JobUnselected: {'identifier': 'xarm_msgs'}
+[0.000343] (-) JobUnselected: {'identifier': 'xarm_planner'}
+[0.000349] (-) JobUnselected: {'identifier': 'xarm_sdk'}
+[0.000356] (mtc_tutorial) JobQueued: {'identifier': 'mtc_tutorial', 'dependencies': OrderedDict([('moveit_task_constructor_msgs', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs'), ('rviz_marker_tools', '/home/wenhao/uf_custom_ws/install/rviz_marker_tools'), ('moveit_task_constructor_core', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core')])}
+[0.000668] (mtc_tutorial) JobStarted: {'identifier': 'mtc_tutorial'}
+[0.019792] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'cmake'}
+[0.020309] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'build'}
+[0.020878] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/wenhao/uf_custom_ws/build/mtc_tutorial', '--', '-j32', '-l32'], 'cwd': '/home/wenhao/uf_custom_ws/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('LANGUAGE', 'en_GB:en'), ('USER', 'wenhao'), ('LC_TIME', 'en_GB.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/tmp/.mount_Cursor0bZ20C/usr/share/cursor/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '0'), ('LD_LIBRARY_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib:/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor0bZ20C/usr/lib/:/tmp/.mount_Cursor0bZ20C/usr/lib32/:/tmp/.mount_Cursor0bZ20C/usr/lib64/:/tmp/.mount_Cursor0bZ20C/lib/:/tmp/.mount_Cursor0bZ20C/lib/i386-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor0bZ20C/lib32/:/tmp/.mount_Cursor0bZ20C/lib64/'), ('HOME', '/home/wenhao'), ('CHROME_DESKTOP', 'cursor.desktop'), ('APPDIR', '/tmp/.mount_Cursor0bZ20C'), ('DISABLE_AUTO_UPDATE', 'true'), ('TERM_PROGRAM_VERSION', '1.2.4'), ('DESKTOP_SESSION', 'ubuntu'), ('PERLLIB', '/tmp/.mount_Cursor0bZ20C/usr/share/perl5/:/tmp/.mount_Cursor0bZ20C/usr/lib/perl5/:'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('PAGER', 'head -n 10000 | cat'), ('VSCODE_GIT_ASKPASS_MAIN', '/tmp/.mount_Cursor0bZ20C/usr/share/cursor/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/tmp/.mount_Cursor0bZ20C/usr/share/cursor/cursor'), ('MANAGERPID', '1539'), ('npm_config_yes', 'true'), ('DBUS_STARTER_BUS_TYPE', 'session'), ('SYSTEMD_EXEC_PID', '1920'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus,guid=a23426b5030af2a4ff03869d689b3aaa'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5308'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'fcitx'), ('LOGNAME', 'wenhao'), ('OWD', '/home/wenhao'), ('JOURNAL_STREAM', '8:35310'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'wenhao'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('COMPOSER_NO_INTERACTION', '1'), ('WINDOWPATH', '2'), ('PATH', '/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/opt/ros/humble/bin:/tmp/.mount_Cursor0bZ20C/usr/bin/:/tmp/.mount_Cursor0bZ20C/usr/sbin/:/tmp/.mount_Cursor0bZ20C/usr/games/:/tmp/.mount_Cursor0bZ20C/bin/:/tmp/.mount_Cursor0bZ20C/sbin/:/home/wenhao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/wenhao-ROG-Strix-G634JZ-G634JZ:@/tmp/.ICE-unix/1920,unix/wenhao-ROG-Strix-G634JZ-G634JZ:/tmp/.ICE-unix/1920'), ('INVOCATION_ID', '39b859d6b57a42c79d72a127a2bf7d60'), ('PAPERSIZE', 'a4'), ('APPIMAGE', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'en_GB.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('LANG', 'en_GB.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'en_GB.UTF-8'), ('XMODIFIERS', '@im=fcitx'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-44cf9a58c5.sock'), ('TERM_PROGRAM', 'vscode'), ('CURSOR_TRACE_ID', '5685c25b506a4f098608c72c3b04d998'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('GSETTINGS_SCHEMA_DIR', '/tmp/.mount_Cursor0bZ20C/usr/share/glib-2.0/schemas/:'), ('AMENT_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'en_GB.UTF-8'), ('ARGV0', '/home/wenhao/Downloads/Cursor-1.2.2-x86_64.AppImage'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'en_GB.UTF-8'), ('CMAKE_MODULE_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'en_GB.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'fcitx'), ('PWD', '/home/wenhao/uf_custom_ws/build/mtc_tutorial'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('CLUTTER_IM_MODULE', 'fcitx'), ('DBUS_STARTER_ADDRESS', 'unix:path=/run/user/1000/bus,guid=a23426b5030af2a4ff03869d689b3aaa'), ('XDG_DATA_DIRS', '/tmp/.mount_Cursor0bZ20C/usr/share/:/usr/local/share:/usr/share:/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'en_GB.UTF-8'), ('LC_PAPER', 'en_GB.UTF-8'), ('QT_PLUGIN_PATH', '/tmp/.mount_Cursor0bZ20C/usr/lib/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/i386-linux-gnu/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/x86_64-linux-gnu/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/aarch64-linux-gnu/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib32/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib64/qt4/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/qt5/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/i386-linux-gnu/qt5/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/x86_64-linux-gnu/qt5/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib/aarch64-linux-gnu/qt5/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib32/qt5/plugins/:/tmp/.mount_Cursor0bZ20C/usr/lib64/qt5/plugins/:'), ('COLCON', '1'), ('PIP_NO_INPUT', 'true'), ('CMAKE_PREFIX_PATH', '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core:/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble')]), 'shell': False}
+[0.048611] (mtc_tutorial) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.100052] (-) TimerEvent: {}
+[0.132997] (mtc_tutorial) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.152673] (mtc_tutorial) StdoutLine: {'line': b'-- Found moveit_task_constructor_core: 0.1.3 (/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake)\n'}
+[0.189578] (mtc_tutorial) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.191939] (mtc_tutorial) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.200116] (-) TimerEvent: {}
+[0.203720] (mtc_tutorial) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.212586] (mtc_tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.222684] (mtc_tutorial) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.267287] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[0.296201] (mtc_tutorial) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[0.300191] (-) TimerEvent: {}
+[0.338303] (mtc_tutorial) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.340721] (mtc_tutorial) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.400315] (-) TimerEvent: {}
+[0.442682] (mtc_tutorial) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.487203] (mtc_tutorial) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[0.500397] (-) TimerEvent: {}
+[0.510388] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[0.539608] (mtc_tutorial) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[0.600535] (-) TimerEvent: {}
+[0.700885] (-) TimerEvent: {}
+[0.801233] (-) TimerEvent: {}
+[0.901664] (-) TimerEvent: {}
+[1.002017] (-) TimerEvent: {}
+[1.102245] (-) TimerEvent: {}
+[1.202507] (-) TimerEvent: {}
+[1.302902] (-) TimerEvent: {}
+[1.403148] (-) TimerEvent: {}
+[1.426054] (mtc_tutorial) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[1.503309] (-) TimerEvent: {}
+[1.603706] (-) TimerEvent: {}
+[1.704071] (-) TimerEvent: {}
+[1.804349] (-) TimerEvent: {}
+[1.904732] (-) TimerEvent: {}
+[1.983430] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[2.000011] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[2.004792] (-) TimerEvent: {}
+[2.007895] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[2.019948] (mtc_tutorial) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[2.057284] (mtc_tutorial) StdoutLine: {'line': b'-- Found mtc_interface: 0.0.1 (/home/wenhao/mtc_iface_ws/install/mtc_interface/share/mtc_interface/cmake)\n'}
+[2.064811] (mtc_tutorial) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.105024] (-) TimerEvent: {}
+[2.119791] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[2.120802] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[2.120934] (mtc_tutorial) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/wenhao/uf_custom_ws/src/mtc_tutorial/include>\n'}
+[2.120994] (mtc_tutorial) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[2.121895] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[2.121976] (mtc_tutorial) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[2.122342] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[2.122768] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.123175] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[2.124031] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[2.124096] (mtc_tutorial) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[2.124633] (mtc_tutorial) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.127492] (mtc_tutorial) StdoutLine: {'line': b'-- Configuring done\n'}
+[2.153652] (mtc_tutorial) StdoutLine: {'line': b'-- Generating done\n'}
+[2.160969] (mtc_tutorial) StdoutLine: {'line': b'-- Build files have been written to: /home/wenhao/uf_custom_ws/build/mtc_tutorial\n'}
+[2.190393] (mtc_tutorial) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target mtc_tutorial\n'}
+[2.192858] (mtc_tutorial) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target pour_task_builder\n'}
+[2.205055] (-) TimerEvent: {}
+[2.206311] (mtc_tutorial) StdoutLine: {'line': b'[ 33%] Built target mtc_tutorial\n'}
+[2.209536] (mtc_tutorial) StdoutLine: {'line': b'[ 66%] Built target pour_task_builder\n'}
+[2.225781] (mtc_tutorial) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target execute_pour_server\n'}
+[2.238938] (mtc_tutorial) StdoutLine: {'line': b'[ 83%] Building CXX object CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o\n'}
+[2.305148] (-) TimerEvent: {}
+[2.405327] (-) TimerEvent: {}
+[2.505499] (-) TimerEvent: {}
+[2.605755] (-) TimerEvent: {}
+[2.705956] (-) TimerEvent: {}
+[2.806102] (-) TimerEvent: {}
+[2.906243] (-) TimerEvent: {}
+[3.006418] (-) TimerEvent: {}
+[3.106578] (-) TimerEvent: {}
+[3.206727] (-) TimerEvent: {}
+[3.306874] (-) TimerEvent: {}
+[3.407048] (-) TimerEvent: {}
+[3.507199] (-) TimerEvent: {}
+[3.607342] (-) TimerEvent: {}
+[3.707541] (-) TimerEvent: {}
+[3.807717] (-) TimerEvent: {}
+[3.907854] (-) TimerEvent: {}
+[4.007993] (-) TimerEvent: {}
+[4.108133] (-) TimerEvent: {}
+[4.208294] (-) TimerEvent: {}
+[4.308454] (-) TimerEvent: {}
+[4.408652] (-) TimerEvent: {}
+[4.508816] (-) TimerEvent: {}
+[4.608984] (-) TimerEvent: {}
+[4.658362] (mtc_tutorial) StderrLine: {'line': b'/home/wenhao/uf_custom_ws/src/mtc_tutorial/src/execute_pour_server.cpp:42:43: error: expected \xe2\x80\x98;\xe2\x80\x99 at end of member declaration\n'}
+[4.658477] (mtc_tutorial) StderrLine: {'line': b'   42 |   std::atomic_bool cancel_requested_{false}\n'}
+[4.658509] (mtc_tutorial) StderrLine: {'line': b'      |                                           ^\n'}
+[4.658533] (mtc_tutorial) StderrLine: {'line': b'      |                                            ;\n'}
+[4.709054] (-) TimerEvent: {}
+[4.809201] (-) TimerEvent: {}
+[4.909387] (-) TimerEvent: {}
+[5.009622] (-) TimerEvent: {}
+[5.109874] (-) TimerEvent: {}
+[5.210069] (-) TimerEvent: {}
+[5.310224] (-) TimerEvent: {}
+[5.410404] (-) TimerEvent: {}
+[5.510701] (-) TimerEvent: {}
+[5.610946] (-) TimerEvent: {}
+[5.711095] (-) TimerEvent: {}
+[5.811241] (-) TimerEvent: {}
+[5.911423] (-) TimerEvent: {}
+[6.011715] (-) TimerEvent: {}
+[6.035872] (mtc_tutorial) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/execute_pour_server.dir/build.make:76: CMakeFiles/execute_pour_server.dir/src/execute_pour_server.cpp.o] Error 1\n'}
+[6.036213] (mtc_tutorial) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:193: CMakeFiles/execute_pour_server.dir/all] Error 2\n'}
+[6.036457] (mtc_tutorial) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[6.037607] (mtc_tutorial) CommandEnded: {'returncode': 2}
+[6.042408] (mtc_tutorial) JobEnded: {'identifier': 'mtc_tutorial', 'rc': 2}
+[6.052696] (-) EventReactorShutdown: {}

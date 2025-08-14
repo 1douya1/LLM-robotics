@@ -1,0 +1,335 @@
+[0.014s] Invoking command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/moveit_task_constructor/core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core
+[0.064s] -- The C compiler identification is GNU 11.4.0
+[0.110s] -- The CXX compiler identification is GNU 11.4.0
+[0.116s] -- Detecting C compiler ABI info
+[0.175s] -- Detecting C compiler ABI info - done
+[0.179s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.179s] -- Detecting C compile features
+[0.179s] -- Detecting C compile features - done
+[0.181s] -- Detecting CXX compiler ABI info
+[0.249s] -- Detecting CXX compiler ABI info - done
+[0.254s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.254s] -- Detecting CXX compile features
+[0.254s] -- Detecting CXX compile features - done
+[0.255s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.352s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.390s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.411s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0")  
+[0.414s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[0.432s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.435s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.439s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.445s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.454s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.475s] -- Found moveit_common: 2.5.9 (/opt/ros/humble/share/moveit_common/cmake)
+[0.511s] moveit_task_constructor_core: You did not request a specific build type: Choosing 'Release' for maximum performance
+[0.512s] -- Found moveit_core: 2.5.9 (/opt/ros/humble/share/moveit_core/cmake)
+[0.693s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[0.716s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[0.735s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.737s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.813s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.827s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.851s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.855s] -- Found Threads: TRUE  
+[0.877s] -- Found rclcpp_lifecycle: 16.0.12 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[0.889s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[0.971s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[1.004s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.004s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.121s] -- Found moveit_ros_planning: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning/cmake)
+[1.124s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.136s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.139s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[1.146s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[1.157s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[1.171s] -- Found moveit_task_constructor_msgs: 0.1.3 (/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/share/moveit_task_constructor_msgs/cmake)
+[1.185s] -- Found py_binding_tools: 2.0.1 (/opt/ros/humble/share/py_binding_tools/cmake)
+[1.186s] -- Found rviz_marker_tools: 0.1.3 (/home/wenhao/uf_custom_ws/install/rviz_marker_tools/share/rviz_marker_tools/cmake)
+[1.308s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter Development Development.Module Development.Embed 
+[1.311s] -- pybind11 v2.13.0 dev1
+[1.325s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[1.342s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.342s] -- Performing Test HAS_FLTO
+[1.459s] -- Performing Test HAS_FLTO - Success
+[1.464s] -- Found ament_cmake_pytest: 1.3.11 (/opt/ros/humble/share/ament_cmake_pytest/cmake)
+[1.465s] -- Found launch_testing_ament_cmake: 1.0.9 (/opt/ros/humble/share/launch_testing_ament_cmake/cmake)
+[1.465s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.490s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[1.490s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.490s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.490s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.504s] -- Found PythonExtra: .so  
+[1.720s] -- Found ament_cmake_gtest: 1.3.11 (/opt/ros/humble/share/ament_cmake_gtest/cmake)
+[1.720s] -- Found ament_cmake_gmock: 1.3.11 (/opt/ros/humble/share/ament_cmake_gmock/cmake)
+[1.721s] -- Found launch_testing_ament_cmake: 1.0.9 (/opt/ros/humble/share/launch_testing_ament_cmake/cmake)
+[1.721s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[1.736s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[1.736s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[1.736s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[1.738s] -- Found gmock sources under '/opt/ros/humble/src/gmock_vendor': C++ tests using 'Google Mock' will be built
+[1.740s] -- Found gtest sources under '/opt/ros/humble/src/gtest_vendor': C++ tests using 'Google Test' will be built
+[1.754s] -- Configuring done
+[1.883s] -- Generating done
+[1.928s] -- Build files have been written to: /home/wenhao/uf_custom_ws/build/moveit_task_constructor_core
+[1.940s] Invoked command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/moveit_task_constructor/core -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core
+[1.941s] Invoking command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/moveit_task_constructor_core -- -j32 -l32
+[2.001s] [  1%] Building CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[2.008s] [  2%] Building CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o
+[2.008s] [  2%] Built target ament_cmake_python_symlink_moveit
+[2.009s] [  3%] Building CXX object gmock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.o
+[2.030s] [  4%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/merge.cpp.o
+[2.033s] [  5%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/cost_terms.cpp.o
+[2.040s] [  7%] Building CXX object gmock/CMakeFiles/gmock.dir/opt/ros/humble/src/gtest_vendor/src/gtest-all.cc.o
+[2.044s] [  8%] Building CXX object gmock/CMakeFiles/gmock.dir/src/gmock-all.cc.o
+[2.052s] [  9%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/solvers/planner_interface.cpp.o
+[2.056s] [ 10%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/stage.cpp.o
+[2.062s] [ 11%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/task.cpp.o
+[2.062s] [ 12%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/marker_tools.cpp.o
+[2.064s] [ 14%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/solvers/cartesian_path.cpp.o
+[2.065s] [ 15%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/introspection.cpp.o
+[2.065s] [ 16%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/container.cpp.o
+[2.074s] [ 18%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/solvers/multi_planner.cpp.o
+[2.074s] [ 18%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/solvers/pipeline_planner.cpp.o
+[2.079s] [ 20%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/utils.cpp.o
+[2.080s] [ 21%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/properties.cpp.o
+[2.107s] [ 22%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/storage.cpp.o
+[2.113s] [ 23%] Building CXX object src/CMakeFiles/moveit_task_constructor_core.dir/solvers/joint_interpolation.cpp.o
+[2.386s] running egg_info
+[2.387s] creating moveit.egg-info
+[2.387s] writing moveit.egg-info/PKG-INFO
+[2.387s] writing dependency_links to moveit.egg-info/dependency_links.txt
+[2.387s] writing top-level names to moveit.egg-info/top_level.txt
+[2.388s] writing manifest file 'moveit.egg-info/SOURCES.txt'
+[2.390s] reading manifest file 'moveit.egg-info/SOURCES.txt'
+[2.390s] writing manifest file 'moveit.egg-info/SOURCES.txt'
+[2.427s] [ 23%] Built target ament_cmake_python_build_moveit_egg
+[3.034s] [ 24%] Linking CXX static library libgtest_main.a
+[3.124s] [ 24%] Built target gtest_main
+[3.296s] [ 25%] Linking CXX static library libgmock_main.a
+[3.385s] [ 25%] Built target gmock_main
+[7.779s] [ 27%] Linking CXX static library libgtest.a
+[7.860s] [ 27%] Built target gtest
+[9.042s] [ 28%] Linking CXX static library libgmock.a
+[9.127s] [ 28%] Built target gmock
+[13.937s] [ 29%] Linking CXX shared library libmoveit_task_constructor_core.so
+[14.117s] [ 29%] Built target moveit_task_constructor_core
+[14.208s] [ 30%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/fixed_state.cpp.o
+[14.209s] [ 31%] Building CXX object test/CMakeFiles/gtest_utils.dir/models.cpp.o
+[14.246s] [ 32%] Building CXX object test/CMakeFiles/gtest_utils.dir/stage_mockups.cpp.o
+[14.246s] [ 34%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/fix_collision_objects.cpp.o
+[14.246s] [ 35%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/current_state.cpp.o
+[14.255s] [ 36%] Building CXX object test/CMakeFiles/gtest_utils.dir/gtest_value_printers.cpp.o
+[14.276s] [ 37%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/generate_random_pose.cpp.o
+[14.280s] [ 38%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/pick.cpp.o
+[14.289s] [ 40%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/generate_pose.cpp.o
+[14.290s] [ 41%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/compute_ik.cpp.o
+[14.295s] [ 42%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/move_relative.cpp.o
+[14.300s] [ 43%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/simple_grasp.cpp.o
+[14.310s] [ 44%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/passthrough.cpp.o
+[14.318s] [ 45%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/fixed_cartesian_poses.cpp.o
+[14.320s] [ 47%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/connect.cpp.o
+[14.320s] [ 48%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/predicate_filter.cpp.o
+[14.322s] [ 49%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/generate_grasp_pose.cpp.o
+[14.331s] [ 50%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/move_to.cpp.o
+[14.336s] [ 51%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/generate_place_pose.cpp.o
+[14.392s] [ 52%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stages.dir/modify_planning_scene.cpp.o
+[21.447s] [ 54%] Linking CXX shared library libgtest_utils.so
+[21.675s] [ 54%] Built target gtest_utils
+[29.028s] [ 55%] Linking CXX shared library libmoveit_task_constructor_core_stages.so
+[29.189s] [ 55%] Built target moveit_task_constructor_core_stages
+[29.292s] [ 56%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-cost-terms.dir/test_cost_terms.cpp.o
+[29.296s] [ 57%] Building CXX object src/stages/CMakeFiles/moveit_task_constructor_core_stage_plugins.dir/plugins.cpp.o
+[29.298s] [ 58%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-fallback.dir/test_fallback.cpp.o
+[29.306s] [ 60%] Building CXX object test/CMakeFiles/pick_pa10.dir/pick_pa10.cpp.o
+[29.310s] [ 61%] Building CXX object python/bindings/CMakeFiles/pymoveit_mtc.dir/src/solvers.cpp.o
+[29.314s] [ 62%] Building CXX object python/bindings/CMakeFiles/pymoveit_mtc.dir/src/stages.cpp.o
+[29.325s] [ 63%] Building CXX object test/CMakeFiles/pick_pr2.dir/pick_pr2.cpp.o
+[29.325s] [ 64%] Building CXX object python/bindings/CMakeFiles/pymoveit_mtc.dir/src/properties.cpp.o
+[29.327s] [ 65%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-serial.dir/test_serial.cpp.o
+[29.327s] [ 67%] Building CXX object python/bindings/CMakeFiles/pymoveit_mtc.dir/src/core.cpp.o
+[29.331s] [ 68%] Building CXX object test/CMakeFiles/pick_ur5.dir/pick_ur5.cpp.o
+[29.334s] [ 69%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-move-relative.dir/test_move_relative.cpp.o
+[29.337s] [ 70%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-pruning.dir/test_pruning.cpp.o
+[29.338s] [ 71%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-container.dir/test_container.cpp.o
+[29.338s] [ 72%] Building CXX object python/bindings/CMakeFiles/pymoveit_mtc.dir/src/module.cpp.o
+[29.344s] [ 74%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-move-to.dir/test_move_to.cpp.o
+[29.362s] [ 75%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-stage.dir/test_stage.cpp.o
+[29.376s] [ 76%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-properties.dir/test_properties.cpp.o
+[29.384s] [ 77%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-cost-queue.dir/test_cost_queue.cpp.o
+[29.391s] [ 78%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-interface-state.dir/test_interface_state.cpp.o
+[29.405s] [ 80%] Building CXX object test/CMakeFiles/moveit_task_constructor_core-test-mockups.dir/test_mockups.cpp.o
+[31.421s] [ 81%] Linking CXX executable moveit_task_constructor_core-test-properties
+[31.624s] [ 82%] Linking CXX shared library libmoveit_task_constructor_core_stage_plugins.so
+[31.675s] [ 82%] Built target moveit_task_constructor_core-test-properties
+[31.763s] [ 82%] Built target moveit_task_constructor_core_stage_plugins
+[32.744s] [ 83%] Linking CXX executable moveit_task_constructor_core-test-cost-queue
+[33.000s] [ 83%] Built target moveit_task_constructor_core-test-cost-queue
+[35.800s] [ 84%] Linking CXX executable moveit_task_constructor_core-test-interface-state
+[35.857s] [ 85%] Linking CXX executable pick_ur5
+[36.160s] [ 85%] Built target moveit_task_constructor_core-test-interface-state
+[36.192s] [ 85%] Built target pick_ur5
+[36.999s] [ 87%] Linking CXX executable pick_pr2
+[37.346s] [ 87%] Built target pick_pr2
+[37.469s] [ 88%] Linking CXX executable moveit_task_constructor_core-test-pruning
+[37.847s] [ 88%] Built target moveit_task_constructor_core-test-pruning
+[37.847s] [ 89%] Linking CXX executable moveit_task_constructor_core-test-container
+[38.227s] [ 89%] Built target moveit_task_constructor_core-test-container
+[38.671s] [ 90%] Linking CXX executable moveit_task_constructor_core-test-serial
+[38.968s] [ 91%] Linking CXX executable moveit_task_constructor_core-test-stage
+[39.006s] [ 91%] Built target moveit_task_constructor_core-test-serial
+[39.289s] [ 91%] Built target moveit_task_constructor_core-test-stage
+[39.896s] [ 92%] Linking CXX executable moveit_task_constructor_core-test-fallback
+[39.967s] [ 94%] Linking CXX executable pick_pa10
+[40.172s] [ 95%] Linking CXX executable moveit_task_constructor_core-test-cost-terms
+[40.226s] [ 95%] Built target moveit_task_constructor_core-test-fallback
+[40.279s] [ 95%] Built target pick_pa10
+[40.453s] [ 95%] Built target moveit_task_constructor_core-test-cost-terms
+[40.540s] [ 96%] Linking CXX executable moveit_task_constructor_core-test-move-to
+[40.587s] [ 97%] Linking CXX executable moveit_task_constructor_core-test-move-relative
+[40.804s] [ 97%] Built target moveit_task_constructor_core-test-move-to
+[40.839s] [ 97%] Built target moveit_task_constructor_core-test-move-relative
+[41.073s] [ 98%] Linking CXX executable moveit_task_constructor_core-test-mockups
+[41.287s] [ 98%] Built target moveit_task_constructor_core-test-mockups
+[43.620s] [100%] Linking CXX shared module pymoveit_mtc.cpython-310-x86_64-linux-gnu.so
+[44.506s] lto-wrapper: warning: using serial compilation of 12 LTRANS jobs
+[50.968s] [100%] Built target pymoveit_mtc
+[50.978s] Invoked command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/moveit_task_constructor_core -- -j32 -l32
+[50.979s] Invoking command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/moveit_task_constructor_core
+[50.985s] -- Install configuration: "Release"
+[50.985s] -- Execute custom install script
+[50.985s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/pythonpath.sh
+[50.993s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/pythonpath.dsv
+[50.999s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit-0.1.3-py3.10.egg-info/PKG-INFO
+[51.005s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit-0.1.3-py3.10.egg-info/SOURCES.txt
+[51.011s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit-0.1.3-py3.10.egg-info/dependency_links.txt
+[51.017s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit-0.1.3-py3.10.egg-info/top_level.txt
+[51.025s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/__init__.py
+[51.033s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/__init__.py
+[51.042s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/core.py
+[51.050s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/stages.py
+[51.058s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/attr.h
+[51.065s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/buffer_info.h
+[51.073s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/cast.h
+[51.080s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/chrono.h
+[51.087s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/common.h
+[51.093s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/complex.h
+[51.101s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/class.h
+[51.109s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/common.h
+[51.116s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/descr.h
+[51.123s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/dynamic_raw_ptr_cast_if_possible.h
+[51.132s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/init.h
+[51.140s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/internals.h
+[51.149s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/smart_holder_poc.h
+[51.155s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/smart_holder_sfinae_hooks_only.h
+[51.163s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/smart_holder_type_casters.h
+[51.169s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/type_caster_base.h
+[51.178s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/type_caster_odr_guard.h
+[51.186s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/detail/typeid.h
+[51.194s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/eigen.h
+[51.199s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/eigen/common.h
+[51.206s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/eigen/matrix.h
+[51.214s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/eigen/tensor.h
+[51.221s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/embed.h
+[51.228s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/eval.h
+[51.237s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/functional.h
+[51.244s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/gil.h
+[51.250s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/gil_safe_call_once.h
+[51.258s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/iostream.h
+[51.266s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/numpy.h
+[51.275s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/operators.h
+[51.282s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/options.h
+[51.287s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/pybind11.h
+[51.294s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/pytypes.h
+[51.300s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/smart_holder.h
+[51.306s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/stl.h
+[51.313s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/stl/filesystem.h
+[51.320s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/stl_bind.h
+[51.329s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/trampoline_self_life_support.h
+[51.334s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/type_caster_pyobject_ptr.h
+[51.342s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/pybind11/typing.h
+[51.348s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11Config.cmake
+[51.354s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11ConfigVersion.cmake
+[51.362s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/FindPythonLibsNew.cmake
+[51.369s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11Common.cmake
+[51.377s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11Tools.cmake
+[51.383s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11NewTools.cmake
+[51.390s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/pkgconfig//pybind11.pc
+[51.398s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/pymoveit_mtc.cpython-310-x86_64-linux-gnu.so
+[51.406s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/python/task_constructor/properties.h
+[51.412s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/container.h
+[51.419s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/cost_queue.h
+[51.428s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/cost_terms.h
+[51.436s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/introspection.h
+[51.445s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/marker_tools.h
+[51.453s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/merge.h
+[51.460s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/moveit_compat.h
+[51.468s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/properties.h
+[51.477s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers.h
+[51.486s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers/cartesian_path.h
+[51.495s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers/joint_interpolation.h
+[51.505s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers/multi_planner.h
+[51.514s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers/pipeline_planner.h
+[51.523s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/solvers/planner_interface.h
+[51.532s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stage.h
+[51.542s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages.h
+[51.550s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/compute_ik.h
+[51.556s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/connect.h
+[51.564s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/current_state.h
+[51.573s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/fix_collision_objects.h
+[51.581s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/fixed_cartesian_poses.h
+[51.587s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/fixed_state.h
+[51.595s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/generate_grasp_pose.h
+[51.602s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/generate_place_pose.h
+[51.610s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/generate_pose.h
+[51.616s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/generate_random_pose.h
+[51.623s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/modify_planning_scene.h
+[51.629s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/move_relative.h
+[51.636s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/move_to.h
+[51.643s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/noop.h
+[51.649s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/passthrough.h
+[51.656s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/pick.h
+[51.664s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/predicate_filter.h
+[51.673s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/stages/simple_grasp.h
+[51.682s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/storage.h
+[51.688s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/task.h
+[51.696s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/trajectory_execution_info.h
+[51.704s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/type_traits.h
+[51.713s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/include/moveit/task_constructor/utils.h
+[51.722s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core//motion_planning_stages_plugin_description.xml
+[51.729s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/library_path.sh
+[51.736s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/library_path.dsv
+[51.745s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/ament_index/resource_index/package_run_dependencies/moveit_task_constructor_core
+[51.754s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/ament_index/resource_index/parent_prefix_path/moveit_task_constructor_core
+[51.761s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/ament_prefix_path.sh
+[51.771s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/ament_prefix_path.dsv
+[51.780s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/path.sh
+[51.789s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/environment/path.dsv
+[51.798s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/local_setup.bash
+[51.804s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/local_setup.sh
+[51.810s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/local_setup.zsh
+[51.818s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/local_setup.dsv
+[51.827s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/package.dsv
+[51.836s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/ament_index/resource_index/packages/moveit_task_constructor_core
+[51.845s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/ament_index/resource_index/moveit_task_constructor_core__pluginlib__plugin/moveit_task_constructor_core
+[51.854s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/ament_cmake_export_targets-extras.cmake
+[51.862s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/ament_cmake_export_dependencies-extras.cmake
+[51.868s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreConfig.cmake
+[51.875s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreConfig-version.cmake
+[51.882s] -- Symlinking: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/package.xml
+[51.892s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core_stages.so
+[51.892s] -- Set runtime path of "/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core_stages.so" to ""
+[51.892s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core_stage_plugins.so
+[51.892s] -- Set runtime path of "/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core_stage_plugins.so" to ""
+[51.892s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core.so
+[51.893s] -- Set runtime path of "/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/lib/libmoveit_task_constructor_core.so" to ""
+[51.912s] Listing '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit'...
+[51.912s] Compiling '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/__init__.py'...
+[51.912s] Listing '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor'...
+[51.913s] Compiling '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/__init__.py'...
+[51.913s] Compiling '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/core.py'...
+[51.913s] Compiling '/home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/local/lib/python3.10/dist-packages/moveit/task_constructor/stages.py'...
+[51.915s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/pybind11Targets.cmake
+[51.915s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreTargetsExport.cmake
+[51.915s] -- Installing: /home/wenhao/uf_custom_ws/install/moveit_task_constructor_core/share/moveit_task_constructor_core/cmake/moveit_task_constructor_coreTargetsExport-release.cmake
+[51.917s] Invoked command in '/home/wenhao/uf_custom_ws/build/moveit_task_constructor_core' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/rviz_marker_tools/lib:/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/moveit_task_constructor_core

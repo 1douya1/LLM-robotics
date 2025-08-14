@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_moveit_config/launch/uf850_moveit_gazebo_with_mtc.launch.py

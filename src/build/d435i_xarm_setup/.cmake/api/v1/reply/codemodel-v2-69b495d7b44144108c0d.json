@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-f6554a3dd1e4ee0833d8.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "d435i_xarm_setup",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "d435i_xarm_setup_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-d435i_xarm_setup_uninstall-7d430670053b7caaaa3c.json",
+					"name" : "d435i_xarm_setup_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "findobj_grasp_moveit_planner::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-findobj_grasp_moveit_planner-957efe0f714ecd0df3c8.json",
+					"name" : "findobj_grasp_moveit_planner",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "findobj_grasp_xarm_api::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-findobj_grasp_xarm_api-7e4089800749d8a4eca9.json",
+					"name" : "findobj_grasp_xarm_api",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "tf_object_to_base::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-tf_object_to_base-a36fe0d5d2c75e80baf3.json",
+					"name" : "tf_object_to_base",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-3ebe5c2d999446a07536.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/wenhao/uf_custom_ws/src/build/d435i_xarm_setup",
+		"source" : "/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_vision/d435i_xarm_setup"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

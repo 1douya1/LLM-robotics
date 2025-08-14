@@ -1,0 +1,117 @@
+[0.020s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_gazebo -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_gazebo
+[0.029s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.100s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.105s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.119s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.119s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.122s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.127s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.133s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.149s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.149s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.209s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.239s] -- Found control_toolbox: 3.6.1 (/opt/ros/humble/share/control_toolbox/cmake)
+[0.328s] -- Found controller_manager: 2.51.0 (/opt/ros/humble/share/controller_manager/cmake)
+[0.345s] -- Found gazebo_ros: 3.9.0 (/opt/ros/humble/share/gazebo_ros/cmake)
+[0.398s] -- Found DART: /usr/include (Required is at least version "6.6") found components: dart 
+[0.416s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found version "3.12.4") 
+[0.417s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.421s] -- Searching for dependencies of ignition-math6
+[0.422s] -- Looking for OGRE...
+[0.426s] -- Found Ogre Ghadamon (1.9.0)
+[0.426s] -- Found OGRE: optimized;/usr/lib/x86_64-linux-gnu/libOgreMain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreMain.so
+[0.432s] -- Looking for OGRE_Paging...
+[0.432s] -- Found OGRE_Paging: optimized;/usr/lib/x86_64-linux-gnu/libOgrePaging.so;debug;/usr/lib/x86_64-linux-gnu/libOgrePaging.so
+[0.432s] -- Looking for OGRE_Terrain...
+[0.432s] -- Found OGRE_Terrain: optimized;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so;debug;/usr/lib/x86_64-linux-gnu/libOgreTerrain.so
+[0.432s] -- Looking for OGRE_Property...
+[0.432s] -- Found OGRE_Property: optimized;/usr/lib/x86_64-linux-gnu/libOgreProperty.so;debug;/usr/lib/x86_64-linux-gnu/libOgreProperty.so
+[0.432s] -- Looking for OGRE_RTShaderSystem...
+[0.432s] -- Found OGRE_RTShaderSystem: optimized;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so;debug;/usr/lib/x86_64-linux-gnu/libOgreRTShaderSystem.so
+[0.432s] -- Looking for OGRE_Volume...
+[0.432s] -- Found OGRE_Volume: optimized;/usr/lib/x86_64-linux-gnu/libOgreVolume.so;debug;/usr/lib/x86_64-linux-gnu/libOgreVolume.so
+[0.432s] -- Looking for OGRE_Overlay...
+[0.432s] -- Found OGRE_Overlay: optimized;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so;debug;/usr/lib/x86_64-linux-gnu/libOgreOverlay.so
+[0.503s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.503s] -- Looking for ignition-transport8 -- found version 8.2.1
+[0.504s] -- Searching for dependencies of ignition-transport8
+[0.516s] -- Found Protobuf: /usr/lib/x86_64-linux-gnu/libprotobuf.so (found suitable version "3.12.4", minimum required is "3") 
+[0.521s] -- Config-file not installed for ZeroMQ -- checking for pkg-config
+[0.530s] -- Checking for module 'libzmq >= 4'
+[0.548s] --   Found libzmq , version 4.3.4
+[0.598s] -- Checking for module 'uuid'
+[0.613s] --   Found uuid, version 2.37.2
+[0.654s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[0.654s] -- Searching for dependencies of ignition-msgs5
+[0.665s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.672s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[0.672s] -- Looking for ignition-common3 -- found version 3.14.0
+[0.672s] -- Searching for dependencies of ignition-common3
+[0.672s] -- Looking for dlfcn.h - found
+[0.672s] -- Looking for libdl - found
+[0.683s] -- Searching for <ignition-common3> component [graphics]
+[0.683s] -- Looking for ignition-common3-graphics -- found version 3.14.0
+[0.683s] -- Searching for dependencies of ignition-common3-graphics
+[0.683s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.684s] -- Looking for ignition-fuel_tools4 -- found version 4.4.0
+[0.684s] -- Searching for dependencies of ignition-fuel_tools4
+[0.718s] -- Checking for module 'jsoncpp'
+[0.734s] --   Found jsoncpp, version 1.9.5
+[0.782s] -- Checking for module 'libzip'
+[0.798s] --   Found libzip, version 1.7.3
+[0.842s] -- Looking for ignition-common3 -- found version 3.14.0
+[0.842s] -- Looking for ignition-math6 -- found version 6.15.1
+[0.842s] -- Looking for ignition-msgs5 -- found version 5.8.1
+[0.843s] -- Gazebo version: 11.10
+[0.844s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.890s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.890s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.891s] -- Configured cppcheck include dirs: /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_gazebo/include
+[0.891s] -- Configured cppcheck exclude dirs and/or files: 
+[0.891s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.891s] -- Configured cpplint exclude dirs and/or files: 
+[0.891s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.891s] -- Added test 'lint_cmake' to check CMake code style
+[0.892s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.892s] -- Added test 'uncrustify' to check C / C++ code style
+[0.892s] -- Configured uncrustify additional arguments: 
+[0.892s] -- Added test 'xmllint' to check XML markup files
+[0.893s] -- Configuring done
+[0.909s] -- Generating done
+[0.912s] -- Build files have been written to: /home/wenhao/uf_custom_ws/build/xarm_gazebo
+[0.918s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_gazebo -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_gazebo
+[0.919s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_gazebo -- -j32 -l32
+[0.960s] [35m[1mConsolidate compiler generated dependencies of target gazebo_mimic_joint_plugin[0m
+[0.982s] [100%] Built target gazebo_mimic_joint_plugin
+[0.991s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_gazebo -- -j32 -l32
+[0.993s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_gazebo
+[0.998s] -- Install configuration: ""
+[0.998s] -- Execute custom install script
+[0.998s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/include/xarm_gazebo/mimic_joint_plugin.h
+[0.998s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/lib/libgazebo_mimic_joint_plugin.so
+[0.998s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//worlds/table.world
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/_dual_robot_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/_robot_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/_robot_beside_table_ignition.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/lite6_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/uf850_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/xarm5_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/xarm6_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/xarm7_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo//launch/xarm7_mirror_beside_table_gazebo.launch.py
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/ament_index/resource_index/package_run_dependencies/xarm_gazebo
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/ament_index/resource_index/parent_prefix_path/xarm_gazebo
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/environment/ament_prefix_path.sh
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/environment/ament_prefix_path.dsv
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/environment/path.sh
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/environment/path.dsv
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/local_setup.bash
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/local_setup.sh
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/local_setup.zsh
+[0.999s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/local_setup.dsv
+[0.999s] -- Symlinking: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/package.dsv
+[1.007s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/ament_index/resource_index/packages/xarm_gazebo
+[1.007s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/cmake/xarm_gazeboConfig.cmake
+[1.007s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/cmake/xarm_gazeboConfig-version.cmake
+[1.007s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_gazebo/share/xarm_gazebo/package.xml
+[1.008s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_gazebo' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/home/wenhao/uf_custom_ws/install/uf_ros_lib:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller:/home/wenhao/uf_custom_ws/install/xarm_api:/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_controller/lib:/home/wenhao/uf_custom_ws/install/xarm_api/lib:/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:/home/wenhao/uf_custom_ws/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_gazebo

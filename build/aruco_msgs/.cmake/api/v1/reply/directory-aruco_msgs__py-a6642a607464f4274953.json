@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "aruco_msgs__py",
+		"source" : "/home/wenhao/uf_custom_ws/build/aruco_msgs/aruco_msgs__py"
+	}
+}

@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/wenhao/uf_custom_ws/build/mtc_tutorial/execute_pour_server" "/home/wenhao/uf_custom_ws/build/mtc_tutorial/libpour_task_builder.a" "TARGETS" "execute_pour_server" "pour_task_builder" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "lib/mtc_tutorial")

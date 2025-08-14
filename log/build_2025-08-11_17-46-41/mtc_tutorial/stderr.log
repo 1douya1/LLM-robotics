@@ -1,0 +1,17 @@
+CMake Error at CMakeLists.txt:15 (find_package):
+  By not providing "Findmtc_interface.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "mtc_interface", but CMake did not find one.
+
+  Could not find a package configuration file provided by "mtc_interface"
+  with any of the following names:
+
+    mtc_interfaceConfig.cmake
+    mtc_interface-config.cmake
+
+  Add the installation prefix of "mtc_interface" to CMAKE_PREFIX_PATH or set
+  "mtc_interface_DIR" to a directory containing one of the above files.  If
+  "mtc_interface" provides a separate development package or SDK, be sure it
+  has been installed.
+
+

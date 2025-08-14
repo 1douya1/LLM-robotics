@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_moveit_config/launch/xarm6_moveit_fake.launch.py

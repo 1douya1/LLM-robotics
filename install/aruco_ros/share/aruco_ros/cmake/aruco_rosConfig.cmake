@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/aruco_ros/ament_cmake_core/aruco_rosConfig.cmake

@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/src/mtc_tutorial/scripts/check_moveit_config.py

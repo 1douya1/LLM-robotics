@@ -1,0 +1,76 @@
+[0.033s] Invoking command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/moveit_task_constructor/rviz_marker_tools -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/src/install/rviz_marker_tools
+[0.464s] -- The C compiler identification is GNU 11.4.0
+[0.640s] -- The CXX compiler identification is GNU 11.4.0
+[0.653s] -- Detecting C compiler ABI info
+[0.796s] -- Detecting C compiler ABI info - done
+[0.804s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.804s] -- Detecting C compile features
+[0.804s] -- Detecting C compile features - done
+[0.807s] -- Detecting CXX compiler ABI info
+[0.948s] -- Detecting CXX compiler ABI info - done
+[0.955s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.955s] -- Detecting CXX compile features
+[0.955s] -- Detecting CXX compile features - done
+[0.959s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[1.096s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.174s] -- Found moveit_common: 2.5.9 (/opt/ros/humble/share/moveit_common/cmake)
+[1.219s] [0mrviz_marker_tools: You did not request a specific build type: Choosing 'Release' for maximum performance[0m
+[1.222s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.229s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.232s] -- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.275s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[1.279s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.285s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.293s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.305s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.329s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[1.361s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.369s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[2.803s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[2.915s] -- Found FastRTPS: /opt/ros/humble/include  
+[3.075s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.114s] -- Looking for pthread.h
+[3.283s] -- Looking for pthread.h - found
+[3.283s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.404s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.405s] -- Found Threads: TRUE  
+[3.440s] -- Found tf2_eigen: 0.25.15 (/opt/ros/humble/share/tf2_eigen/cmake)
+[3.577s] -- Found visualization_msgs: 4.9.0 (/opt/ros/humble/share/visualization_msgs/cmake)
+[3.625s] -- Configuring done
+[3.636s] -- Generating done
+[3.641s] -- Build files have been written to: /home/wenhao/uf_custom_ws/src/build/rviz_marker_tools
+[3.651s] Invoked command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake /home/wenhao/uf_custom_ws/src/moveit_task_constructor/rviz_marker_tools -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/src/install/rviz_marker_tools
+[3.652s] Invoking command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/src/build/rviz_marker_tools -- -j32 -l32
+[3.727s] [ 50%] [32mBuilding CXX object CMakeFiles/rviz_marker_tools.dir/src/marker_creation.cpp.o[0m
+[10.074s] [100%] [32m[1mLinking CXX shared library librviz_marker_tools.so[0m
+[14.371s] [100%] Built target rviz_marker_tools
+[14.821s] Invoked command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --build /home/wenhao/uf_custom_ws/src/build/rviz_marker_tools -- -j32 -l32
+[14.821s] Invoking command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/src/build/rviz_marker_tools
+[15.166s] -- Install configuration: "Release"
+[15.166s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/include
+[15.166s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/include/rviz_marker_tools
+[15.166s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/include/rviz_marker_tools/marker_creation.h
+[15.166s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/lib/librviz_marker_tools.so
+[15.166s] -- Set runtime path of "/home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/lib/librviz_marker_tools.so" to ""
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/library_path.sh
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/library_path.dsv
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/ament_index/resource_index/package_run_dependencies/rviz_marker_tools
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/ament_index/resource_index/parent_prefix_path/rviz_marker_tools
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/ament_prefix_path.sh
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/ament_prefix_path.dsv
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/path.sh
+[15.167s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/environment/path.dsv
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.bash
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.sh
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.zsh
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/local_setup.dsv
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/package.dsv
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/ament_index/resource_index/packages/rviz_marker_tools
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsTargetsExport-release.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/ament_cmake_export_targets-extras.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/ament_cmake_export_dependencies-extras.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/cmake/rviz_marker_toolsConfig-version.cmake
+[15.168s] -- Installing: /home/wenhao/uf_custom_ws/src/install/rviz_marker_tools/share/rviz_marker_tools/package.xml
+[15.171s] Invoked command in '/home/wenhao/uf_custom_ws/src/build/rviz_marker_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/wenhao/uf_custom_ws/install/uf_ros_lib:/opt/ros/humble /usr/bin/cmake --install /home/wenhao/uf_custom_ws/src/build/rviz_marker_tools

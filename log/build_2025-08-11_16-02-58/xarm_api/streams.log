@@ -1,0 +1,89 @@
+[0.013s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_api': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_api -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_api
+[0.021s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.088s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.091s] -- Found ament_lint_auto: 0.12.12 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.126s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.140s] -- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.141s] -- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.144s] -- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.148s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.154s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.169s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.170s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.226s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.250s] -- Found rclcpp_action: 16.0.12 (/opt/ros/humble/share/rclcpp_action/cmake)
+[0.264s] -- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)
+[0.277s] -- Found control_msgs: 4.8.0 (/opt/ros/humble/share/control_msgs/cmake)
+[0.297s] -- Found xarm_msgs: 0.0.0 (/home/wenhao/uf_custom_ws/install/xarm_msgs/share/xarm_msgs/cmake)
+[0.303s] -- Found xarm_sdk: 0.0.0 (/home/wenhao/uf_custom_ws/install/xarm_sdk/share/xarm_sdk/cmake)
+[0.313s] -- Added test 'copyright' to check source files copyright and LICENSE
+[0.314s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[0.314s] -- Configured cppcheck include dirs: /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_api/include
+[0.314s] -- Configured cppcheck exclude dirs and/or files: 
+[0.315s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[0.315s] -- Configured cpplint exclude dirs and/or files: 
+[0.315s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.315s] -- Added test 'lint_cmake' to check CMake code style
+[0.315s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.316s] -- Added test 'uncrustify' to check C / C++ code style
+[0.316s] -- Configured uncrustify additional arguments: 
+[0.316s] -- Added test 'xmllint' to check XML markup files
+[0.317s] -- Configuring done
+[0.332s] -- Generating done
+[0.338s] -- Build files have been written to: /home/wenhao/uf_custom_ws/build/xarm_api
+[0.343s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_api' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake /home/wenhao/uf_custom_ws/src/xarm_ros2/xarm_api -DCMAKE_INSTALL_PREFIX=/home/wenhao/uf_custom_ws/install/xarm_api
+[0.343s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_api': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_api -- -j32 -l32
+[0.384s] [35m[1mConsolidate compiler generated dependencies of target xarm_ros_driver[0m
+[0.384s] [35m[1mConsolidate compiler generated dependencies of target xarm_ros_client[0m
+[0.386s] [35m[1mConsolidate compiler generated dependencies of target test_robot_states[0m
+[0.402s] [ 15%] Built target xarm_ros_client
+[0.403s] [ 38%] Built target xarm_ros_driver
+[0.404s] [ 53%] Built target test_robot_states
+[0.415s] [35m[1mConsolidate compiler generated dependencies of target test_xarm_ros_client[0m
+[0.416s] [35m[1mConsolidate compiler generated dependencies of target test_xarm_velo_move[0m
+[0.416s] [35m[1mConsolidate compiler generated dependencies of target xarm_driver_node[0m
+[0.432s] [ 69%] Built target test_xarm_ros_client
+[0.433s] [ 84%] Built target test_xarm_velo_move
+[0.434s] [100%] Built target xarm_driver_node
+[0.442s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_api' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --build /home/wenhao/uf_custom_ws/build/xarm_api -- -j32 -l32
+[0.443s] Invoking command in '/home/wenhao/uf_custom_ws/build/xarm_api': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_api
+[0.448s] -- Install configuration: ""
+[0.448s] -- Execute custom install script
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/library_path.sh
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/library_path.dsv
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/include/xarm_api/visibility_control.h
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/include/xarm_api/xarm_driver.h
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/include/xarm_api/xarm_msgs.h
+[0.448s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/include/xarm_api/xarm_ros_client.h
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/libxarm_ros_driver.so
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/libxarm_ros_client.so
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/xarm_api/xarm_driver_node
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/xarm_api/test_xarm_ros_client
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/xarm_api/test_xarm_velo_move
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/lib/xarm_api/test_robot_states
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/_robot_driver.launch.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/lib/robot_api_lib.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/lite6_driver.launch.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/uf850_driver.launch.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/xarm5_driver.launch.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/xarm6_driver.launch.py
+[0.449s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//launch/xarm7_driver.launch.py
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api//config/xarm_params.yaml
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/ament_index/resource_index/package_run_dependencies/xarm_api
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/ament_index/resource_index/parent_prefix_path/xarm_api
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/ament_prefix_path.sh
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/ament_prefix_path.dsv
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/path.sh
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/environment/path.dsv
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/local_setup.bash
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/local_setup.sh
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/local_setup.zsh
+[0.450s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/local_setup.dsv
+[0.450s] -- Symlinking: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/package.dsv
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/ament_index/resource_index/packages/xarm_api
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/cmake/ament_cmake_export_libraries-extras.cmake
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/cmake/ament_cmake_export_include_directories-extras.cmake
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/cmake/xarm_apiConfig.cmake
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/cmake/xarm_apiConfig-version.cmake
+[0.457s] -- Up-to-date symlink: /home/wenhao/uf_custom_ws/install/xarm_api/share/xarm_api/package.xml
+[0.458s] Invoked command in '/home/wenhao/uf_custom_ws/build/xarm_api' returned '0': AMENT_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk:/home/wenhao/uf_custom_ws/install/xarm_msgs:/home/wenhao/uf_custom_ws/install/xarm_description:/opt/ros/humble LD_LIBRARY_PATH=/home/wenhao/uf_custom_ws/install/xarm_sdk/lib:/home/wenhao/uf_custom_ws/install/xarm_msgs/lib:/usr/lib/x86_64-linux-gnu/gazebo-11/plugins:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/tmp/.mount_Cursor60Ql0k/usr/lib/:/tmp/.mount_Cursor60Ql0k/usr/lib32/:/tmp/.mount_Cursor60Ql0k/usr/lib64/:/tmp/.mount_Cursor60Ql0k/lib/:/tmp/.mount_Cursor60Ql0k/lib/i386-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/x86_64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib/aarch64-linux-gnu/:/tmp/.mount_Cursor60Ql0k/lib32/:/tmp/.mount_Cursor60Ql0k/lib64/ PYTHONPATH=/home/wenhao/uf_custom_ws/install/xarm_msgs/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/cmake --install /home/wenhao/uf_custom_ws/build/xarm_api

@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/xarm_msgs/ament_cmake_environment_hooks/local_setup.sh

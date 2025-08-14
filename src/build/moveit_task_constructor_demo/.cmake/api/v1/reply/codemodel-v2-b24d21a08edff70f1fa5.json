@@ -1,0 +1,160 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-35fb9739994fa7599cf7.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "moveit_task_constructor_demo",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ik_clearance_cost_parameters::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ik_clearance_cost_parameters-Release-c5096015c7c52d439d41.json",
+					"name" : "ik_clearance_cost_parameters",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_alternative_path_costs::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_alternative_path_costs-Release-140acb2df171018967a8.json",
+					"name" : "moveit_task_constructor_demo_alternative_path_costs",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_cartesian::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_cartesian-Release-88bd6fcd0d6d4ee6c0ee.json",
+					"name" : "moveit_task_constructor_demo_cartesian",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_fallbacks_move_to::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_fallbacks_move_to-Release-d962a072d0d89e8abdba.json",
+					"name" : "moveit_task_constructor_demo_fallbacks_move_to",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_ik_clearance_cost::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_ik_clearance_cost-Release-9ac737373da18e27e2c1.json",
+					"name" : "moveit_task_constructor_demo_ik_clearance_cost",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_modular::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_modular-Release-4a1a2eeb274f5427294c.json",
+					"name" : "moveit_task_constructor_demo_modular",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_pick_place_demo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_pick_place_demo-Release-fd2f0036fe08ff4a3a92.json",
+					"name" : "moveit_task_constructor_demo_pick_place_demo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_pick_place_task::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_pick_place_task-Release-0f0d823c6b5c42ffa82a.json",
+					"name" : "moveit_task_constructor_demo_pick_place_task",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_uf850_pick_place::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_uf850_pick_place-Release-93c07db6a64dd920a491.json",
+					"name" : "moveit_task_constructor_demo_uf850_pick_place",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "moveit_task_constructor_demo_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-moveit_task_constructor_demo_uninstall-Release-275f94c54cef605651b3.json",
+					"name" : "moveit_task_constructor_demo_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "pick_place_demo_parameters::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-pick_place_demo_parameters-Release-a3bcc733858bb025914b.json",
+					"name" : "pick_place_demo_parameters",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-a4a08ec8433861aba8bd.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/wenhao/uf_custom_ws/src/build/moveit_task_constructor_demo",
+		"source" : "/home/wenhao/uf_custom_ws/src/moveit_task_constructor/demo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

@@ -1,0 +1,62 @@
+[0.838s] Invoking command in '/home/wenhao/uf_custom_ws/src/xarm_ros2/uf_ros_lib': PYTHONPATH=/home/wenhao/uf_custom_ws/src/build/uf_ros_lib/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/uf_ros_lib build --build-base /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build install --record /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/install.log --single-version-externally-managed install_data
+[0.967s] running egg_info
+[0.967s] creating ../../build/uf_ros_lib/uf_ros_lib.egg-info
+[0.967s] writing ../../build/uf_ros_lib/uf_ros_lib.egg-info/PKG-INFO
+[0.967s] writing dependency_links to ../../build/uf_ros_lib/uf_ros_lib.egg-info/dependency_links.txt
+[0.967s] writing entry points to ../../build/uf_ros_lib/uf_ros_lib.egg-info/entry_points.txt
+[0.968s] writing requirements to ../../build/uf_ros_lib/uf_ros_lib.egg-info/requires.txt
+[0.968s] writing top-level names to ../../build/uf_ros_lib/uf_ros_lib.egg-info/top_level.txt
+[0.968s] writing manifest file '../../build/uf_ros_lib/uf_ros_lib.egg-info/SOURCES.txt'
+[0.969s] reading manifest file '../../build/uf_ros_lib/uf_ros_lib.egg-info/SOURCES.txt'
+[0.969s] writing manifest file '../../build/uf_ros_lib/uf_ros_lib.egg-info/SOURCES.txt'
+[0.969s] running build
+[0.969s] running build_py
+[0.969s] creating /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build
+[0.969s] creating /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib
+[0.969s] creating /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib
+[0.969s] copying uf_ros_lib/__init__.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib
+[0.969s] copying uf_ros_lib/moveit_configs_builder.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib
+[0.970s] copying uf_ros_lib/parameter_descriptions.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib
+[0.970s] copying uf_ros_lib/uf_robot_utils.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib
+[0.970s] creating /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/controllers.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/__init__.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/common.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/planning_pipelines.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/kinematics.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] copying uf_ros_lib/substitutions/joint_limits.py -> /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions
+[0.970s] running install
+[0.970s] running install_lib
+[0.970s] creating /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib
+[0.970s] creating /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.970s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/controllers.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/__init__.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/common.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/planning_pipelines.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/kinematics.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/substitutions/joint_limits.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/__init__.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/moveit_configs_builder.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/parameter_descriptions.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib
+[0.971s] copying /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build/lib/uf_ros_lib/uf_robot_utils.py -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib
+[0.971s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/controllers.py to controllers.cpython-310.pyc
+[0.972s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/__init__.py to __init__.cpython-310.pyc
+[0.972s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/common.py to common.cpython-310.pyc
+[0.973s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/planning_pipelines.py to planning_pipelines.cpython-310.pyc
+[0.974s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/kinematics.py to kinematics.cpython-310.pyc
+[0.974s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/substitutions/joint_limits.py to joint_limits.cpython-310.pyc
+[0.975s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/__init__.py to __init__.cpython-310.pyc
+[0.975s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/moveit_configs_builder.py to moveit_configs_builder.cpython-310.pyc
+[0.981s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/parameter_descriptions.py to parameter_descriptions.cpython-310.pyc
+[0.981s] byte-compiling /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib/uf_robot_utils.py to uf_robot_utils.cpython-310.pyc
+[0.982s] running install_data
+[0.982s] creating /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/share/ament_index
+[0.982s] creating /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/share/ament_index/resource_index
+[0.983s] creating /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/share/ament_index/resource_index/packages
+[0.983s] copying resource/uf_ros_lib -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/share/ament_index/resource_index/packages
+[0.983s] copying package.xml -> /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/share/uf_ros_lib
+[0.983s] running install_egg_info
+[0.983s] Copying ../../build/uf_ros_lib/uf_ros_lib.egg-info to /home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages/uf_ros_lib-0.0.0-py3.10.egg-info
+[0.984s] running install_scripts
+[0.997s] writing list of installed files to '/home/wenhao/uf_custom_ws/src/build/uf_ros_lib/install.log'
+[1.011s] Invoked command in '/home/wenhao/uf_custom_ws/src/xarm_ros2/uf_ros_lib' returned '0': PYTHONPATH=/home/wenhao/uf_custom_ws/src/build/uf_ros_lib/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/wenhao/uf_custom_ws/src/install/uf_ros_lib/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/uf_ros_lib build --build-base /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/build install --record /home/wenhao/uf_custom_ws/src/build/uf_ros_lib/install.log --single-version-externally-managed install_data

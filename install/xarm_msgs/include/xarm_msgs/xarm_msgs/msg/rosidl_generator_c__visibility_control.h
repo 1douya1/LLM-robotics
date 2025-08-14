@@ -1,0 +1,1 @@
+/home/wenhao/uf_custom_ws/build/xarm_msgs/rosidl_generator_c/xarm_msgs/msg/rosidl_generator_c__visibility_control.h
