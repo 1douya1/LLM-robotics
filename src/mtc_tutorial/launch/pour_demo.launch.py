@@ -15,7 +15,7 @@ def generate_launch_description():
             os.path.join(
                 get_package_share_directory('xarm_moveit_config'),
                 'launch',
-                'uf850_moveit_fake.launch.py',
+                'uf850_moveit_realmove.launch.py',
             )
         ),
         launch_arguments={

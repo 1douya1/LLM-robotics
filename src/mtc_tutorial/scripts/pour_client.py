@@ -67,7 +67,7 @@ def main(argv=None):
             lift_height=0.12,
             approach_min=0.05,
             approach_max=0.12,
-            plan_only=False,
+            plan_only=True,
         )
     finally:
         node.destroy_node()

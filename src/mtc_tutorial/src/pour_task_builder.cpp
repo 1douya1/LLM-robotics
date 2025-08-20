@@ -48,6 +48,8 @@ void configure_moveit_params(const rclcpp::Node::SharedPtr& node) {
     declare_if(j + ".has_velocity_limits", rclcpp::ParameterValue(true));
     declare_if(j + ".max_velocity", rclcpp::ParameterValue(1.0));
   }
+  // 夹爪闭合比例（0.0~1.0），默认 0.30
+  declare_if("gripper.close_ratio", rclcpp::ParameterValue(0.30));
 
   // 如果已存在非空 robot_description / SRDF，则不强制覆盖
   std::string urdf_existing, srdf_existing;
@@ -137,6 +139,10 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
   task.stages()->setName("uf850 execute pour task");
   task.loadRobotModel(node);
 
+  // 读取夹爪闭合比例参数
+  double gripper_close_ratio = 0.30;
+  node->get_parameter_or<double>("gripper.close_ratio", gripper_close_ratio, 0.30);
+
   // 简化场景
   moveit::planning_interface::PlanningSceneInterface psi;
   std::vector<moveit_msgs::msg::CollisionObject> objs;
@@ -154,22 +160,26 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     object.primitives[0].dimensions = {0.1, 0.02};
     geometry_msgs::msg::Pose pose; pose.orientation.w = 1.0; pose.position.y = -0.40; pose.position.z = 0.13; object.pose = pose;
 
-    // 如果上游注入了 cup_pose.* 参数，则覆盖默认位置
-    double cx, cy, cz, qx, qy, qz, qw;
-    if (node->has_parameter("cup_pose.x") &&
-        node->get_parameter("cup_pose.x", cx) &&
-        node->get_parameter("cup_pose.y", cy) &&
-        node->get_parameter("cup_pose.z", cz)) {
-      // 姿态可选
-      if (node->get_parameter("cup_pose.qx", qx) &&
-          node->get_parameter("cup_pose.qy", qy) &&
-          node->get_parameter("cup_pose.qz", qz) &&
-          node->get_parameter("cup_pose.qw", qw)) {
-        pose.orientation.x = qx; pose.orientation.y = qy; pose.orientation.z = qz; pose.orientation.w = qw;
+    // 如果上游注入了 cup_pose.* 参数且 valid=true，则覆盖默认位置
+    bool valid = false;
+    (void)node->get_parameter("cup_pose.valid", valid);
+    if (valid) {
+      double cx, cy, cz, qx, qy, qz, qw;
+      if (node->get_parameter("cup_pose.x", cx) &&
+          node->get_parameter("cup_pose.y", cy) &&
+          node->get_parameter("cup_pose.z", cz)) {
+        if (node->get_parameter("cup_pose.qx", qx) &&
+            node->get_parameter("cup_pose.qy", qy) &&
+            node->get_parameter("cup_pose.qz", qz) &&
+            node->get_parameter("cup_pose.qw", qw)) {
+          pose.orientation.x = qx; pose.orientation.y = qy; pose.orientation.z = qz; pose.orientation.w = qw;
+        }
+        pose.position.x = cx; pose.position.y = cy; pose.position.z = cz;
+        object.pose = pose;
+        RCLCPP_INFO(node->get_logger(), "Using cup_pose from parameters (valid): (%.3f, %.3f, %.3f)", cx, cy, cz);
       }
-      pose.position.x = cx; pose.position.y = cy; pose.position.z = cz;
-      object.pose = pose;
-      RCLCPP_INFO(node->get_logger(), "Using cup_pose from parameters: (%.3f, %.3f, %.3f)", cx, cy, cz);
+    } else {
+      RCLCPP_INFO(node->get_logger(), "Using built-in default cup pose: (%.3f, %.3f, %.3f)", pose.position.x, pose.position.y, pose.position.z);
     }
 
     object.operation = moveit_msgs::msg::CollisionObject::ADD; objs.push_back(object);
@@ -196,6 +206,13 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
   cartesian_planner->setStepSize(0.008);
   cartesian_planner->setJumpThreshold(0.0);
 
+  // 更慢的笛卡尔规划器用于靠近倒水位置
+  auto slow_cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
+  slow_cartesian_planner->setMaxVelocityScalingFactor(0.15);
+  slow_cartesian_planner->setMaxAccelerationScalingFactor(0.3);
+  slow_cartesian_planner->setStepSize(0.008);
+  slow_cartesian_planner->setJumpThreshold(0.0);
+
   auto slow_interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
   const double joint6_max_rad_s = 2.0;
   double scaling_from_deg = (p.tilt_speed_deg_s * M_PI / 180.0) / joint6_max_rad_s;
@@ -204,6 +221,7 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
 
   // 开始
   mtc::Stage* current_state_ptr = nullptr;
+  mtc::Stage* attach_object_stage_ptr = nullptr;
   {
     auto stage_state_current = std::make_unique<mtc::stages::CurrentState>("current");
     current_state_ptr = stage_state_current.get();
@@ -292,7 +310,7 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     {
       auto stage = std::make_unique<mtc::stages::MoveTo>("close hand", std::make_shared<mtc::solvers::JointInterpolationPlanner>());
       stage->setGroup(hand_group_name);
-      std::map<std::string,double> close; close["drive_joint"] = 0.85;
+      std::map<std::string,double> close; close["drive_joint"] = gripper_close_ratio;
       stage->setGoal(close);
       grasp->insert(std::move(stage));
     }
@@ -300,6 +318,7 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     {
       auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("attach object");
       stage->attachObject("object", hand_frame);
+      attach_object_stage_ptr = stage.get();
       grasp->insert(std::move(stage));
     }
 
@@ -322,6 +341,18 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     auto pour = std::make_unique<mtc::SerialContainer>("pour water");
     task.properties().exposeTo(pour->properties(), { "eef", "group", "ik_frame" });
     pour->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group", "ik_frame" });
+
+    // 先移动到倒水位置（沿 base 坐标系 -Y 方向平移）
+    {
+      auto stage = std::make_unique<mtc::stages::MoveRelative>("move to pour position", slow_cartesian_planner);
+      stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
+      stage->setMinMaxDistance(0.08, 0.15);
+      stage->setIKFrame(hand_frame);
+      stage->properties().set("marker_ns", "move_to_pour");
+      geometry_msgs::msg::Vector3Stamped vec; vec.header.frame_id = "link_base"; vec.vector.y = -1.0;
+      stage->setDirection(vec);
+      pour->insert(std::move(stage));
+    }
 
     {
       auto s = std::make_unique<mtc::stages::MoveTo>("tilt start", slow_interpolation_planner);
@@ -354,6 +385,110 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     }
 
     task.add(std::move(pour));
+  }
+
+  // 连接到放置位置
+  {
+    auto stage = std::make_unique<mtc::stages::Connect>(
+      "move to place",
+      mtc::stages::Connect::GroupPlannerVector{ { arm_group_name, pipeline_planner } });
+    stage->setTimeout(15.0);
+    stage->properties().configureInitFrom(mtc::Stage::PARENT);
+    task.add(std::move(stage));
+  }
+
+  // 放置容器
+  {
+    auto place = std::make_unique<mtc::SerialContainer>("place object");
+    task.properties().exposeTo(place->properties(), { "eef", "group", "ik_frame" });
+    place->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group", "ik_frame" });
+
+    // 生成放置姿态
+    {
+      auto gen = std::make_unique<mtc::stages::GeneratePlacePose>("generate place pose");
+      gen->properties().configureInitFrom(mtc::Stage::PARENT);
+      gen->properties().set("marker_ns", "place_pose");
+      gen->setObject("object");
+
+      geometry_msgs::msg::PoseStamped target_pose_msg;
+      target_pose_msg.header.frame_id = "link_base";
+      target_pose_msg.pose.position.x = 0.0;
+      target_pose_msg.pose.position.y = -0.45;
+      target_pose_msg.pose.position.z = 0.18;
+      target_pose_msg.pose.orientation.w = 1.0;
+      gen->setPose(target_pose_msg);
+      if (attach_object_stage_ptr) gen->setMonitoredStage(attach_object_stage_ptr);
+
+      auto wrapper = std::make_unique<mtc::stages::ComputeIK>("place pose IK", std::move(gen));
+      wrapper->setMaxIKSolutions(3);
+      wrapper->setMinSolutionDistance(0.5);
+      Eigen::Isometry3d place_frame_transform; place_frame_transform.setIdentity();
+      wrapper->setIKFrame(place_frame_transform, "object");
+      wrapper->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group" });
+      wrapper->properties().configureInitFrom(mtc::Stage::INTERFACE, { "target_pose" });
+      wrapper->setTimeout(5.0);
+      place->insert(std::move(wrapper));
+    }
+
+    // 降低物体到放置位置
+    {
+      auto stage = std::make_unique<mtc::stages::MoveRelative>("lower object", cartesian_planner);
+      stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
+      stage->setMinMaxDistance(0.03, 0.2);
+      stage->setIKFrame(hand_frame);
+      stage->properties().set("marker_ns", "lower_object");
+      geometry_msgs::msg::Vector3Stamped vec; vec.header.frame_id = "link_base"; vec.vector.z = -1.0;
+      stage->setDirection(vec);
+      place->insert(std::move(stage));
+    }
+
+    // 打开夹爪
+    {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("release object", std::make_shared<mtc::solvers::JointInterpolationPlanner>());
+      stage->setGroup(hand_group_name);
+      stage->setGoal("open");
+      place->insert(std::move(stage));
+    }
+
+    // 禁止手和物体之间的碰撞
+    {
+      auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("forbid collision (hand,object)");
+      stage->allowCollisions("object",
+        task.getRobotModel()->getJointModelGroup(hand_group_name)->getLinkModelNamesWithCollisionGeometry(),
+        false);
+      place->insert(std::move(stage));
+    }
+
+    // 分离物体
+    {
+      auto stage = std::make_unique<mtc::stages::ModifyPlanningScene>("detach object");
+      stage->detachObject("object", hand_frame);
+      place->insert(std::move(stage));
+    }
+
+    // 后退
+    {
+      auto stage = std::make_unique<mtc::stages::MoveRelative>("retreat", cartesian_planner);
+      stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
+      stage->setMinMaxDistance(0.05, 0.1);
+      stage->setIKFrame(hand_frame);
+      stage->properties().set("marker_ns", "retreat");
+      geometry_msgs::msg::Vector3Stamped vec; vec.header.frame_id = hand_frame; vec.vector.z = -1.0;
+      stage->setDirection(vec);
+      place->insert(std::move(stage));
+    }
+
+    task.add(std::move(place));
+  }
+
+  // 返回初始位置
+  {
+    auto stage = std::make_unique<mtc::stages::MoveTo>("return home", pipeline_planner);
+    stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
+    stage->setGroup(arm_group_name);
+    stage->setGoal("home");
+    stage->setTimeout(15.0);
+    task.add(std::move(stage));
   }
 
   return task;

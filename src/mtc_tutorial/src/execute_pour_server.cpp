@@ -43,12 +43,15 @@ public:
 
     // 声明 cup_pose.* 参数，避免 set_parameter 抛出未声明异常
     this->declare_parameter<double>("cup_pose.x", 0.0);
-    this->declare_parameter<double>("cup_pose.y", 0.0);
-    this->declare_parameter<double>("cup_pose.z", 0.0);
+    this->declare_parameter<double>("cup_pose.y", -0.55);
+    this->declare_parameter<double>("cup_pose.z", 0.025);
     this->declare_parameter<double>("cup_pose.qx", 0.0);
     this->declare_parameter<double>("cup_pose.qy", 0.0);
     this->declare_parameter<double>("cup_pose.qz", 0.0);
     this->declare_parameter<double>("cup_pose.qw", 1.0);
+    this->declare_parameter<bool>("cup_pose.valid", false);
+    // 夹爪闭合比例
+    this->declare_parameter<double>("gripper.close_ratio", 0.30);
 
     RCLCPP_INFO(get_logger(), "Action server [/execute_pour] ready; subscribing cup pose on [%s]", cup_pose_topic.c_str());
   }
@@ -106,9 +109,11 @@ private:
         this->set_parameter(rclcpp::Parameter("cup_pose.qy", ps.pose.orientation.y));
         this->set_parameter(rclcpp::Parameter("cup_pose.qz", ps.pose.orientation.z));
         this->set_parameter(rclcpp::Parameter("cup_pose.qw", ps.pose.orientation.w));
+        this->set_parameter(rclcpp::Parameter("cup_pose.valid", true));
         RCLCPP_INFO(this->get_logger(), "cup_pose injected: (%.3f, %.3f, %.3f)",
                     ps.pose.position.x, ps.pose.position.y, ps.pose.position.z);
       } else {
+        this->set_parameter(rclcpp::Parameter("cup_pose.valid", false));
         RCLCPP_WARN(this->get_logger(), "No cup_pose received within timeout; using defaults in pour_task_builder");
       }
 
