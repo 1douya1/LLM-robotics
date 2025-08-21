@@ -25,7 +25,7 @@ def generate_launch_description():
 
     server_node = Node(
         package='mtc_tutorial',
-        executable='execute_pour_server',
+        executable='modular_task_server',#execute_pour_server
         output='screen'
     )
 

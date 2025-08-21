@@ -15,6 +15,7 @@ find_package(rclcpp_action REQUIRED)
 find_package(mtc_interface REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
+find_package(nlohmann_json REQUIRED)
 
 add_executable(mtc_tutorial src/mtc_tutorial.cpp)
 ament_target_dependencies(mtc_tutorial 
@@ -43,8 +44,8 @@ install(DIRECTORY launch
 # Install Python scripts
 install(PROGRAMS
   scripts/check_moveit_config.py
-  scripts/pour_client.py
-  scripts/pour_tool.py
+  scripts/mtc_mcp_server.py
+  scripts/ros_client_tools.py
   DESTINATION lib/${PROJECT_NAME}
 )
   
@@ -73,6 +74,24 @@ ament_target_dependencies(pour_task_builder
   tf2_geometry_msgs
 )
 
+# 新增模块化任务构建库（用于拆分的工具）
+add_library(modular_task_builders
+  src/modular_task_builders.cpp
+)
+target_include_directories(modular_task_builders PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+ament_target_dependencies(modular_task_builders
+  moveit_task_constructor_core
+  moveit_ros_planning_interface
+  moveit_ros_planning
+  rclcpp
+  tf2_eigen
+  tf2_geometry_msgs
+)
+target_link_libraries(modular_task_builders pour_task_builder)
+
 # 服务器可执行体链接到库
 add_executable(execute_pour_server src/execute_pour_server.cpp)
 ament_target_dependencies(execute_pour_server
@@ -92,7 +111,60 @@ target_link_libraries(execute_pour_server pour_task_builder)
 
 target_compile_features(execute_pour_server PUBLIC c_std_99 cxx_std_17)
 
-install(TARGETS execute_pour_server pour_task_builder
+# 模块化任务构建器测试程序
+add_executable(test_modular_tasks src/test_modular_tasks.cpp)
+ament_target_dependencies(test_modular_tasks
+  moveit_task_constructor_core
+  moveit_ros_planning_interface
+  moveit_ros_planning
+  rclcpp
+)
+target_include_directories(test_modular_tasks PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_link_libraries(test_modular_tasks modular_task_builders)
+
+target_compile_features(test_modular_tasks PUBLIC c_std_99 cxx_std_17)
+
+# 模块化任务执行服务器 (使用现有ExecutePour Action接口)
+add_executable(modular_task_server src/modular_task_server.cpp)
+ament_target_dependencies(modular_task_server
+  moveit_task_constructor_core
+  moveit_ros_planning_interface
+  moveit_ros_planning
+  rclcpp
+  rclcpp_action
+  tf2_eigen
+  tf2_geometry_msgs
+  mtc_interface
+)
+target_include_directories(modular_task_server PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+target_link_libraries(modular_task_server modular_task_builders)
+
+target_compile_features(modular_task_server PUBLIC c_std_99 cxx_std_17)
+
+# 通用MTC任务执行服务器 (临时注释，先测试模块化任务构建器)
+# add_executable(execute_task_server src/execute_task_server.cpp)
+# ament_target_dependencies(execute_task_server
+#   moveit_task_constructor_core
+#   moveit_ros_planning_interface
+#   moveit_ros_planning
+#   rclcpp
+#   rclcpp_action
+#   tf2_eigen
+#   tf2_geometry_msgs
+#   mtc_interface
+# )
+# target_include_directories(execute_task_server PUBLIC
+#   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+#   $<INSTALL_INTERFACE:include>)
+# target_link_libraries(execute_task_server modular_task_builders nlohmann_json::nlohmann_json)
+# 
+# target_compile_features(execute_task_server PUBLIC c_std_99 cxx_std_17)
+
+install(TARGETS execute_pour_server test_modular_tasks modular_task_server pour_task_builder modular_task_builders
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION lib/${PROJECT_NAME}

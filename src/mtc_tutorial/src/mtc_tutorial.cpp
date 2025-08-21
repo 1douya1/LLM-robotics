@@ -273,8 +273,8 @@ void MTCTaskNode::setupPlanningScene()
 
   geometry_msgs::msg::Pose pose;
   pose.position.x = 0.0;   // 更近一些，确保可达
-  pose.position.y = -0.4;   // 正左边方
-  pose.position.z = 0.13;  // 放置在桌面上方0.19米（台面z=-0.01 + 0.2）
+  pose.position.y = -0.4;  // Y方向位置
+  pose.position.z = 0.13;  // Z方向位置，台面上方
   pose.orientation.w = 1.0;
   object.pose = pose;
   object.operation = moveit_msgs::msg::CollisionObject::ADD;

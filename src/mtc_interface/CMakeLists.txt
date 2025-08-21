@@ -9,6 +9,7 @@ ament_package_xml()
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/ExecutePour.action"
+  "action/ExecuteTask.action"
 )
 
 ament_export_dependencies(rosidl_default_runtime)
