@@ -11,6 +11,8 @@
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <rclcpp/node.hpp>
 #include <chrono>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 namespace mtc = moveit::task_constructor;
 
@@ -489,6 +491,134 @@ mtc::Task build_pour_task(const rclcpp::Node::SharedPtr& node, const PourTaskPar
     stage->setGoal("home");
     stage->setTimeout(15.0);
     task.add(std::move(stage));
+  }
+
+  return task;
+}
+
+// 新的笛卡尔倾倒任务构建器，支持目标位置控制
+mtc::Task build_cartesian_pour_task(const rclcpp::Node::SharedPtr& node, const CartesianPourTaskParams& p) {
+  configure_moveit_params(node);
+  sync_robot_model_params(node);
+
+  mtc::Task task;
+  task.stages()->setName("uf850 cartesian pour task");
+  task.loadRobotModel(node);
+
+  const std::string arm_group_name = "uf850";
+  const std::string hand_group_name = "uf850_gripper";
+  const std::string hand_frame = "link_tcp";
+
+  task.setProperty("group", arm_group_name);
+  task.setProperty("eef", hand_group_name);
+  task.setProperty("ik_frame", hand_frame);
+
+  // 创建规划器
+  auto pipeline_planner = std::make_shared<mtc::solvers::PipelinePlanner>(node);
+  pipeline_planner->setTimeout(5.0);
+  pipeline_planner->setMaxVelocityScalingFactor(0.3);
+  pipeline_planner->setMaxAccelerationScalingFactor(0.5);
+
+  auto slow_cartesian_planner = std::make_shared<mtc::solvers::CartesianPath>();
+  slow_cartesian_planner->setMaxVelocityScalingFactor(0.2);
+  slow_cartesian_planner->setMaxAccelerationScalingFactor(0.3);
+  slow_cartesian_planner->setStepSize(0.005); // 更小的步长确保平滑运动
+  slow_cartesian_planner->setJumpThreshold(0.0);
+
+  auto slow_interpolation_planner = std::make_shared<mtc::solvers::JointInterpolationPlanner>();
+  slow_interpolation_planner->setMaxVelocityScalingFactor(0.15);
+  slow_interpolation_planner->setMaxAccelerationScalingFactor(0.2);
+
+  // 阶段1：获取当前状态
+  {
+    auto stage = std::make_unique<mtc::stages::CurrentState>("current state");
+    task.add(std::move(stage));
+  }
+
+  // 阶段2：笛卡尔倾倒序列
+  {
+    auto pour = std::make_unique<mtc::SerialContainer>("cartesian pour water");
+    task.properties().exposeTo(pour->properties(), { "eef", "group", "ik_frame" });
+    pour->properties().configureInitFrom(mtc::Stage::PARENT, { "eef", "group", "ik_frame" });
+
+    // 2.1 笛卡尔移动到倾倒位置
+    {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("move to pour position", slow_cartesian_planner);
+      stage->properties().configureInitFrom(mtc::Stage::PARENT, { "group" });
+      stage->setIKFrame(hand_frame);
+      stage->properties().set("marker_ns", "cartesian_move_to_pour");
+      
+      // 设置目标姿态
+      geometry_msgs::msg::PoseStamped target_pose_msg;
+      target_pose_msg.header.frame_id = "link_base";
+      target_pose_msg.pose.position.x = p.target_x;
+      target_pose_msg.pose.position.y = p.target_y;
+      target_pose_msg.pose.position.z = p.target_z;
+      
+      if (p.maintain_orientation) {
+        // 保持当前姿势 - 使用当前方向的占位符
+        // 在运行时，这将从前一阶段获取当前姿势
+        target_pose_msg.pose.orientation.w = 1.0;
+        target_pose_msg.pose.orientation.x = 0.0;
+        target_pose_msg.pose.orientation.y = 0.0;
+        target_pose_msg.pose.orientation.z = 0.0;
+      } else {
+        // 使用指定的姿势
+        // 将Roll-Pitch-Yaw转换为四元数
+        tf2::Quaternion quat;
+        quat.setRPY(p.target_roll, p.target_pitch, p.target_yaw);
+        target_pose_msg.pose.orientation.w = quat.w();
+        target_pose_msg.pose.orientation.x = quat.x();
+        target_pose_msg.pose.orientation.y = quat.y();
+        target_pose_msg.pose.orientation.z = quat.z();
+      }
+      
+      stage->setGoal(target_pose_msg);
+      pour->insert(std::move(stage));
+    }
+
+    // 2.2 倾斜开始
+    {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("tilt start", slow_interpolation_planner);
+      stage->setGroup(arm_group_name);
+      std::map<std::string, double> joint_goal;
+      joint_goal["joint6"] = p.tilt_start_deg * M_PI / 180.0;
+      stage->setGoal(joint_goal);
+      pour->insert(std::move(stage));
+    }
+
+    // 2.3 倾斜到结束角度
+    {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("tilt to end", slow_interpolation_planner);
+      stage->setGroup(arm_group_name);
+      std::map<std::string, double> joint_goal;
+      joint_goal["joint6"] = p.tilt_end_deg * M_PI / 180.0;
+      stage->setGoal(joint_goal);
+      pour->insert(std::move(stage));
+    }
+
+    // 2.4 保持倾倒位置
+    if (p.pour_hold_sec > 0.0) {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("hold pour position", slow_interpolation_planner);
+      stage->setGroup(arm_group_name);
+      std::map<std::string, double> joint_goal;
+      joint_goal["joint6"] = p.tilt_end_deg * M_PI / 180.0;
+      stage->setGoal(joint_goal);
+      stage->setTimeout(p.pour_hold_sec);
+      pour->insert(std::move(stage));
+    }
+
+    // 2.5 从倾倒位置返回
+    {
+      auto stage = std::make_unique<mtc::stages::MoveTo>("return from pour", slow_interpolation_planner);
+      stage->setGroup(arm_group_name);
+      std::map<std::string, double> joint_goal;
+      joint_goal["joint6"] = p.tilt_start_deg * M_PI / 180.0;
+      stage->setGoal(joint_goal);
+      pour->insert(std::move(stage));
+    }
+
+    task.add(std::move(pour));
   }
 
   return task;

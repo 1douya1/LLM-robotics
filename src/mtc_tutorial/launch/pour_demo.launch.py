@@ -15,7 +15,9 @@ def generate_launch_description():
             os.path.join(
                 get_package_share_directory('xarm_moveit_config'),
                 'launch',
+                #if you want to use the real moveit, please uncomme nt this line
                 'uf850_moveit_realmove.launch.py',
+                # 'uf850_moveit_fake.launch.py',
             )
         ),
         launch_arguments={
@@ -25,9 +27,15 @@ def generate_launch_description():
 
     server_node = Node(
         package='mtc_tutorial',
-        executable='modular_task_server',#execute_pour_server
+        executable='modular_task_server',
         output='screen'
     )
+
+#     server_node_2 = Node(
+#     package='mtc_tutorial',
+#     executable='execute_pour_server',  
+#     output='screen'
+# )
 
     return LaunchDescription([
         DeclareLaunchArgument('add_gripper', default_value='true', description='Attach gripper to uf850'),

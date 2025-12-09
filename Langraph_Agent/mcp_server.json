@@ -1,0 +1,15 @@
+{
+    "mtc_mcp_server": {
+        "transport": "stdio",
+        "command": "/home/wenhao/uf_custom_ws/src/mtc_tutorial/scripts/run_mtc_mcp_fixed.sh",
+        "args": [],
+        "env": {
+            "HOME": "/home/wenhao",
+            "LOGNAME": "wenhao",
+            "PATH": "/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/home/wenhao/.nvm/versions/node/v20.19.4/bin:/home/wenhao/.local/bin:/home/wenhao/.local/bin:/opt/ros/humble/bin:/tmp/.mount_CursorXnwh8U/usr/bin/:/tmp/.mount_CursorXnwh8U/usr/sbin/:/tmp/.mount_CursorXnwh8U/usr/games/:/tmp/.mount_CursorXnwh8U/bin/:/tmp/.mount_CursorXnwh8U/sbin/:/home/wenhao/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/wenhao/.cursor/extensions/ms-python.debugpy-2025.6.0-linux-x64/bundled/scripts/noConfigScripts",
+            "SHELL": "/bin/bash",
+            "TERM": "xterm-256color",
+            "USER": "wenhao"
+        }
+    }
+}

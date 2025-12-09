@@ -37,7 +37,8 @@ private:
         
         // 验证任务类型
         if (goal->task_type != "pick" && goal->task_type != "pour" && 
-            goal->task_type != "place" && goal->task_type != "return") {
+            goal->task_type != "place" && goal->task_type != "return" &&
+            goal->task_type != "cartesian_pour") {
             RCLCPP_ERROR(this->get_logger(), "不支持的任务类型: %s", goal->task_type.c_str());
             return rclcpp_action::GoalResponse::REJECT;
         }
@@ -103,7 +104,7 @@ private:
                 feedback->current_status = "正在生成轨迹...";
                 goal_handle->publish_feedback(feedback);
                 
-                if (!task.plan(4)) {
+                if (!task.plan(2)) {
                     result->success = false;
                     result->error_msg = "任务规划失败";
                     goal_handle->abort(result);
@@ -219,6 +220,24 @@ private:
                 pour_params.plan_only = plan_only;
                 
                 task = mtc_tutorial::build_pour_only_task(node, pour_params);
+                
+            } else if (task_type == "cartesian_pour") {
+                mtc_tutorial::CartesianPourOnlyTaskParams cartesian_pour_params;
+                
+                if (params.contains("target_x")) cartesian_pour_params.target_x = params["target_x"];
+                if (params.contains("target_y")) cartesian_pour_params.target_y = params["target_y"];
+                if (params.contains("target_z")) cartesian_pour_params.target_z = params["target_z"];
+                if (params.contains("tilt_start_deg")) cartesian_pour_params.tilt_start_deg = params["tilt_start_deg"];
+                if (params.contains("tilt_end_deg")) cartesian_pour_params.tilt_end_deg = params["tilt_end_deg"];
+                if (params.contains("tilt_speed_deg_s")) cartesian_pour_params.tilt_speed_deg_s = params["tilt_speed_deg_s"];
+                if (params.contains("pour_hold_sec")) cartesian_pour_params.pour_hold_sec = params["pour_hold_sec"];
+                if (params.contains("maintain_orientation")) cartesian_pour_params.maintain_orientation = params["maintain_orientation"];
+                if (params.contains("target_roll")) cartesian_pour_params.target_roll = params["target_roll"];
+                if (params.contains("target_pitch")) cartesian_pour_params.target_pitch = params["target_pitch"];
+                if (params.contains("target_yaw")) cartesian_pour_params.target_yaw = params["target_yaw"];
+                cartesian_pour_params.plan_only = plan_only;
+                
+                task = mtc_tutorial::build_cartesian_pour_only_task(node, cartesian_pour_params);
                 
             } else if (task_type == "place") {
                 mtc_tutorial::PlaceTaskParams place_params;

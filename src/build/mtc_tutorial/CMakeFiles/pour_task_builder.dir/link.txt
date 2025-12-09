@@ -1,2 +1,0 @@
-/usr/bin/ar qc libpour_task_builder.a CMakeFiles/pour_task_builder.dir/src/pour_task_builder.cpp.o
-/usr/bin/ranlib libpour_task_builder.a

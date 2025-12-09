@@ -129,7 +129,7 @@ private:
         feedback->stage = "planning"; feedback->progress = 0.1f; feedback->current_tilt_deg = p.tilt_start_deg;
         gh->publish_feedback(feedback);
 
-        if (!task.plan(4)) {
+        if (!task.plan(2)) {
           result->success = false;
           result->error_msg = "planning failed";
           gh->abort(result);

@@ -307,7 +307,7 @@ void MTCTaskNode::doTask()
     return;
   }
 
-  if (!task_.plan(4))  // 增加最大解决方案数量
+  if (!task_.plan(2))  // 降低最大解决方案数量
   {
     RCLCPP_ERROR_STREAM(LOGGER, "Task planning failed");
     return;

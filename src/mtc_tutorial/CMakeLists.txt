@@ -46,6 +46,14 @@ install(PROGRAMS
   scripts/check_moveit_config.py
   scripts/mtc_mcp_server.py
   scripts/ros_client_tools.py
+  scripts/charuco_pose_publisher.py
+  scripts/object_single_shot_detection.py
+  scripts/object_marker_publisher.py
+  scripts/detection_to_planning_scene.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+# 安装测试脚本
+install(PROGRAMS
   DESTINATION lib/${PROJECT_NAME}
 )
   
@@ -126,6 +134,22 @@ target_link_libraries(test_modular_tasks modular_task_builders)
 
 target_compile_features(test_modular_tasks PUBLIC c_std_99 cxx_std_17)
 
+# 新增：预倒水构建器测试程序
+add_executable(test_pre_pour src/test_pre_pour.cpp)
+ament_target_dependencies(test_pre_pour
+  moveit_task_constructor_core
+  moveit_ros_planning_interface
+  moveit_ros_planning
+  rclcpp
+)
+target_include_directories(test_pre_pour PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+# 直接链接 modular_task_builders 库
+target_link_libraries(test_pre_pour modular_task_builders)
+
+target_compile_features(test_pre_pour PUBLIC c_std_99 cxx_std_17)
+
 # 模块化任务执行服务器 (使用现有ExecutePour Action接口)
 add_executable(modular_task_server src/modular_task_server.cpp)
 ament_target_dependencies(modular_task_server
@@ -167,5 +191,9 @@ target_compile_features(modular_task_server PUBLIC c_std_99 cxx_std_17)
 install(TARGETS execute_pour_server test_modular_tasks modular_task_server pour_task_builder modular_task_builders
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
+)
+# 安装 test_pre_pour 可执行
+install(TARGETS test_pre_pour
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )

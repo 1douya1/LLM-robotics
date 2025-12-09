@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import sys
-from typing import Any, Dict, Optional
+import os
+from typing import Any, Dict, Optional, List, Union
 from pathlib import Path
 
 # 确保可以导入同目录下的 pour_tool.py
@@ -17,6 +18,66 @@ try:
     from rclpy.parameter_client import AsyncParametersClient  # type: ignore
 except Exception:
     AsyncParametersClient = None  # type: ignore
+
+# =============== 模块级环境初始化 ===============
+def _setup_ros_environment():
+    """一次性设置ROS环境，避免重复计算"""
+    workspace_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
+    install_path = os.path.join(workspace_root, "install")
+    
+    if os.path.exists(install_path):
+        # 设置Python路径
+        python_path = os.path.join(install_path, "mtc_interface", "local", "lib", "python3.10", "dist-packages")
+        if os.path.exists(python_path) and python_path not in sys.path:
+            sys.path.insert(0, python_path)
+        
+        # 设置ROS环境变量
+        if "AMENT_PREFIX_PATH" not in os.environ:
+            os.environ["AMENT_PREFIX_PATH"] = install_path
+        elif install_path not in os.environ["AMENT_PREFIX_PATH"]:
+            os.environ["AMENT_PREFIX_PATH"] = install_path + ":" + os.environ["AMENT_PREFIX_PATH"]
+    
+    return install_path
+
+# 模块加载时执行一次环境设置
+_ROS_INSTALL_PATH = _setup_ros_environment()
+
+# 生成唯一节点名，避免多个同名节点导致rosout重复注册告警
+def _unique_node_name(base: str) -> str:
+    try:
+        import os, time
+        return f"{base}_{os.getpid()}_{int(time.time()*1000)%1000000}"
+    except Exception:
+        return f"{base}_uniq"
+
+# =============== 标准化错误处理 ===============
+def _create_error_result(task_name: str, error_msg: str, params: Dict[str, Any] = None, 
+                        status: str = "error") -> Dict[str, Any]:
+    """创建标准化的错误返回结果"""
+    return {
+        "ok": False,
+        "success": False,
+        "status": status,
+        "error": error_msg,
+        "params": params or {},
+        "task_name": task_name,
+        "duration_sec": 0.0
+    }
+
+def _create_success_result(task_name: str, duration_sec: float = 0.0, 
+                          params: Dict[str, Any] = None, **extra_fields) -> Dict[str, Any]:
+    """创建标准化的成功返回结果"""
+    result = {
+        "ok": True,
+        "success": True,
+        "status": "succeeded",
+        "error": "",
+        "params": params or {},
+        "task_name": task_name,
+        "duration_sec": duration_sec
+    }
+    result.update(extra_fields)
+    return result
 
 
 def _ensure_rclpy_inited() -> bool:
@@ -36,7 +97,7 @@ def _set_params(remote_node_name: str, params: Dict[str, Any], timeout_sec: floa
     # 优先使用 AsyncParametersClient
     if AsyncParametersClient is not None:
         created = _ensure_rclpy_inited()
-        node = rclpy.create_node('mtc_mcp_param_setter')
+        node = rclpy.create_node(_unique_node_name('mtc_mcp_param_setter'))
         try:
             client = AsyncParametersClient(node, remote_node_name)
             if not client.wait_for_service(timeout_sec=timeout_sec):
@@ -64,7 +125,7 @@ def _set_params(remote_node_name: str, params: Dict[str, Any], timeout_sec: floa
     # 回退：直接调用 /set_parameters 服务
     from rcl_interfaces.srv import SetParameters
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('mtc_mcp_param_setter_srv')
+    node = rclpy.create_node(_unique_node_name('mtc_mcp_param_setter_srv'))
     try:
         service_name = f"{remote_node_name}/set_parameters"
         client = node.create_client(SetParameters, service_name)
@@ -137,25 +198,10 @@ def execute_pour(params: Dict[str, Any], action_name: str = 'execute_pour', time
     返回字典包含 ok/status/success/error/duration_sec/params。
     """
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('pour_client')
+    node = rclpy.create_node(_unique_node_name('pour_client'))
     
     try:
-        # 确保环境变量设置正确（用于导入本地构建的包）
-        import os
-        workspace_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-        install_path = os.path.join(workspace_root, "install")
-        if os.path.exists(install_path):
-            # 设置Python路径
-            import sys
-            python_path = os.path.join(install_path, "mtc_interface", "local", "lib", "python3.10", "dist-packages")
-            if os.path.exists(python_path) and python_path not in sys.path:
-                sys.path.insert(0, python_path)
-            
-            # 设置ROS环境变量
-            if "AMENT_PREFIX_PATH" not in os.environ:
-                os.environ["AMENT_PREFIX_PATH"] = install_path
-            elif install_path not in os.environ["AMENT_PREFIX_PATH"]:
-                os.environ["AMENT_PREFIX_PATH"] = install_path + ":" + os.environ["AMENT_PREFIX_PATH"]
+        # 环境变量已在模块级别设置，无需重复设置
         
         # 导入所需的消息类型
         from rclpy.action import ActionClient
@@ -169,13 +215,9 @@ def execute_pour(params: Dict[str, Any], action_name: str = 'execute_pour', time
         object_check = check_object_exists(object_id="object", timeout_sec=3.0)
         if not object_check["ok"] or not object_check["object_exists"]:
             node.get_logger().error("Cup object 'object' not found in planning scene!")
-            return {
-                "ok": False, 
-                "status": "missing_object", 
-                "error": "Cup object not found in planning scene. Please run setup_planning_scene first.",
-                "params": p,
-                "object_check": object_check
-            }
+            return _create_error_result("倾倒任务", 
+                                       "Cup object not found in planning scene. Please run setup_planning_scene first.",
+                                       p, "missing_object")
         
         node.get_logger().info("Cup object found in planning scene, proceeding with pour task")
         
@@ -287,7 +329,7 @@ def execute_pour(params: Dict[str, Any], action_name: str = 'execute_pour', time
         }
         
     except Exception as e:
-        return {"ok": False, "status": "error", "error": f"Pour execution failed: {str(e)}"}
+        return _create_error_result("倾倒任务", f"Pour execution failed: {str(e)}")
     
     finally:
         node.destroy_node()
@@ -296,32 +338,72 @@ def execute_pour(params: Dict[str, Any], action_name: str = 'execute_pour', time
 
 # =============== 对外工具：场景构建和管理 ===============
 
-def setup_planning_scene(include_cup: bool = True, 
+def setup_planning_scene(
+                         detection_result: Optional[Any] = None,
+                         *,
+                         only_cup: bool = True,
+                         id_prefix: str = "object",
+                         timeout_sec: float = 10.0,
+                         # 向后兼容：如果未提供 detection_result，则仍可使用旧的 detected_objects 输入
+                         detected_objects: Optional[Union[Any, List[Any]]] = None,
+                         # 以下旧参数将被忽略（仅在未提供检测结果且需要回退时才会用到）
+                         include_cup: bool = True,
                          cup_x: float = 0.0, cup_y: float = -0.4, cup_z: float = 0.13,
                          cup_qx: Optional[float] = None, cup_qy: Optional[float] = None,
                          cup_qz: Optional[float] = None, cup_qw: Optional[float] = 1.0,
                          cup_height: float = 0.1, cup_radius: float = 0.02,
-                         timeout_sec: float = 10.0) -> Dict[str, Any]:
-    """设置完整的规划场景，包括桌面和杯子对象。
+                         # 新增：bowl 生成控制与默认模型尺寸
+                         include_bowl: bool = True,
+                         bowl_id_prefix: str = "bowl",
+                         bowl_height: float = 0.07,
+                         bowl_radius: float = 0.04,
+                         bowl_default_z: float = 0.125,
+                         # 新增：bottle 生成控制与默认模型尺寸
+                         include_bottle: bool = True,
+                         bottle_id_prefix: str = "bottle",
+                         bottle_height: float = 0.15,  # bottle比cup高一些
+                         bottle_radius: float = 0.025,  # bottle稍微细一点
+                         bottle_default_z: float = 0.13,
+                         # 可选：添加"虚拟墙"禁入区（通过一个BOX碰撞体实现）
+                         add_no_go_wall: bool = True,
+                         wall_x_min: float = 0.40, wall_x_max: float = 0.42,
+                         wall_y_min: float = -0.90, wall_y_max: float = 0.20,
+                         wall_z_min: float = 0.00, wall_z_max: float = 0.60,
+                         wall_alpha: float = 0.02,
+                         ) -> Dict[str, Any]:
+    """设置规划场景：保持桌面对象不变，基于检测结果创建多个物体对象。
+    
+    优先使用 detection_result（来自 object_single_shot_detection.py 发布的 DetectionResult）。
+    支持创建的物体类型：
+      - cup: 杯子（默认尺寸：height=0.1m, radius=0.02m）
+      - bowl: 碗（默认尺寸：height=0.07m, radius=0.04m）
+      - bottle: 瓶子（默认尺寸：height=0.15m, radius=0.025m）
+    
+    生成的物体：
+      - ID：第一个为 id_prefix（默认"object"），其余依次 id_prefix_2, id_prefix_3 ...
+      - 位姿：position(x,y,z) 来自检测消息；orientation 统一为 (0,0,0,1)
+      - 尺寸：使用对应物体类型的默认尺寸，满足 MoveIt 需求
     
     Args:
-        include_cup: 是否包含杯子对象
-        cup_x, cup_y, cup_z: 杯子位置坐标
-        cup_qx, cup_qy, cup_qz, cup_qw: 杯子方向四元数（可选）
-        cup_height: 杯子高度（米）
-        cup_radius: 杯子半径（米）
-        timeout_sec: 超时时间
-        
+        detection_result: DetectionResult 消息对象（推荐）
+        only_cup: 是否仅根据 class_name=='cup' 生成对象（False时支持cup/bowl/bottle）
+        id_prefix: 生成对象ID前缀
+        timeout_sec: 等待规划场景服务超时
+        detected_objects: 向后兼容的旧输入（DetectionResult/DetectedObject列表/字典列表）
+        include_cup/cup_x/...: 仅在没有检测输入时用于回退生成一个默认杯子
+        include_bowl/bowl_*: bowl物体的生成控制和尺寸参数
+        include_bottle/bottle_*: bottle物体的生成控制和尺寸参数
+    
     Returns:
         包含场景设置结果的字典
     """
     created = _ensure_rclpy_inited()
     import rclpy
-    node = rclpy.create_node('planning_scene_setup')
+    node = rclpy.create_node(_unique_node_name('planning_scene_setup'))
     
     try:
         # 导入必要的消息类型
-        from moveit_msgs.msg import CollisionObject, PlanningScene
+        from moveit_msgs.msg import CollisionObject, PlanningScene, ObjectColor
         from moveit_msgs.srv import ApplyPlanningScene
         from shape_msgs.msg import SolidPrimitive
         from geometry_msgs.msg import Pose
@@ -340,21 +422,25 @@ def setup_planning_scene(include_cup: bool = True,
         else:
             use_service = True
         
-        collision_objects = []
+        collision_objects: List[CollisionObject] = []
+        added_object_specs: List[Dict[str, Any]] = []  # 统一记录写入 place.origin
+        added_cup_specs: List[Dict[str, Any]] = []     # 仅cup的位姿（向后兼容返回）
+        cup_created_specs: List[Dict[str, Any]] = []   # 仅cup的ID
+        bowl_created_specs: List[Dict[str, Any]] = []
+        bottle_created_specs: List[Dict[str, Any]] = []  # bottle的ID
         
-        # 1. 添加台面碰撞对象 (OptoSigma光学面包板)
+        # 1. 添加台面碰撞对象
         table_surface = CollisionObject()
         table_surface.header.stamp = node.get_clock().now().to_msg()
         table_surface.header.frame_id = "link_base"
         table_surface.id = "table_surface"
         table_surface.primitives.append(SolidPrimitive())
         table_surface.primitives[0].type = SolidPrimitive.BOX
-        table_surface.primitives[0].dimensions = [1.0, 1.5, 0.01]  # 长x宽x高 (米)
-        
+        table_surface.primitives[0].dimensions = [1.0, 1.5, 0.01]
         table_pose = Pose()
-        table_pose.position.x = 0.0   # 台面中心相对于机械臂基座
+        table_pose.position.x = -0.01
         table_pose.position.y = -0.25
-        table_pose.position.z = -0.01  # 台面高度，低于机械臂基座
+        table_pose.position.z = -0.01
         table_pose.orientation.w = 1.0
         table_surface.primitive_poses.append(table_pose)
         table_surface.operation = CollisionObject.ADD
@@ -370,7 +456,7 @@ def setup_planning_scene(include_cup: bool = True,
         table_base.primitives[0].dimensions = [0.7, 0.7, 0.05]  # 长x宽x高 (米)
         
         base_pose = Pose()
-        base_pose.position.x = 0.0
+        base_pose.position.x = -0.01
         base_pose.position.y = -0.55
         base_pose.position.z = 0.025  # 底座位置，低于台面
         base_pose.orientation.w = 1.0
@@ -378,47 +464,297 @@ def setup_planning_scene(include_cup: bool = True,
         table_base.operation = CollisionObject.ADD
         collision_objects.append(table_base)
         
-        # 3. 可选：添加杯子对象
-        if include_cup:
+        # 2.5 可选：添加"虚拟墙"禁入区 - 通过BOX障碍限制规划范围（如相机/工作区）
+        if add_no_go_wall:
+            try:
+                no_go = CollisionObject()
+                no_go.header.stamp = node.get_clock().now().to_msg()
+                no_go.header.frame_id = "link_base"
+                no_go.id = "no_go_wall"
+
+                # 以 [min,max] 边界定义一个长方体
+                dx = float(abs(wall_x_max - wall_x_min))
+                dy = float(abs(wall_y_max - wall_y_min))
+                dz = float(abs(wall_z_max - wall_z_min))
+
+                no_go.primitives.append(SolidPrimitive())
+                no_go.primitives[0].type = SolidPrimitive.BOX
+                no_go.primitives[0].dimensions = [dx, dy, dz]
+
+                wall_pose = Pose()
+                wall_pose.position.x = float((wall_x_max + wall_x_min) * 0.5)
+                wall_pose.position.y = float((wall_y_max + wall_y_min) * 0.5)
+                wall_pose.position.z = float((wall_z_max + wall_z_min) * 0.5)
+                wall_pose.orientation.w = 1.0
+                no_go.primitive_poses.append(wall_pose)
+                no_go.operation = CollisionObject.ADD
+
+                collision_objects.append(no_go)
+                node.get_logger().info(
+                    f"Added no-go wall at center=({wall_pose.position.x:.3f},{wall_pose.position.y:.3f},{wall_pose.position.z:.3f}) size=({dx:.3f},{dy:.3f},{dz:.3f})")
+            except Exception as e:
+                node.get_logger().warn(f"Failed to add no-go wall: {str(e)}")
+        
+        # 3. 基于检测结果创建物体对象（仅生成数量、ID和位置，姿态固定，尺寸使用默认）
+        def _specs_from_detection_result(msg: Any) -> List[Dict[str, Any]]:
+            specs: List[Dict[str, Any]] = []
+            if msg is None:
+                return specs
+            try:
+                # DetectionResult 接口：objects 列表；position_base(米)优先，否则 position_camera(米)
+                objs = list(getattr(msg, 'objects', []))
+                idx = 0
+                for o in objs:
+                    cls = getattr(o, 'class_name', '')
+                    if only_cup and cls != 'cup':
+                        continue
+                    # 位置来源：优先基座坐标（米），否则相机坐标（米）
+                    use_base = bool(getattr(o, 'transform_valid', False)) and bool(getattr(msg, 'transform_available', True))
+                    pos = getattr(o, 'position_base', None) if use_base else getattr(o, 'position_camera', None)
+                    if pos is None:
+                        continue
+                    idx += 1
+                    obj_id = id_prefix if idx == 1 else f"{id_prefix}_{idx}"
+                    specs.append({
+                        "id": obj_id,
+                        "class_name": cls,  # 添加类别信息
+                        "x": float(getattr(pos, 'x', 0.0)),
+                        "y": float(getattr(pos, 'y', 0.0)),
+                        "z": float(getattr(pos, 'z', 0.0)),
+                    })
+            except Exception:
+                pass
+            return specs
+        
+        # 通用：按给定类别提取规格（用于 bowl 等非 cup 类别）
+        def _class_specs_from_detection_result(msg: Any, want_class: str, class_id_prefix: str) -> List[Dict[str, Any]]:
+            specs: List[Dict[str, Any]] = []
+            if msg is None:
+                return specs
+            try:
+                objs = list(getattr(msg, 'objects', []))
+                idx = 0
+                for o in objs:
+                    cls = getattr(o, 'class_name', '')
+                    if cls != want_class:
+                        continue
+                    use_base = bool(getattr(o, 'transform_valid', False)) and bool(getattr(msg, 'transform_available', True))
+                    pos = getattr(o, 'position_base', None) if use_base else getattr(o, 'position_camera', None)
+                    if pos is None:
+                        continue
+                    idx += 1
+                    obj_id = class_id_prefix if idx == 1 else f"{class_id_prefix}_{idx}"
+                    specs.append({
+                        "id": obj_id,
+                        "x": float(getattr(pos, 'x', 0.0)),
+                        "y": float(getattr(pos, 'y', 0.0)),
+                        "z": float(getattr(pos, 'z', 0.0)),
+                    })
+            except Exception:
+                pass
+            return specs
+        
+        def _specs_from_legacy(det_objs: Any) -> List[Dict[str, Any]]:
+            # 复用旧逻辑的解析（米单位），仅保留位置与ID
+            specs_full: List[Dict[str, Any]] = []
+            if not det_objs:
+                return specs_full
+            try:
+                # 尝试导入消息类型以做类型判断
+                from mtc_interface.msg import DetectedObject as MsgDetectedObject  # type: ignore
+                from mtc_interface.msg import DetectionResult as MsgDetectionResult  # type: ignore
+            except Exception:
+                MsgDetectedObject = None  # type: ignore
+                MsgDetectionResult = None  # type: ignore
+            
+            objs: List[Any] = []
+            if 'MsgDetectionResult' in locals() and MsgDetectionResult and hasattr(det_objs, 'objects'):
+                objs = list(det_objs.objects)
+            elif isinstance(det_objs, list):
+                objs = det_objs
+            else:
+                objs = [det_objs]
+            
+            idx = 0
+            for o in objs:
+                try:
+                    if 'MsgDetectedObject' in locals() and MsgDetectedObject and (hasattr(o, 'position_base') or hasattr(o, 'position_camera')):
+                        cls = getattr(o, 'class_name', '')
+                        if only_cup and cls != 'cup':
+                            continue
+                        use_base = bool(getattr(o, 'transform_valid', False))
+                        pos = getattr(o, 'position_base', None) if use_base else getattr(o, 'position_camera', None)
+                        if pos is None:
+                            continue
+                        idx += 1
+                        obj_id = id_prefix if idx == 1 else f"{id_prefix}_{idx}"
+                        specs_full.append({
+                            "id": obj_id,
+                            "x": float(getattr(pos, 'x', 0.0)),
+                            "y": float(getattr(pos, 'y', 0.0)),
+                            "z": float(getattr(pos, 'z', 0.0)),
+                        })
+                    elif isinstance(o, dict):
+                        cls = o.get('class_name', '')
+                        if only_cup and cls != 'cup':
+                            continue
+                        pos_dict = o.get('position_base') or o.get('position_camera') or o.get('position') or {}
+                        idx += 1
+                        obj_id = id_prefix if idx == 1 else f"{id_prefix}_{idx}"
+                        specs_full.append({
+                            "id": obj_id,
+                            "x": float(pos_dict.get('x', 0.0)),
+                            "y": float(pos_dict.get('y', 0.0)),
+                            "z": float(pos_dict.get('z', 0.0)),
+                        })
+                    else:
+                        continue
+                except Exception:
+                    continue
+            return specs_full
+        
+        cup_specs: List[Dict[str, Any]] = []
+        bowl_specs: List[Dict[str, Any]] = []
+        bottle_specs: List[Dict[str, Any]] = []
+        
+        if detection_result is not None:
+            # 从检测结果中提取所有物体，然后按类型分类
+            all_specs = _specs_from_detection_result(detection_result)
+            
+            # 按类型分类物体
+            for spec in all_specs:
+                class_name = spec.get("class_name", "")
+                if class_name == "cup":
+                    cup_specs.append(spec)
+                elif class_name == "bowl" and include_bowl:
+                    # 为bowl重新分配ID
+                    bowl_idx = len(bowl_specs) + 1
+                    bowl_id = bowl_id_prefix if bowl_idx == 1 else f"{bowl_id_prefix}_{bowl_idx}"
+                    spec["id"] = bowl_id
+                    bowl_specs.append(spec)
+                elif class_name == "bottle" and include_bottle:
+                    # 为bottle重新分配ID  
+                    bottle_idx = len(bottle_specs) + 1
+                    bottle_id = bottle_id_prefix if bottle_idx == 1 else f"{bottle_id_prefix}_{bottle_idx}"
+                    spec["id"] = bottle_id
+                    bottle_specs.append(spec)
+                    
+        elif detected_objects is not None:
+            cup_specs = _specs_from_legacy(detected_objects)
+            # 旧输入无法区分类别，保持仅杯子
+        
+        if not cup_specs and include_cup:
+            # 回退：添加一个默认杯子
+            cup_specs = [{
+                "id": id_prefix,
+                "class_name": "cup",
+                "x": cup_x, "y": cup_y, "z": cup_z,
+            }]
+        # bowl 和 bottle 无默认回退，依赖检测
+        
+        # 生成杯子碰撞对象（尺寸使用默认以满足MoveIt；姿态固定）
+        for spec in cup_specs:
             cup_object = CollisionObject()
             cup_object.header.stamp = node.get_clock().now().to_msg()
             cup_object.header.frame_id = "link_base"
-            cup_object.id = "object"  # 保持与现有代码兼容的ID
+            cup_object.id = spec["id"]
+            
             cup_object.primitives.append(SolidPrimitive())
             cup_object.primitives[0].type = SolidPrimitive.CYLINDER
-            cup_object.primitives[0].dimensions = [cup_height, cup_radius]  # 高度，半径
+            cup_object.primitives[0].dimensions = [float(cup_height), float(cup_radius)]  # [height, radius]
             
             cup_pose = Pose()
-            cup_pose.position.x = cup_x
-            cup_pose.position.y = cup_y
-            cup_pose.position.z = cup_z
-            
-            # 设置方向
-            if all(q is not None for q in [cup_qx, cup_qy, cup_qz, cup_qw]):
-                cup_pose.orientation.x = cup_qx
-                cup_pose.orientation.y = cup_qy
-                cup_pose.orientation.z = cup_qz
-                cup_pose.orientation.w = cup_qw
-            else:
-                cup_pose.orientation.w = 1.0  # 默认方向
+            cup_pose.position.x = float(spec.get("x", 0.0)) + 0.05
+            cup_pose.position.y = float(spec.get("y", 0.0)) - 0.031
+            cup_pose.position.z = float(spec.get("z", 0.0)) + 0.009
+            cup_pose.orientation.w = 1.0  # 姿态固定为(0,0,0,1)
             
             cup_object.primitive_poses.append(cup_pose)
             cup_object.operation = CollisionObject.ADD
             collision_objects.append(cup_object)
+            added_object_specs.append({
+                "id": spec["id"],
+                "position": {"x": cup_pose.position.x, "y": cup_pose.position.y, "z": cup_pose.position.z},
+            })
+            added_cup_specs.append({
+                "id": spec["id"],
+                "position": {"x": cup_pose.position.x, "y": cup_pose.position.y, "z": cup_pose.position.z},
+            })
+            cup_created_specs.append({"id": spec["id"]})
+        
+        # 生成 bowl 碰撞对象（更矮更大；Z 使用默认高度）
+        if include_bowl and bowl_specs:
+            for spec in bowl_specs:
+                bowl_object = CollisionObject()
+                bowl_object.header.stamp = node.get_clock().now().to_msg()
+                bowl_object.header.frame_id = "link_base"
+                bowl_object.id = spec["id"]
+
+                bowl_object.primitives.append(SolidPrimitive())
+                bowl_object.primitives[0].type = SolidPrimitive.CYLINDER
+                bowl_object.primitives[0].dimensions = [float(bowl_height), float(bowl_radius)]
+
+                bowl_pose = Pose()
+                bowl_pose.position.x = float(spec.get("x", 0.0))
+                bowl_pose.position.y = float(spec.get("y", 0.0))
+                bowl_pose.position.z = float(bowl_default_z)
+                bowl_pose.orientation.w = 1.0
+
+                bowl_object.primitive_poses.append(bowl_pose)
+                bowl_object.operation = CollisionObject.ADD
+                collision_objects.append(bowl_object)
+                added_object_specs.append({
+                    "id": spec["id"],
+                    "position": {"x": bowl_pose.position.x, "y": bowl_pose.position.y, "z": bowl_pose.position.z},
+                })
+                bowl_created_specs.append({"id": spec["id"]})
+        
+        # 生成 bottle 碰撞对象（更高更细；Z 使用默认高度）
+        if include_bottle and bottle_specs:
+            for spec in bottle_specs:
+                bottle_object = CollisionObject()
+                bottle_object.header.stamp = node.get_clock().now().to_msg()
+                bottle_object.header.frame_id = "link_base"
+                bottle_object.id = spec["id"]
+
+                bottle_object.primitives.append(SolidPrimitive())
+                bottle_object.primitives[0].type = SolidPrimitive.CYLINDER
+                bottle_object.primitives[0].dimensions = [float(bottle_height), float(bottle_radius)]
+
+                bottle_pose = Pose()
+                bottle_pose.position.x = float(spec.get("x", 0.0))
+                bottle_pose.position.y = float(spec.get("y", 0.0))
+                bottle_pose.position.z = float(bottle_default_z)
+                bottle_pose.orientation.w = 1.0
+
+                bottle_object.primitive_poses.append(bottle_pose)
+                bottle_object.operation = CollisionObject.ADD
+                collision_objects.append(bottle_object)
+                added_object_specs.append({
+                    "id": spec["id"],
+                    "position": {"x": bottle_pose.position.x, "y": bottle_pose.position.y, "z": bottle_pose.position.z},
+                })
+                bottle_created_specs.append({"id": spec["id"]})
         
         # 应用碰撞对象 - 模拟原始的 psi.applyCollisionObjects(collision_objects)
         if use_service:
-            # 使用服务方式，更接近原始实现
             planning_scene_msg = PlanningScene()
             planning_scene_msg.world.collision_objects = collision_objects
             planning_scene_msg.is_diff = True
-            
+            # 设置墙的颜色透明度（如果启用）
+            if add_no_go_wall:
+                oc = ObjectColor()
+                oc.id = "no_go_wall"
+                # 颜色: 绿色略偏淡，alpha控制透明(0~1)
+                oc.color.r = 0.2
+                oc.color.g = 0.9
+                oc.color.b = 0.2
+                oc.color.a = float(max(0.0, min(1.0, wall_alpha)))
+                planning_scene_msg.object_colors.append(oc)
             request = ApplyPlanningScene.Request()
             request.scene = planning_scene_msg
-            
             future = apply_scene_client.call_async(request)
             rclpy.spin_until_future_complete(node, future, timeout_sec=timeout_sec)
-            
             if future.result() is not None and future.result().success:
                 node.get_logger().info("Applied planning scene via service (like original PlanningSceneInterface)")
                 method = "service"
@@ -427,7 +763,6 @@ def setup_planning_scene(include_cup: bool = True,
                 use_service = False
         
         if not use_service:
-            # 备用方案：topic发布
             if 'collision_object_pub' not in locals():
                 collision_object_pub = node.create_publisher(CollisionObject, '/collision_object', 10)
                 time.sleep(0.5)
@@ -435,29 +770,82 @@ def setup_planning_scene(include_cup: bool = True,
                 collision_object_pub.publish(obj)
                 node.get_logger().info(f"Published collision object: {obj.id}")
                 time.sleep(0.1)
+            # 额外通过 /planning_scene 话题设置颜色
+            if add_no_go_wall:
+                planning_scene_pub = node.create_publisher(PlanningScene, '/planning_scene', 10)
+                time.sleep(0.2)
+                ps = PlanningScene()
+                ps.is_diff = True
+                oc = ObjectColor()
+                oc.id = "no_go_wall"
+                oc.color.r = 0.2
+                oc.color.g = 0.9
+                oc.color.b = 0.2
+                oc.color.a = float(max(0.0, min(1.0, wall_alpha)))
+                ps.object_colors.append(oc)
+                planning_scene_pub.publish(ps)
+                node.get_logger().info(f"Published color for no_go_wall with alpha={oc.color.a:.2f}")
             method = "topic"
         
-        # 等待对象添加完成
         time.sleep(1.0)
         
-        # 验证对象是否成功添加
+        # 将每个对象（杯子/碗）的原始位置写入模块化服务器的参数表（供 place.return_to_origin 回退使用）
+        try:
+            origin_params_ok = False
+            if added_object_specs:
+                param_map: Dict[str, Any] = {}
+                for obj in added_object_specs:
+                    oid = str(obj["id"]).strip()
+                    pos = obj["position"]
+                    param_map[f"place.origin.{oid}.x"] = float(pos["x"])  # 已是 link_base 下坐标
+                    param_map[f"place.origin.{oid}.y"] = float(pos["y"]) 
+                    param_map[f"place.origin.{oid}.z"] = float(pos["z"]) 
+                # 写入并重试一次
+                origin_params_ok = _set_params('/modular_task_server', param_map, timeout_sec=5.0)
+                if not origin_params_ok:
+                    node.get_logger().warn("写入place.origin参数超时，重试一次…")
+                    origin_params_ok = _set_params('/modular_task_server', param_map, timeout_sec=10.0)
+                if origin_params_ok:
+                    node.get_logger().info(f"已写入 {len(added_object_specs)} 个对象的原始位姿到 /modular_task_server")
+                else:
+                    node.get_logger().warn("未能写入place.origin参数，后续回原位/基于object移动可能退化")
+        except Exception:
+            origin_params_ok = False
+            pass
+        
         added_objects = [obj.id for obj in collision_objects]
+        cup_ids = [spec["id"] for spec in cup_created_specs]
+        bowl_ids = [spec["id"] for spec in bowl_created_specs]
+        bottle_ids = [spec["id"] for spec in bottle_created_specs]
         
         node.get_logger().info("Planning scene setup completed!")
         node.get_logger().info(f"Added objects using {method}: {added_objects}")
-        if include_cup:
-            node.get_logger().info(f"Cup position: x={cup_x:.3f}, y={cup_y:.3f}, z={cup_z:.3f}")
-            node.get_logger().info(f"Cup dimensions: height={cup_height:.3f}m, radius={cup_radius:.3f}m")
+        if added_cup_specs:
+            node.get_logger().info(f"Added {len(added_cup_specs)} cup objects: {cup_ids}")
+        if bowl_created_specs:
+            node.get_logger().info(f"Added {len(bowl_created_specs)} bowl objects: {bowl_ids}")
+        if bottle_created_specs:
+            node.get_logger().info(f"Added {len(bottle_created_specs)} bottle objects: {bottle_ids}")
         
         return {
             "ok": True,
             "status": "success",
             "objects_added": added_objects,
             "table_objects": ["table_surface", "table_base"],
-            "cup_included": include_cup,
-            "cup_position": {"x": cup_x, "y": cup_y, "z": cup_z} if include_cup else None,
-            "cup_orientation": {"x": cup_qx, "y": cup_qy, "z": cup_qz, "w": cup_qw} if include_cup and all(q is not None for q in [cup_qx, cup_qy, cup_qz, cup_qw]) else None,
+            "cup_included": bool(cup_created_specs),
+            "cup_count": len(cup_created_specs),
+            "cup_ids": cup_ids,
+            "cups": added_cup_specs,
+            "bowl_included": bool(bowl_created_specs),
+            "bowl_count": len(bowl_created_specs),
+            "bowl_ids": bowl_ids,
+            "bottle_included": bool(bottle_created_specs),
+            "bottle_count": len(bottle_created_specs),
+            "bottle_ids": bottle_ids,
             "method": method,
+            "no_go_wall": add_no_go_wall,
+            "wall_alpha": float(max(0.0, min(1.0, wall_alpha))),
+            "origin_params_written": bool(locals().get('origin_params_ok', False)),
             "msg": f"Successfully added {len(added_objects)} objects to planning scene using {method}"
         }
         
@@ -486,7 +874,7 @@ def check_object_exists(object_id: str = "object", timeout_sec: float = 5.0) -> 
         包含对象存在状态的字典
     """
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('object_checker')
+    node = rclpy.create_node(_unique_node_name('object_checker'))
     
     try:
         from moveit_msgs.srv import GetPlanningScene
@@ -578,7 +966,7 @@ def update_cup_pose(cup_x: float, cup_y: float, cup_z: float,
     """
     created = _ensure_rclpy_inited()
     import rclpy
-    node = rclpy.create_node('cup_pose_updater')
+    node = rclpy.create_node(_unique_node_name('cup_pose_updater'))
     
     try:
         from moveit_msgs.msg import CollisionObject, PlanningScene
@@ -772,27 +1160,14 @@ def _execute_real_mtc_task(task_type: str, params_dict: Dict[str, Any], task_nam
         执行结果字典
     """
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('real_mtc_client')
+    node = rclpy.create_node(_unique_node_name('real_mtc_client'))
     
     try:
         import time
         
         node.get_logger().info(f"🚀 开始执行{task_name}任务 (类型: {task_type}) - 使用真实模块化任务服务器")
         
-        # 确保环境变量设置正确
-        import os
-        workspace_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
-        install_path = os.path.join(workspace_root, "install")
-        if os.path.exists(install_path):
-            import sys
-            python_path = os.path.join(install_path, "mtc_interface", "local", "lib", "python3.10", "dist-packages")
-            if os.path.exists(python_path) and python_path not in sys.path:
-                sys.path.insert(0, python_path)
-            
-            if "AMENT_PREFIX_PATH" not in os.environ:
-                os.environ["AMENT_PREFIX_PATH"] = install_path
-            elif install_path not in os.environ["AMENT_PREFIX_PATH"]:
-                os.environ["AMENT_PREFIX_PATH"] = install_path + ":" + os.environ["AMENT_PREFIX_PATH"]
+        # 环境变量已在模块级别设置，无需重复设置
         
         # 导入Action客户端
         from rclpy.action import ActionClient
@@ -807,10 +1182,8 @@ def _execute_real_mtc_task(task_type: str, params_dict: Dict[str, Any], task_nam
             param_map: Dict[str, Any] = {}
             if 'safe_approach_height' in params_dict:
                 param_map['pick.safe_approach_height'] = float(params_dict['safe_approach_height'])
-            # 可选：后方约束
             if 'use_back_constraint' in params_dict:
                 param_map['pick.use_back_constraint'] = bool(params_dict['use_back_constraint'])
-            # 区域尺寸参数（如有）
             for k_src, k_dst in [
                 ('back_region_center_y', 'pick.back_region_center_y'),
                 ('back_region_size_x', 'pick.back_region_size_x'),
@@ -819,9 +1192,42 @@ def _execute_real_mtc_task(task_type: str, params_dict: Dict[str, Any], task_nam
             ]:
                 if k_src in params_dict:
                     param_map[k_dst] = float(params_dict[k_src])
+            if 'object_id' in params_dict:
+                oid = str(params_dict['object_id']).strip()
+                param_map['pick.object_id'] = oid
             if param_map:
                 node.get_logger().info(f"设置模块化服务器参数: {param_map}")
-                _set_params(server_node, param_map, timeout_sec=2.0)
+                ok = _set_params(server_node, param_map, timeout_sec=6.0)
+                if not ok:
+                    node.get_logger().warn("pick 参数设置超时，重试一次（延长超时）…")
+                    ok = _set_params(server_node, param_map, timeout_sec=15.0)
+                if not ok:
+                    node.get_logger().warn("设置 pick 参数失败（可能未启动或节点名不匹配）：/modular_task_server")
+        
+        # 针对 place 任务：写入简化参数（return_to_origin / target_x/y/z / object_id）
+        if task_type == "place":
+            server_node = '/modular_task_server'
+            param_map: Dict[str, Any] = {}
+            if 'object_id' in params_dict:
+                oid = str(params_dict['object_id']).strip()
+                param_map['place.object_id'] = oid
+            if params_dict.get('return_to_origin', False):
+                param_map['place.return_to_origin'] = True
+            else:
+                if 'target_x' in params_dict:
+                    param_map['place.target_x'] = float(params_dict['target_x'])
+                if 'target_y' in params_dict:
+                    param_map['place.target_y'] = float(params_dict['target_y'])
+                if 'target_z' in params_dict:
+                    param_map['place.target_z'] = float(params_dict['target_z'])
+            if param_map:
+                node.get_logger().info(f"设置模块化服务器参数: {param_map}")
+                ok = _set_params(server_node, param_map, timeout_sec=6.0)
+                if not ok:
+                    node.get_logger().warn("place 参数设置超时，重试一次（延长超时）…")
+                    ok = _set_params(server_node, param_map, timeout_sec=15.0)
+                if not ok:
+                    node.get_logger().warn("设置 place 参数失败（可能未启动或节点名不匹配）：/modular_task_server")
         
         # 等待服务器
         if not action_client.wait_for_server(timeout_sec=10.0):
@@ -835,7 +1241,11 @@ def _execute_real_mtc_task(task_type: str, params_dict: Dict[str, Any], task_nam
         
         # 构建Goal (复用ExecutePour的消息格式，通过target_id指定任务类型)
         goal = mtc_interface.action.ExecutePour.Goal()
-        goal.target_id = task_type  # 关键：通过target_id指定任务类型
+        # 关键：通过target_id指定任务类型；若传入object_id，则编码为 task:object_id
+        if task_type in ("pick", "place", "move_to_pour") and 'object_id' in params_dict and params_dict['object_id']:
+            goal.target_id = f"{task_type}:{str(params_dict['object_id']).strip()}"
+        else:
+            goal.target_id = task_type
         
         # 映射参数到ExecutePour格式
         goal.tilt_start_deg = float(params_dict.get("tilt_start_deg", 45.0))
@@ -848,24 +1258,38 @@ def _execute_real_mtc_task(task_type: str, params_dict: Dict[str, Any], task_nam
         goal.plan_only = bool(params_dict.get("plan_only", False))
         
         node.get_logger().info(f"🎯 发送{task_name}任务到模块化服务器")
-        node.get_logger().info(f"📋 任务类型: {task_type} (通过target_id传递)")
+        node.get_logger().info(f"📋 任务类型: {task_type} (通过target_id传递: {goal.target_id})")
         node.get_logger().info(f"⚙️ 参数: approach=[{goal.approach_min:.2f}, {goal.approach_max:.2f}], lift={goal.lift_height:.2f}")
+        # 🔧 调试信息：显示是否包含object_id
+        if 'object_id' in params_dict and params_dict['object_id']:
+            node.get_logger().info(f"🎯 包含object_id: {params_dict['object_id']}")
         
         # 反馈处理
         def feedback_callback(feedback_msg):
             fb = feedback_msg.feedback
             node.get_logger().info(f"[{fb.stage}] 进度: {fb.progress:.1%}")
         
-        # 发送目标
-        send_future = action_client.send_goal_async(goal, feedback_callback=feedback_callback)
-        rclpy.spin_until_future_complete(node, send_future, timeout_sec=5.0)
+        # 发送目标（更稳健：更长等待+一次重试）
+        def _send_and_wait(timeout: float):
+            fut = action_client.send_goal_async(goal, feedback_callback=feedback_callback)
+            rclpy.spin_until_future_complete(node, fut, timeout_sec=timeout)
+            return fut
         
-        gh = send_future.result()
-        if gh is None or not gh.accepted:
+        send_future = _send_and_wait(12.0)
+        gh = send_future.result() if send_future.done() else None
+        
+        # 如果首次未获得响应或被拒绝，等待服务稳定后重试一次
+        if gh is None or not getattr(gh, 'accepted', False):
+            node.get_logger().warn("首次发送goal未获得接受，等待服务稳定后重试一次…")
+            action_client.wait_for_server(timeout_sec=3.0)
+            send_future = _send_and_wait(12.0)
+            gh = send_future.result() if send_future.done() else None
+        
+        if gh is None or not getattr(gh, 'accepted', False):
             return {
                 "ok": False,
                 "status": "rejected",
-                "error": "任务被模块化服务器拒绝",
+                "error": "任务被模块化服务器拒绝或未响应（已重试）",
                 "params": params_dict,
                 "task_name": task_name
             }
@@ -963,7 +1387,7 @@ def pick_container(source_pose: Dict[str, float],
         "source_qy": source_pose.get("qy", 0.0), 
         "source_qz": source_pose.get("qz", 0.0),
         "source_qw": source_pose.get("qw", 1.0),
-        "object_id": object_id,
+        "object_id": (object_id.strip() if isinstance(object_id, str) else object_id),
         "plan_only": plan_only
     }
     
@@ -986,14 +1410,13 @@ def pick_container(source_pose: Dict[str, float],
             "lift_height": 0.12
         })
     
-    # 首先尝试使用真实的模块化任务服务器
+    # 使用真实的模块化任务服务器
     try:
         return _execute_real_mtc_task("pick", params, "抓取容器", 'execute_modular_task', timeout_sec)
     except Exception as e:
-        # 如果模块化服务器不可用，回退到模拟版本并记录
-        result = _execute_mtc_task("pick", params, "抓取容器", timeout_sec)
-        result["fallback_reason"] = f"模块化服务器不可用: {str(e)}"
-        return result
+        # 使用标准化错误处理
+        return _create_error_result("抓取容器", f"模块化服务器不可用: {str(e)}", 
+                                   params, "server_unavailable")
 
 
 def pour_to_target(target_pose: Optional[Dict[str, float]] = None,
@@ -1043,27 +1466,28 @@ def pour_to_target(target_pose: Optional[Dict[str, float]] = None,
             "move_to_pour_max": 0.15
         })
     
-    # 首先尝试使用真实的模块化任务服务器
+    # 使用真实的模块化任务服务器
     try:
         return _execute_real_mtc_task("pour", params, "倾倒液体", 'execute_modular_task', timeout_sec)
     except Exception as e:
-        # 如果模块化服务器不可用，回退到原实现
-        result = _execute_mtc_task("pour", params, "倾倒液体", timeout_sec)
-        result["fallback_reason"] = f"模块化服务器不可用: {str(e)}"
-        return result
+        # 使用标准化错误处理
+        return _create_error_result("倾倒液体", f"模块化服务器不可用: {str(e)}", 
+                                   params, "server_unavailable")
 
+
+# 请使用move_to_pour_position + pour_to_target的组合来实现类似功能
 
 def place_container(target_pose: Optional[Dict[str, float]] = None,
                     object_id: str = "object",
-                    placement_params: Optional[Dict[str, float]] = None,
+                    return_to_origin: bool = False,
                     plan_only: bool = False,
                     timeout_sec: float = 180.0) -> Dict[str, Any]:
     """放置容器
     
     Args:
-        target_pose: 目标放置位置（可选，使用默认位置）
+        target_pose: 目标放置位置（可选，提供 x/y/z 即可）
         object_id: 目标对象ID
-        placement_params: 放置参数 {"lower_min", "lower_max", "retreat_min", "retreat_max"}
+        return_to_origin: 若为True，优先放回 object_id 的初始位置
         plan_only: 仅规划不执行
         timeout_sec: 超时时间
         
@@ -1071,48 +1495,332 @@ def place_container(target_pose: Optional[Dict[str, float]] = None,
         执行结果字典
     """
     params = {
-        "object_id": object_id,
+        "object_id": (object_id.strip() if isinstance(object_id, str) else object_id),
         "plan_only": plan_only
     }
+    # 简化：仅三种情况
+    # 1) return_to_origin=True -> 服务器读取场景初始位姿
+    if return_to_origin:
+        params["return_to_origin"] = True
+    # 2) or 提供 x/y/z 即可
+    elif target_pose:
+        if any(k in target_pose for k in ("x", "y", "z")):
+            params["target_x"] = target_pose.get("x", 0.0)
+            params["target_y"] = target_pose.get("y", -0.45)
+            params["target_z"] = target_pose.get("z", 0.18)
+    # 3) 否则使用服务器默认位置
     
-    if target_pose:
-        params["target_pose"] = {
-            "position": {
-                "x": target_pose.get("x", 0.0),
-                "y": target_pose.get("y", -0.45),
-                "z": target_pose.get("z", 0.18)
-            },
-            "orientation": {
-                "x": target_pose.get("qx", 0.0),
-                "y": target_pose.get("qy", 0.0),
-                "z": target_pose.get("qz", 0.0),
-                "w": target_pose.get("qw", 1.0)
-            }
-        }
-    
-    if placement_params:
-        params.update({
-            "lower_min": placement_params.get("lower_min", 0.03),
-            "lower_max": placement_params.get("lower_max", 0.2),
-            "retreat_min": placement_params.get("retreat_min", 0.05),
-            "retreat_max": placement_params.get("retreat_max", 0.1)
-        })
-    else:
-        params.update({
-            "lower_min": 0.03,
-            "lower_max": 0.2,
-            "retreat_min": 0.05,
-            "retreat_max": 0.1
-        })
-    
-    # 首先尝试使用真实的模块化任务服务器
+    # 使用真实的模块化任务服务器
     try:
         return _execute_real_mtc_task("place", params, "放置容器", 'execute_modular_task', timeout_sec)
     except Exception as e:
-        # 如果模块化服务器不可用，回退到模拟版本
-        result = _execute_mtc_task("place", params, "放置容器", timeout_sec)
-        result["fallback_reason"] = f"模块化服务器不可用: {str(e)}"
+        # 使用标准化错误处理
+        return _create_error_result("放置容器", f"模块化服务器不可用: {str(e)}", 
+                                   params, "server_unavailable")
+
+
+def move_to_pour_position(x: float,
+                          y: float,
+                          z: float,
+                          speed: float = 0.15,
+                          timeout_sec: float = 60.0,
+                          pour_execute: bool = False,
+                          tilt_deg: Dict[str, float] = {"start": 45.0, "end": 120.0},
+                          tilt_speed_deg_s: float = 25.0,
+                          pour_hold_sec: float = 0.0,
+                          execute_give: bool = False,
+                          gripper_open_ratio: float = 1.0,
+                          object_id: Optional[str] = None,
+                          force_clear_params: bool = False) -> Dict[str, Any]:
+    """移动到指定的倾倒位置（保持当前抓取姿势）- 简化版本
+    
+    Args:
+        x: 目标X坐标（米）- 当 object_id 为空时使用
+        y: 目标Y坐标（米）- 当 object_id 为空时使用
+        z: 目标Z坐标（米）- 当 object_id 为空时使用
+        speed: 移动速度比例（0.05-0.3，默认0.15）
+        timeout_sec: 超时时间（默认60秒）
+        pour_execute: 是否在到达后执行简单倾倒序列
+        tilt_deg: 倾斜角度范围 {"start": float, "end": float}
+        tilt_speed_deg_s: 倾倒速度（度/秒）
+        pour_hold_sec: 倾倒保持时间（秒）
+        execute_give: 是否在到达后执行递给用户的动作（打开夹爪）
+        gripper_open_ratio: 夹爪打开比例（0.0-1.0，1.0表示完全打开）
+        object_id: 目标对象ID（可选）
+        force_clear_params: 是否强制清除之前的参数（推荐在pour后使用，解决参数冲突问题）
+    
+    坐标传入逻辑（优化后）：
+        1. 优先级：object_id > 自定义坐标(x,y,z) > 默认安全坐标
+        2. 当 object_id 非空时：使用对象坐标，清除之前的自定义坐标参数
+        3. 当 object_id 为空且传入有效坐标时：使用自定义坐标，清除之前的 object_id 参数  
+        4. 当 object_id 为空且坐标为(0,0,0)时：使用默认安全坐标(0,-0.5,0.2)
+        5. 参数清理：每次调用都会清除与当前模式冲突的参数，避免之前调用的干扰
+    
+    Returns:
+        执行结果字典，包含：
+        - coordinate_mode: "object_id" 或 "coordinates" 表示使用的模式
+        - coordinate_info: 使用的坐标信息描述
+        - coordinates_cleared/object_id_cleared: 表示清除了冲突参数
+    
+    使用示例：
+    # 使用自定义坐标（安全位置）
+    result = move_to_pour_position(x=-0.17, y=-0.45, z=0.42, object_id=None)
+    
+    # 使用对象坐标（会忽略 x,y,z 参数）
+    result = move_to_pour_position(x=0, y=0, z=0, object_id="bowl")
+    
+    # 移动到安全位置并倾倒
+    result = move_to_pour_position(x=0.2, y=-0.6, z=0.25, pour_execute=True,
+                                   tilt_deg={"start": 60, "end": 120}, pour_hold_sec=2.0)
+    
+    # 移动到安全位置并递给用户
+    result = move_to_pour_position(x=-0.17, y=-0.45, z=0.42, execute_give=True,
+                                   gripper_open_ratio=1.0)
+                                   
+    # 在pour后安全移动（强制清除参数，解决冲突）
+    result = move_to_pour_position(x=-0.17, y=-0.45, z=0.42, force_clear_params=True)
+    """
+    # 验证速度参数范围
+    speed = max(0.05, min(0.3, speed))
+    
+    # 设置参数到模块化任务服务器 - 使用简化的核心参数
+    # 优化坐标传入逻辑：明确区分 object_id 模式和坐标模式
+    move_to_pour_params = {
+        "move_to_pour.velocity_scaling": speed,
+        "move_to_pour.acceleration_scaling": min(0.5, speed * 2.0),
+        "move_to_pour.timeout_sec": timeout_sec,
+        # 新增：融合后的倾倒控制
+        "move_to_pour.pour_execute": bool(pour_execute),
+        "move_to_pour.tilt_start_deg": float(tilt_deg.get("start", 45.0) if isinstance(tilt_deg, dict) else 45.0),
+        "move_to_pour.tilt_end_deg": float(tilt_deg.get("end", 120.0) if isinstance(tilt_deg, dict) else 120.0),
+        "move_to_pour.tilt_speed_deg_s": float(tilt_speed_deg_s),
+        "move_to_pour.pour_hold_sec": float(pour_hold_sec),
+        # 新增：递给用户控制
+        "move_to_pour.execute_give": bool(execute_give),
+        "move_to_pour.gripper_open_ratio": max(0.0, min(1.0, float(gripper_open_ratio)))
+    }
+    
+    # 优化的坐标传入逻辑
+    use_object_id = False
+    resolved_oid = None
+    
+    # 1. 优先处理 object_id 模式（当 object_id 非空时）
+    if object_id and str(object_id).strip():
+        # 解析/规范化 object_id，例如 object3 -> object_3
+        raw_oid = str(object_id).strip()
+        norm_oid = raw_oid
+        try:
+            import re
+            m = re.match(r"^(object)(\d+)$", raw_oid, re.IGNORECASE)
+            if m:
+                norm_oid = f"{m.group(1)}_{m.group(2)}"
+        except Exception:
+            pass
+        # 查询当前场景的已知对象，尽量解析到真实存在的ID
+        known = []
+        try:
+            check_any = check_object_exists(object_id="object", timeout_sec=2.0)
+            if isinstance(check_any, dict):
+                known = list(check_any.get("known_objects", []))
+                print(f"🔍 [DEBUG] 场景中已知对象: {known}")
+        except Exception:
+            known = []
+        
+        for cand in [raw_oid, norm_oid]:
+            if cand in known:
+                resolved_oid = cand
+                use_object_id = True
+                print(f"🔍 [DEBUG] 找到匹配的object_id: {cand} (从输入 {raw_oid} 解析)")
+                break
+        
+        if not use_object_id:
+            print(f"⚠️ [DEBUG] 没有找到匹配的object_id，输入: {raw_oid}, 规范化: {norm_oid}")
+            # 容错：若场景中仅有一个 bowl* 对象，则使用它
+            bowl_like = [k for k in known if k.startswith("bowl")]
+            non_table = [k for k in known if k not in ("table_surface", "table_base", "no_go_wall")]
+            if len(bowl_like) == 1:
+                resolved_oid = bowl_like[0]
+                use_object_id = True
+                print(f"🔄 [DEBUG] 容错使用bowl对象: {resolved_oid}")
+            elif norm_oid.lower() == "bowl" and "bowl" in known:
+                resolved_oid = "bowl"
+                use_object_id = True
+                print(f"🔄 [DEBUG] 容错使用bowl: {resolved_oid}")
+            elif raw_oid in ("object3", "object_3") and not [k for k in known if k.startswith("object")]:
+                # 没有object*但可能只有bowl，兜底选一个非台面对象
+                resolved_oid = bowl_like[0] if bowl_like else (non_table[0] if non_table else None)
+                if resolved_oid:
+                    use_object_id = True
+                    print(f"🔄 [DEBUG] 兜底使用对象: {resolved_oid}")
+
+    # 2. 根据使用模式设置对应参数（修复：不使用空字符串，分批设置参数）
+    if use_object_id and resolved_oid:
+        # 使用 object_id 模式：仅设置 object_id 和控制参数
+        move_to_pour_params["move_to_pour.object_id"] = resolved_oid
+        # 不设置坐标参数，让服务器使用object_id模式
+    else:
+        # 使用坐标模式：设置坐标和控制参数
+        # 验证坐标有效性（非零坐标）
+        has_valid_coords = not (x == 0.0 and y == 0.0 and z == 0.0)
+        if has_valid_coords:
+            move_to_pour_params["move_to_pour.target_x"] = float(x)
+            move_to_pour_params["move_to_pour.target_y"] = float(y) 
+            move_to_pour_params["move_to_pour.target_z"] = float(z)
+        else:
+            # 如果传入的坐标全为0，使用默认安全坐标
+            move_to_pour_params["move_to_pour.target_x"] = 0.0
+            move_to_pour_params["move_to_pour.target_y"] = -0.5
+            move_to_pour_params["move_to_pour.target_z"] = 0.2
+        # 不设置 object_id 参数，让服务器使用坐标模式
+    
+    # 设置参数到服务器 - 采用更安全的两阶段设置
+    server_node = '/modular_task_server'
+    
+    # 预阶段：如果强制清除参数，先重置所有相关参数（适用于pour后的安全移动）
+    if force_clear_params:
+        force_clear = {
+            "move_to_pour.object_id": "none",
+            "move_to_pour.target_x": 0.0,
+            "move_to_pour.target_y": 0.0,
+            "move_to_pour.target_z": 0.0,
+            "move_to_pour.pour_execute": False,
+            "move_to_pour.execute_give": False,
+            "move_to_pour.velocity_scaling": 0.1,  # 先设置低速
+            "move_to_pour.acceleration_scaling": 0.2,
+        }
+        _set_params(server_node, force_clear, timeout_sec=8.0)
+        import time
+        time.sleep(0.8)  # 等待强制清除生效
+    
+    # 阶段1：如果模式切换，先清除可能冲突的参数（使用有效的默认值而不是空字符串）
+    clear_params = {}
+    if use_object_id and resolved_oid:
+        # 要使用 object_id，清除可能的坐标参数
+        clear_params.update({
+            "move_to_pour.target_x": 0.0,
+            "move_to_pour.target_y": 0.0, 
+            "move_to_pour.target_z": 0.0
+        })
+    else:
+        # 要使用坐标，清除可能的 object_id 参数
+        clear_params["move_to_pour.object_id"] = "none"  # 使用特殊值表示无对象
+    
+    # 先清除冲突参数（如果没有强制清除）
+    if clear_params and not force_clear_params:
+        _set_params(server_node, clear_params, timeout_sec=5.0)  # 快速清除，不阻塞主流程
+    
+    # 阶段2：设置主要参数
+    if not _set_params(server_node, move_to_pour_params, timeout_sec=20.0):
+        # 重试一次，延长超时，缓解服务器忙碌导致的响应延迟
+        if not _set_params(server_node, move_to_pour_params, timeout_sec=30.0):
+            return _create_error_result("移动到倾倒位置", 
+                                       f"无法设置参数到服务器 {server_node}. 参数: {move_to_pour_params}",
+                                       move_to_pour_params, "param_setting_failed")
+    
+    # 构建任务执行参数
+    params = {
+        "plan_only": False,
+        "timeout_sec": timeout_sec,
+        # 兼容ExecutePour接口的占位参数（不会被使用，但避免接口错误）
+        "tilt_start_deg": 45.0,
+        "tilt_end_deg": 120.0,
+        "tilt_speed_deg_s": 25.0,
+        "pour_hold_sec": 0.0,
+        "approach_min": 0.05,
+        "approach_max": 0.15,
+        "lift_height": 0.12
+    }
+    
+    # 🔧 修复：如果使用object_id模式，将resolved_oid添加到params中
+    if use_object_id and resolved_oid:
+        params["object_id"] = resolved_oid
+        print(f"🔧 [DEBUG] 使用object_id模式: {resolved_oid}，已添加到params中")
+    else:
+        print(f"🔧 [DEBUG] 使用坐标模式: ({x}, {y}, {z})")
+    
+    # 使用模块化任务服务器执行移动
+    try:
+        # 生成任务名称，明确显示使用的模式
+        if use_object_id and resolved_oid:
+            task_name = f"移动到倾倒位置(对象:{resolved_oid})"
+            coord_info = f"对象ID: {resolved_oid}"
+        else:
+            task_name = f"移动到倾倒位置(坐标:{x:.2f}, {y:.2f}, {z:.2f})"  
+            coord_info = f"坐标: ({x:.3f}, {y:.3f}, {z:.3f})"
+        
+        # 添加额外功能到任务名称
+        if pour_execute:
+            task_name += " + 倾倒"
+        if execute_give:
+            task_name += " + 递给用户"
+            
+        result = _execute_real_mtc_task("move_to_pour", params, task_name,
+                                       'execute_modular_task', timeout_sec)
+        
+        # 添加详细的配置信息到结果中
+        if result.get("ok") or result.get("success"):
+            info = {
+                "coordinate_mode": "object_id" if use_object_id else "coordinates",
+                "coordinate_info": coord_info,
+                "speed": speed,
+                "auto_acceleration": min(0.5, speed * 2.0),
+                "optimized_defaults": True,
+                "pour_execute": bool(pour_execute),
+                "execute_give": bool(execute_give),
+                "gripper_open_ratio": float(gripper_open_ratio) if execute_give else None,
+                "parameter_strategy": "force_clear" if force_clear_params else "two_stage_safe_setting",
+                "force_clear_params": bool(force_clear_params)  # 表示是否使用了强制参数清除
+            }
+            
+            # 根据模式添加不同的信息
+            if use_object_id and resolved_oid:
+                info.update({
+                    "object_id_input": str(object_id).strip() if object_id else "",
+                    "resolved_object_id": resolved_oid,
+                    "conflict_params_cleared": ["target_x", "target_y", "target_z"],
+                    "mode_switch": "to_object_id"
+                })
+            else:
+                info.update({
+                    "target_position": {"x": x, "y": y, "z": z},
+                    "conflict_params_cleared": ["object_id"],
+                    "mode_switch": "to_coordinates"
+                })
+                if not (x == 0.0 and y == 0.0 and z == 0.0):
+                    info["used_custom_coordinates"] = True
+                else:
+                    info["used_default_safe_coordinates"] = True
+                    
+            result["simplified_config"] = info
+        
         return result
+        
+    except Exception as e:
+        return _create_error_result("移动到倾倒位置", f"任务执行异常: {str(e)}", params, "execution_failed")
+
+
+# 向后兼容性：保留旧接口，但标记为废弃
+# def move_to_pour_position_legacy(target_position: Dict[str, float],
+#                          movement_mode: str = "absolute",
+#                          relative_movement: Optional[Dict[str, float]] = None,
+#                          motion_params: Optional[Dict[str, float]] = None,
+#                          plan_only: bool = False,
+#                          timeout_sec: float = 60.0) -> Dict[str, Any]:
+#     """废弃的复杂接口，建议使用简化版本的move_to_pour_position"""
+#     import warnings
+#     warnings.warn("move_to_pour_position_legacy已废弃，请使用简化版本的move_to_pour_position(x, y, z, speed)", 
+#                   DeprecationWarning, stacklevel=2)
+    
+#     # 转换为新接口
+#     x = target_position.get("x", 0.0)
+#     y = target_position.get("y", -0.5)
+#     z = target_position.get("z", 0.2)
+    
+#     speed = 0.15
+#     if motion_params:
+#         speed = motion_params.get("velocity_scaling", 0.15)
+    
+#     return move_to_pour_position(x=x, y=y, z=z, speed=speed, timeout_sec=timeout_sec)
 
 
 def return_to_home(target_joints: Optional[Dict[str, float]] = None,
@@ -1136,14 +1844,13 @@ def return_to_home(target_joints: Optional[Dict[str, float]] = None,
     if target_joints:
         params["target_joints"] = target_joints
     
-    # 首先尝试使用真实的模块化任务服务器
+    # 使用真实的模块化任务服务器
     try:
         return _execute_real_mtc_task("return", params, "返回初始位置", 'execute_modular_task', timeout_sec)
     except Exception as e:
-        # 如果模块化服务器不可用，回退到模拟版本
-        result = _execute_mtc_task("return", params, "返回初始位置", timeout_sec)
-        result["fallback_reason"] = f"模块化服务器不可用: {str(e)}"
-        return result
+        # 使用标准化错误处理
+        return _create_error_result("返回初始位置", f"模块化服务器不可用: {str(e)}", 
+                                   params, "server_unavailable")
 
 
 # =============== Agent友好的辅助工具 ===============
@@ -1161,7 +1868,7 @@ def get_task_state(timeout_sec: float = 5.0) -> Dict[str, Any]:
         - scene_objects: 场景中的对象信息
     """
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('task_state_checker', start_parameter_services=False)
+    node = rclpy.create_node(_unique_node_name('task_state_checker'), start_parameter_services=False)
     result = {
         "stage": "unknown",
         "last_error": None,
@@ -1321,7 +2028,7 @@ def abort_and_reset(reason: str = "User requested abort",
          通过直接与ROS action服务器通信来强制取消任务。
     """
     created = _ensure_rclpy_inited()
-    node = rclpy.create_node('abort_and_reset_client', start_parameter_services=False)
+    node = rclpy.create_node(_unique_node_name('abort_and_reset_client'), start_parameter_services=False)
     result = {
         "success": False,
         "reason": reason,

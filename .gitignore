@@ -33,3 +33,24 @@ Thumbs.db
 *.bin
 # ---- Misc ----
 *.log
+
+# ---- Debug files ----
+*.gv
+frames_*.pdf
+
+# ---- Data files ----
+Yolo_pretrain/cup_photos/
+*.pt
+
+# ---- Temporary files ----
+*.backup
+*.tmp
+temp_*.py
+
+# ---- Test images ----
+aruco_annotated*.jpg
+8.png
+
+# API Keys and Secrets
+.env
+**/.env
