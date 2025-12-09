@@ -1,4 +1,4 @@
-# UF850 机器人视觉抓取与倒水系统
+# UF850 机械臂视觉抓取与倒水系统
 
 基于 ROS2 Humble 和 MoveIt Task Constructor 的智能机械臂操作系统，支持 AI Agent 通过 MCP 协议控制机器人执行复杂任务。
 
